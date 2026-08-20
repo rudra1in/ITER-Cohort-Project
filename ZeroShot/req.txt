@@ -1,0 +1,42 @@
+fastapi
+uvicorn[standard]
+python-multipart
+
+ultralytics
+
+opencv-python
+Pillow
+ImageHash
+
+python-dotenv
+crewai-tools
+numpy
+
+# Clustering (suspicious/common event grouping)
+scikit-learn
+hdbscan
+
+# Optional: MediaPipe face-pose refinement
+mediapipe
+
+# RAG
+sentence-transformers
+faiss-cpu
+
+# LLM / LangChain / LangGraph
+langchain
+langchain-core
+langchain-community
+langgraph
+
+# Gemini API and local Ollama
+langchain-google-genai
+langchain-ollama
+litellm
+
+# Optional utility
+requests
+
+crewai
+
+streamlit
