@@ -1,0 +1,99 @@
+DSA FUNDAMENTALS KNOWLEDGE BASE
+
+1. ARRAYS
+
+An array is a linear data structure used to store multiple elements in a collection. In a traditional array, elements are stored in contiguous memory locations. Each element can be accessed using an index. Most programming languages use zero-based indexing, meaning the first element is at index 0.
+
+For example, an array containing 10, 20, 30 and 40 has 10 at index 0, 20 at index 1, 30 at index 2 and 40 at index 3. Accessing an element using its index takes O(1) time.
+
+Common operations on arrays include traversal, searching, insertion, deletion and updating. Searching an unsorted array generally takes O(n) time. Inserting or deleting an element from the middle may take O(n) time because other elements may need to be shifted.
+
+Arrays are useful when fast random access is required. They are commonly used to implement other data structures such as stacks, heaps and dynamic arrays.
+
+2. LINKED LIST
+
+A linked list is a linear data structure made up of nodes. Each node contains data and a reference to another node. Unlike arrays, linked-list nodes do not have to be stored in contiguous memory locations.
+
+A singly linked list contains a data field and a pointer to the next node. A doubly linked list contains pointers to both the previous and next nodes.
+
+Searching for an element in a linked list takes O(n) time because nodes must generally be visited one by one. Insertion and deletion can be O(1) when the position or required node reference is already known.
+
+Linked lists are useful when frequent insertion and deletion operations are required. However, they do not provide direct random access like arrays.
+
+3. STACK
+
+A stack is a linear data structure that follows the LIFO principle, which means Last In, First Out. The element inserted most recently is removed first.
+
+The main stack operations are push, pop and peek. Push adds an element to the top of the stack. Pop removes the top element. Peek returns the top element without removing it.
+
+Stack operations generally take O(1) time.
+
+Stacks are commonly used in function calls, recursion, expression evaluation, undo operations and browser history. A stack can be implemented using an array or a linked list.
+
+4. QUEUE
+
+A queue is a linear data structure that follows the FIFO principle, which means First In, First Out. The element inserted first is removed first.
+
+The main operations are enqueue and dequeue. Enqueue adds an element to the rear of the queue, while dequeue removes an element from the front.
+
+Queues are commonly used in scheduling systems, printer queues, operating systems, breadth-first search and network processing.
+
+A queue can be implemented using arrays, linked lists or specialized queue data structures.
+
+5. BINARY SEARCH
+
+Binary search is an efficient searching algorithm used to find an element in a sorted array or sorted collection.
+
+The algorithm maintains two boundaries, usually called low and high. It calculates the middle position and compares the middle element with the target.
+
+If the middle element is equal to the target, the search is successful. If the target is greater than the middle element, the left half can be discarded. If the target is smaller, the right half can be discarded.
+
+The search space is divided approximately in half after every comparison. Therefore, binary search has O(log n) time complexity and O(1) auxiliary space for its iterative implementation.
+
+Binary search requires the data to be sorted.
+
+6. LINEAR SEARCH
+
+Linear search is a simple searching algorithm that checks elements one by one until the target is found or the collection ends.
+
+Linear search can work on both sorted and unsorted data. In the worst case, every element must be examined, giving it O(n) time complexity.
+
+Linear search is useful for small collections or situations where the data is not sorted and sorting would not be worthwhile.
+
+7. SORTING
+
+Sorting means arranging data according to a particular order, usually ascending or descending.
+
+Common sorting algorithms include bubble sort, selection sort, insertion sort, merge sort and quicksort.
+
+Bubble sort repeatedly compares adjacent elements and swaps them when they are in the wrong order. Its average and worst-case time complexity is O(n²).
+
+Merge sort uses divide and conquer. It divides the array into smaller parts, recursively sorts them and merges the sorted parts. Its time complexity is O(n log n).
+
+Quicksort also uses divide and conquer. It selects a pivot and partitions the elements around the pivot. Its average time complexity is O(n log n), although its worst case can be O(n²).
+
+8. RECURSION
+
+Recursion is a programming technique in which a function calls itself to solve a smaller version of the same problem.
+
+Every recursive solution should have a base case that stops further recursive calls. Without a proper base case, the program may continue calling the function until a stack overflow occurs.
+
+Recursion is commonly used in tree traversal, graph algorithms, divide-and-conquer algorithms, factorial calculations and Fibonacci problems.
+
+9. TREES
+
+A tree is a hierarchical data structure consisting of nodes connected by edges. The top node is called the root. Nodes can have children, and nodes without children are called leaves.
+
+A binary tree is a tree in which each node has at most two children. A binary search tree maintains an ordering where values smaller than a node are generally stored in its left subtree and larger values are stored in its right subtree.
+
+Tree traversal techniques include preorder, inorder and postorder traversal. Breadth-first traversal can also be performed using a queue.
+
+10. GRAPHS
+
+A graph is a data structure consisting of vertices and edges. Graphs can represent relationships such as roads between cities, connections between users or links between web pages.
+
+Graphs may be directed or undirected and may contain weighted or unweighted edges.
+
+Two common graph traversal algorithms are Breadth-First Search and Depth-First Search. BFS explores nodes level by level and generally uses a queue. DFS explores as deeply as possible before backtracking and can use recursion or a stack.
+
+BFS and DFS generally have O(V + E) time complexity, where V represents the number of vertices and E represents the number of edges.
