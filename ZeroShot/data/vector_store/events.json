@@ -1,0 +1,41 @@
+[
+  {
+    "event_id": "EVT_fbd2d34046",
+    "test_id": "TEST_001",
+    "candidate_id": "BALL",
+    "event_type": "repeated_side_looking",
+    "start_time": "10:50:18",
+    "end_time": "10:50:30",
+    "duration": 12.0,
+    "confidence": 0.274,
+    "description": "Repeated side-oriented head direction was observed during this time window.",
+    "evidence_json": "[\"FRAME_2e1944ea7827\", \"FRAME_c41ad1ab44db\"]",
+    "text": "Candidate BALL\n\nBehavior event:\nrepeated_side_looking\n\nDescription:\nRepeated side-oriented head direction was observed during this time window.\n\nStart time:\n10:50:18\n\nEnd time:\n10:50:30\n\nDuration:\n12.0 seconds\n\nConfidence:\n0.274\n\nEvidence frames:\n[\"FRAME_2e1944ea7827\", \"FRAME_c41ad1ab44db\"]"
+  },
+  {
+    "event_id": "EVT_63056a0813",
+    "test_id": "TEST_001",
+    "candidate_id": "BALL",
+    "event_type": "repeated_side_looking",
+    "start_time": "10:50:18",
+    "end_time": "10:50:30",
+    "duration": 12.0,
+    "confidence": 0.322,
+    "description": "Repeated side-oriented head direction was observed during this time window.",
+    "evidence_json": "[\"FRAME_2e1944ea7827\", \"FRAME_c41ad1ab44db\"]",
+    "text": "Candidate BALL\n\nBehavior event:\nrepeated_side_looking\n\nDescription:\nRepeated side-oriented head direction was observed during this time window.\n\nStart time:\n10:50:18\n\nEnd time:\n10:50:30\n\nDuration:\n12.0 seconds\n\nConfidence:\n0.322\n\nEvidence frames:\n[\"FRAME_2e1944ea7827\", \"FRAME_c41ad1ab44db\"]"
+  },
+  {
+    "event_id": "EVT_b640221206",
+    "test_id": "TEST_001",
+    "candidate_id": "CAT",
+    "event_type": "repeated_side_looking",
+    "start_time": "14:54:50",
+    "end_time": "14:54:53",
+    "duration": 3.0,
+    "confidence": 0.322,
+    "description": "Repeated side-oriented head direction was observed during this time window.",
+    "evidence_json": "[\"FRAME_3ae65f6cfd1c\", \"FRAME_a1af8fecc042\"]",
+    "text": "Candidate CAT\n\nBehavior event:\nrepeated_side_looking\n\nDescription:\nRepeated side-oriented head direction was observed during this time window.\n\nStart time:\n14:54:50\n\nEnd time:\n14:54:53\n\nDuration:\n3.0 seconds\n\nConfidence:\n0.322\n\nEvidence frames:\n[\"FRAME_3ae65f6cfd1c\", \"FRAME_a1af8fecc042\"]"
+  }
+]
