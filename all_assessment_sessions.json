@@ -1,0 +1,105 @@
+[
+    {
+        "session_id": "SESS_101",
+        "student_id": "STU_4820",
+        "events": [
+            {
+                "timestamp": "15:11:15",
+                "status": "MULTIPLE_FACES_DETECTED",
+                "type": "MULTIPLE_FACES_DETECTED",
+                "session_id": "SESS_101",
+                "student_id": "STU_4820"
+            },
+            {
+                "timestamp": "15:11:16",
+                "status": "MULTIPLE_FACES_DETECTED",
+                "type": "MULTIPLE_FACES_DETECTED",
+                "session_id": "SESS_101",
+                "student_id": "STU_4820"
+            },
+            {
+                "timestamp": "15:11:21",
+                "status": "MULTIPLE_FACES_DETECTED",
+                "type": "MULTIPLE_FACES_DETECTED",
+                "session_id": "SESS_101",
+                "student_id": "STU_4820"
+            },
+            {
+                "timestamp": "15:11:25",
+                "status": "MULTIPLE_FACES_DETECTED",
+                "type": "MULTIPLE_FACES_DETECTED",
+                "session_id": "SESS_101",
+                "student_id": "STU_4820"
+            }
+        ]
+    },
+    {
+        "session_id": "SESS_102",
+        "student_id": "STU_499",
+        "events": [
+            {
+                "timestamp": "15:12:33",
+                "status": "MULTIPLE_FACES_DETECTED",
+                "type": "MULTIPLE_FACES_DETECTED",
+                "session_id": "SESS_102",
+                "student_id": "STU_499"
+            },
+            {
+                "timestamp": "15:12:35",
+                "status": "NO_FACE_DETECTED",
+                "type": "NO_FACE_DETECTED",
+                "session_id": "SESS_102",
+                "student_id": "STU_499"
+            },
+            {
+                "timestamp": "15:12:35",
+                "status": "NO_FACE_DETECTED",
+                "type": "NO_FACE_DETECTED",
+                "session_id": "SESS_102",
+                "student_id": "STU_499"
+            },
+            {
+                "timestamp": "15:12:39",
+                "status": "MULTIPLE_FACES_DETECTED",
+                "type": "MULTIPLE_FACES_DETECTED",
+                "session_id": "SESS_102",
+                "student_id": "STU_499"
+            },
+            {
+                "timestamp": "15:12:40",
+                "status": "NO_FACE_DETECTED",
+                "type": "NO_FACE_DETECTED",
+                "session_id": "SESS_102",
+                "student_id": "STU_499"
+            },
+            {
+                "timestamp": "15:12:40",
+                "status": "NO_FACE_DETECTED",
+                "type": "NO_FACE_DETECTED",
+                "session_id": "SESS_102",
+                "student_id": "STU_499"
+            },
+            {
+                "timestamp": "15:12:40",
+                "status": "NO_FACE_DETECTED",
+                "type": "NO_FACE_DETECTED",
+                "session_id": "SESS_102",
+                "student_id": "STU_499"
+            },
+            {
+                "timestamp": "15:12:41",
+                "status": "NO_FACE_DETECTED",
+                "type": "NO_FACE_DETECTED",
+                "session_id": "SESS_102",
+                "student_id": "STU_499"
+            },
+            {
+                "timestamp": "15:12:41",
+                "status": "NO_FACE_DETECTED",
+                "type": "NO_FACE_DETECTED",
+                "session_id": "SESS_102",
+                "student_id": "STU_499"
+            }
+        ]
+    }
+]
