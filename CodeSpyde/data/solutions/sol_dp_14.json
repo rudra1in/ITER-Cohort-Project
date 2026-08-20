@@ -1,0 +1,20 @@
+{
+  "id": "sol_dp_14",
+  "problem_id": "prob_dp_14",
+  "document_type": "solution",
+  "title": "Burst Balloons Coin Max - Solution",
+  "approach": "Interval 2D DP.",
+  "intuition": "Burst balloons to maximize collected coins. If you burst balloon i, you get nums[i-1]*nums[i]*nums[i+1] coins.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Interval 2D DP.",
+  "code": "def solution(nums):\n    arr = [1] + [x for x in nums if x > 0] + [1]\n    n = len(arr)\n    dp = [[0] * n for _ in range(n)]\n    for length in range(1, n - 1):\n        for left in range(0, n - 1 - length):\n            right = left + length + 1\n            for i in range(left + 1, right):\n                coins = arr[left] * arr[i] * arr[right] + dp[left][i] + dp[i][right]\n                dp[left][right] = max(dp[left][right], coins)\n    return dp[0][n-1]",
+  "time_complexity": "O(n^3)",
+  "space_complexity": "O(n^2)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use interval DP. State dp[i][j] holds max coins bursting balloons between i and j. Decide which balloon k bursts last in interval [i, j]."
+  ]
+}

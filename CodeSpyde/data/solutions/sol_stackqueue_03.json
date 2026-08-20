@@ -1,0 +1,20 @@
+{
+  "id": "sol_stackqueue_03",
+  "problem_id": "prob_stackqueue_03",
+  "document_type": "solution",
+  "title": "Implement Queue using Stacks - Solution",
+  "approach": "Amortized dual-stack transfer.",
+  "intuition": "Implement a first in first out (FIFO) queue using only two stacks.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Amortized dual-stack transfer.",
+  "code": "def solution(operations):\n    s1 = []\n    s2 = []\n    res = []\n    for op in operations:\n        cmd = op[0]\n        if cmd == 'push':\n            val = op[1]\n            s1.append(val)\n        elif cmd == 'pop':\n            if not s2:\n                while s1:\n                    s2.append(s1.pop())\n            if s2:\n                res.append(s2.pop())\n    return res",
+  "time_complexity": "O(1) amortized",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use one input stack and one output stack. Transfer elements when output stack is empty."
+  ]
+}

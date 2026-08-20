@@ -1,0 +1,38 @@
+{
+  "id": "prob_string_02",
+  "title": "Valid Anagram",
+  "document_type": "problem",
+  "topic": "Strings",
+  "subtopic": "Anagram Checking",
+  "pattern": "Hash Map Lookup",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given two strings s and t, return true if t is an anagram of s, and false otherwise.",
+  "constraints": "1 <= s.length, t.length <= 5 * 10^4",
+  "examples": [
+    {
+      "input": "s = 'anagram', t = 'nagaram'",
+      "output": "true"
+    }
+  ],
+  "expected_input": "s: str, t: str",
+  "expected_output": "bool",
+  "edge_cases": [
+    "String sizes differ",
+    "Duplicate characters"
+  ],
+  "hints": [
+    "Count occurrences of each character using a dictionary."
+  ],
+  "expected_approach": "Frequency map verification.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1) if alphabet is fixed",
+  "related_concepts": [
+    "concept_strings",
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [
+    "mistake_key_checking"
+  ],
+  "code": "def solution(s, t):\n    if len(s) != len(t):\n        return False\n    count = {}\n    for char in s:\n        count[char] = count.get(char, 0) + 1\n    for char in t:\n        if char not in count:\n            return False\n        count[char] -= 1\n        if count[char] < 0:\n            return False\n    return True"
+}

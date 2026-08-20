@@ -1,0 +1,20 @@
+{
+  "id": "sol_linkedlist_10",
+  "problem_id": "prob_linkedlist_10",
+  "document_type": "solution",
+  "title": "Reverse Nodes in K-Group - Solution",
+  "approach": "Recursive or iterative block traversal + local reverse.",
+  "intuition": "Given a linked list, reverse the nodes of a linked list k at a time and return its modified head.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Recursive or iterative block traversal + local reverse.",
+  "code": "def solution(head, k):\n    curr = head\n    count = 0\n    while curr and count < k:\n        curr = curr.next\n        count += 1\n    if count == k:\n        prev = None\n        curr = head\n        for _ in range(k):\n            nxt = curr.next\n            curr.next = prev\n            prev = curr\n            curr = nxt\n        head.next = solution(curr, k)\n        return prev\n    return head",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n/k) recursive or O(1) iterative",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Verify that at least k nodes exist before reversing. If not, keep original order."
+  ]
+}

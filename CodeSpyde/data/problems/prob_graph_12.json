@@ -1,0 +1,36 @@
+{
+  "id": "prob_graph_12",
+  "title": "Course Schedule II",
+  "document_type": "problem",
+  "topic": "Graphs",
+  "subtopic": "Topological Sort",
+  "pattern": "Topological Sort",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Return the ordering of courses you should take to finish all courses. If impossible, return an empty array.",
+  "constraints": "numCourses <= 2000",
+  "examples": [
+    {
+      "input": "numCourses = 2, prerequisites = [[1, 0]]",
+      "output": "[0, 1]"
+    }
+  ],
+  "expected_input": "numCourses: int, prerequisites: list[list[int]]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Cycle exists",
+    "Disconnected prerequisite graphs"
+  ],
+  "hints": [
+    "Use Kahn's algorithm or DFS topological sort. Add nodes to output when their in-degree becomes 0."
+  ],
+  "expected_approach": "Kahn's algorithm in-degree BFS queue.",
+  "time_complexity": "O(V + E)",
+  "space_complexity": "O(V + E)",
+  "related_concepts": [
+    "concept_graphs",
+    "concept_queues"
+  ],
+  "related_mistakes": [],
+  "code": "from collections import deque\ndef solution(numCourses, prerequisites):\n    adj = [[] for _ in range(numCourses)]\n    indegree = [0] * numCourses\n    for dest, src in prerequisites:\n        adj[src].append(dest)\n        indegree[dest] += 1\n    q = deque([i for i in range(numCourses) if indegree[i] == 0])\n    order = []\n    while q:\n        node = q.popleft()\n        order.append(node)\n        for neighbor in adj[node]:\n            indegree[neighbor] -= 1\n            if indegree[neighbor] == 0:\n                q.append(neighbor)\n    return order if len(order) == numCourses else []"
+}

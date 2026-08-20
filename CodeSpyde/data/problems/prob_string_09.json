@@ -1,0 +1,38 @@
+{
+  "id": "prob_string_09",
+  "title": "Longest Common Prefix",
+  "document_type": "problem",
+  "topic": "Strings",
+  "subtopic": "Prefix Operations",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Write a function to find the longest common prefix string amongst an array of strings. Return empty string if no common prefix exists.",
+  "constraints": "1 <= strs.length <= 200\n0 <= strs[i].length <= 200",
+  "examples": [
+    {
+      "input": "strs = ['flower','flow','flight']",
+      "output": "'fl'"
+    }
+  ],
+  "expected_input": "strs: list[str]",
+  "expected_output": "str",
+  "edge_cases": [
+    "No common prefix",
+    "Empty strings included",
+    "Single string in list"
+  ],
+  "hints": [
+    "Compare characters index by index across all strings until a mismatch is found."
+  ],
+  "expected_approach": "Vertical character-by-character scan.",
+  "time_complexity": "O(s) sum of characters",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_strings"
+  ],
+  "related_mistakes": [
+    "mistake_index_oob"
+  ],
+  "code": "def solution(strs):\n    if not strs:\n        return ''\n    for i in range(len(strs[0])):\n        char = strs[0][i]\n        for s in strs[1:]:\n            if i >= len(s) or s[i] != char:\n                return strs[0][:i]\n    return strs[0]"
+}

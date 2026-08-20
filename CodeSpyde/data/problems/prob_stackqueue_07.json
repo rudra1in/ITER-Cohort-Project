@@ -1,0 +1,38 @@
+{
+  "id": "prob_stackqueue_07",
+  "title": "Sliding Window Maximum",
+  "document_type": "problem",
+  "topic": "Queues",
+  "subtopic": "Max Queue",
+  "pattern": "Sliding Window",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Given an integer array nums and a sliding window size k, return the max element in each sliding window position.",
+  "constraints": "1 <= nums.length <= 10^5\n1 <= k <= nums.length",
+  "examples": [
+    {
+      "input": "nums = [1, 3, -1, -3, 5, 3], k = 3",
+      "output": "[3, 3, 5, 5]"
+    }
+  ],
+  "expected_input": "nums: list[int], k: int",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "k = 1",
+    "k equals array size"
+  ],
+  "hints": [
+    "Maintain indices of maximum values in a double-ended queue (deque) sorted descendingly by value."
+  ],
+  "expected_approach": "Monotonic deque scanning.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(k)",
+  "related_concepts": [
+    "concept_deque",
+    "concept_queues"
+  ],
+  "related_mistakes": [
+    "mistake_deque_index"
+  ],
+  "code": "from collections import deque\ndef solution(nums, k):\n    d = deque()\n    res = []\n    for i, n in enumerate(nums):\n        if d and d[0] < i - k + 1:\n            d.popleft()\n        while d and nums[d[-1]] < n:\n            d.pop()\n        d.append(i)\n        if i >= k - 1:\n            res.append(nums[d[0]])\n    return res"
+}

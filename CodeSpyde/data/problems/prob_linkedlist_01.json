@@ -1,0 +1,37 @@
+{
+  "id": "prob_linkedlist_01",
+  "title": "Reverse Singly Linked List",
+  "document_type": "problem",
+  "topic": "Linked Lists",
+  "subtopic": "Pointer Reversal",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given the head of a singly linked list, reverse the list, and return the reversed list. Node is object with val and next attributes.",
+  "constraints": "The number of nodes in the list is in the range [0, 5000].\n-5000 <= Node.val <= 5000",
+  "examples": [
+    {
+      "input": "head = [1, 2, 3]",
+      "output": "[3, 2, 1]"
+    }
+  ],
+  "expected_input": "head: Optional[ListNode]",
+  "expected_output": "Optional[ListNode]",
+  "edge_cases": [
+    "Empty list",
+    "Single element list"
+  ],
+  "hints": [
+    "Maintain pointers to prev, curr, and next node."
+  ],
+  "expected_approach": "Iterative pointer shifting.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_linked_lists"
+  ],
+  "related_mistakes": [
+    "mistake_lost_head"
+  ],
+  "code": "def solution(head):\n    prev = None\n    curr = head\n    while curr:\n        nxt = curr.next\n        curr.next = prev\n        prev = curr\n        curr = nxt\n    return prev"
+}

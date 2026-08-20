@@ -1,0 +1,35 @@
+{
+  "id": "prob_dp_04",
+  "title": "Longest Increasing Subsequence Length",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "Sequence Search",
+  "pattern": "Longest Increasing Subsequence",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+  "constraints": "1 <= nums.length <= 2500",
+  "examples": [
+    {
+      "input": "nums = [10, 9, 2, 5, 3, 7, 101, 18]",
+      "output": "4"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Array sorted in decreasing order",
+    "All elements identical"
+  ],
+  "hints": [
+    "State dp[i] holds LIS length ending at index i. Compare with all elements before index i."
+  ],
+  "expected_approach": "O(n^2) DP loop.",
+  "time_complexity": "O(n^2)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(nums):\n    if not nums: return 0\n    dp = [1] * len(nums)\n    for i in range(len(nums)):\n        for j in range(i):\n            if nums[i] > nums[j]:\n                dp[i] = max(dp[i], dp[j] + 1)\n    return max(dp)"
+}

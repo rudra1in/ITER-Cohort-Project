@@ -1,0 +1,20 @@
+{
+  "id": "sol_backtrack_08",
+  "problem_id": "prob_backtrack_08",
+  "document_type": "solution",
+  "title": "Sudoku Solver - Solution",
+  "approach": "Cell-by-cell digit substitution search.",
+  "intuition": "Write a program to solve a Sudoku puzzle by filling the empty cells. Empty cells are '.'",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Cell-by-cell digit substitution search.",
+  "code": "def solution(board):\n    def is_valid(r, c, val):\n        for i in range(9):\n            if board[r][i] == val or board[i][c] == val:\n                return False\n            if board[3*(r//3) + i//3][3*(c//3) + i%3] == val:\n                return False\n        return True\n    def solve():\n        for r in range(9):\n            for c in range(9):\n                if board[r][c] == '.':\n                    for val in '123456789':\n                        if is_valid(r, c, val):\n                            board[r][c] = val\n                            if solve(): return True\n                            board[r][c] = '.'\n                    return False\n        return True\n    solve()\n    return board",
+  "time_complexity": "O(9^(m)) where m is number of empty cells",
+  "space_complexity": "O(81)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use backtracking. Find an empty cell. Try placing numbers 1-9. If placing number is valid, recurse. If it fails, backtrack."
+  ]
+}

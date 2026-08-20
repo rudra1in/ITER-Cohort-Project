@@ -1,0 +1,20 @@
+{
+  "id": "sol_array_05",
+  "problem_id": "prob_array_05",
+  "document_type": "solution",
+  "title": "Find Minimum in Rotated Sorted Array - Solution",
+  "approach": "Binary search to identify the inflection point.",
+  "intuition": "Given a rotated sorted array of unique elements, find the minimum element in this array.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Binary search to identify the inflection point.",
+  "code": "def solution(nums):\n    l, r = 0, len(nums) - 1\n    while l < r:\n        mid = l + (r - l) // 2\n        if nums[mid] > nums[r]:\n            l = mid + 1\n        else:\n            r = mid\n    return nums[l]",
+  "time_complexity": "O(log n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use binary search. Compare mid element with the rightmost element."
+  ]
+}

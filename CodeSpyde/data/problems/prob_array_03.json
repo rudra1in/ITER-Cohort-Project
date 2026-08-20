@@ -1,0 +1,38 @@
+{
+  "id": "prob_array_03",
+  "title": "Rotate Array by K Steps",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Array Shift",
+  "pattern": "Two Pointers",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Rotate an array of n elements to the right by k steps, where k is non-negative.",
+  "constraints": "1 <= nums.length <= 10^5\n0 <= k <= 10^5",
+  "examples": [
+    {
+      "input": "nums = [1, 2, 3, 4], k = 2",
+      "output": "[3, 4, 1, 2]"
+    }
+  ],
+  "expected_input": "nums: list[int], k: int",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "k is greater than array size",
+    "k is 0",
+    "Empty array"
+  ],
+  "hints": [
+    "Reverse the whole array, then reverse first k elements, then reverse the rest."
+  ],
+  "expected_approach": "Three-reversals method.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_arrays"
+  ],
+  "related_mistakes": [
+    "mistake_modulo_k"
+  ],
+  "code": "def solution(nums, k):\n    n = len(nums)\n    if n == 0:\n        return nums\n    k %= n\n    def reverse(l, r):\n        while l < r:\n            nums[l], nums[r] = nums[r], nums[l]\n            l += 1\n            r -= 1\n    reverse(0, n - 1)\n    reverse(0, k - 1)\n    reverse(k, n - 1)\n    return nums"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "prob_tree_05",
+  "title": "Subtree of Another Tree",
+  "document_type": "problem",
+  "topic": "Binary Trees",
+  "subtopic": "Tree Comparison",
+  "pattern": "Tree DFS",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given the roots of two binary trees root and subRoot, return true if there is a subtree of root with the same structure and node values of subRoot.",
+  "constraints": "Number of nodes in root is up to 2000.",
+  "examples": [
+    {
+      "input": "root = [3, 4, 5, 1, 2], subRoot = [4, 1, 2]",
+      "output": "true"
+    }
+  ],
+  "expected_input": "root: Optional[TreeNode], subRoot: Optional[TreeNode]",
+  "expected_output": "bool",
+  "edge_cases": [
+    "subRoot is identical to root",
+    "No subtree match"
+  ],
+  "hints": [
+    "Check if root is same tree as subRoot, or if subRoot is subtree of root.left or root.right."
+  ],
+  "expected_approach": "Recursive root inspection with helper same-tree function.",
+  "time_complexity": "O(n * m) worst case",
+  "space_complexity": "O(h)",
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_recursion"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(root, subRoot):\n    def isSame(p, q):\n        if not p and not q:\n            return True\n        if not p or not q:\n            return False\n        return p.val == q.val and isSame(p.left, q.left) and isSame(p.right, q.right)\n    if not root:\n        return False\n    if isSame(root, subRoot):\n        return True\n    return solution(root.left, subRoot) or solution(root.right, subRoot)"
+}

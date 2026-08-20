@@ -1,0 +1,36 @@
+{
+  "id": "prob_dp_15",
+  "title": "Regular Expression Matching",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "String Segments",
+  "pattern": "Dynamic Programming",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Implement regular expression matching with support for '.' and '*'.",
+  "constraints": "Strings lengths up to 20.",
+  "examples": [
+    {
+      "input": "s = 'aa', p = 'a*'",
+      "output": "true"
+    }
+  ],
+  "expected_input": "s: str, p: str",
+  "expected_output": "bool",
+  "edge_cases": [
+    "Star operator matching empty sequence",
+    "Wildcard character matching"
+  ],
+  "hints": [
+    "Use 2D DP. If pattern has '*', it can match 0 occurrences (dp[i][j-2]) or 1+ occurrences if preceding char matches (dp[i-1][j])."
+  ],
+  "expected_approach": "2D string matching DP.",
+  "time_complexity": "O(n * m)",
+  "space_complexity": "O(n * m)",
+  "related_concepts": [
+    "concept_dp",
+    "concept_strings"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(s, p):\n    m, n = len(s), len(p)\n    dp = [[False] * (n + 1) for _ in range(m + 1)]\n    dp[0][0] = True\n    for j in range(2, n + 1):\n        if p[j-1] == '*':\n            dp[0][j] = dp[0][j-2]\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if p[j-1] == '*':\n                dp[i][j] = dp[i][j-2] or (dp[i-1][j] and (s[i-1] == p[j-2] or p[j-2] == '.'))\n            else:\n                dp[i][j] = dp[i-1][j-1] and (s[i-1] == p[j-1] or p[j-1] == '.')\n    return dp[m][n]"
+}

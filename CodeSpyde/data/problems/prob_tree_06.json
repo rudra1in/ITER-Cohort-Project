@@ -1,0 +1,36 @@
+{
+  "id": "prob_tree_06",
+  "title": "Level Order Traversal",
+  "document_type": "problem",
+  "topic": "Binary Trees",
+  "subtopic": "Tree Traversal",
+  "pattern": "Tree BFS",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given the root of a binary tree, return the level order traversal of its nodes' values (i.e. from left to right, level by level).",
+  "constraints": "Number of nodes is up to 2000.",
+  "examples": [
+    {
+      "input": "root = [3, 9, 20]",
+      "output": "[[3], [9, 20]]"
+    }
+  ],
+  "expected_input": "root: Optional[TreeNode]",
+  "expected_output": "list[list[int]]",
+  "edge_cases": [
+    "Empty tree",
+    "Single node tree"
+  ],
+  "hints": [
+    "Use a queue to process nodes level by level. Track level count in each step."
+  ],
+  "expected_approach": "BFS traversal with size marker tracking.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(w) maximum tree width",
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_queues"
+  ],
+  "related_mistakes": [],
+  "code": "from collections import deque\ndef solution(root):\n    if not root:\n        return []\n    res = []\n    q = deque([root])\n    while q:\n        level_sz = len(q)\n        curr_level = []\n        for _ in range(level_sz):\n            node = q.popleft()\n            curr_level.append(node.val)\n            if node.left: q.append(node.left)\n            if node.right: q.append(node.right)\n        res.append(curr_level)\n    return res"
+}

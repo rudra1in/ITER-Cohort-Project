@@ -1,0 +1,20 @@
+{
+  "id": "sol_backtrack_05",
+  "problem_id": "prob_backtrack_05",
+  "document_type": "solution",
+  "title": "Word Search Board Game - Solution",
+  "approach": "Grid backtracking search.",
+  "intuition": "Given an m x n grid of characters board and a string word, return true if word exists in the grid.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Grid backtracking search.",
+  "code": "def solution(board, word):\n    m, n = len(board), len(board[0])\n    def dfs(r, c, idx):\n        if idx == len(word): return True\n        if not (0 <= r < m and 0 <= c < n) or board[r][c] != word[idx]:\n            return False\n        temp = board[r][c]\n        board[r][c] = '#'\n        for dr, dc in [(1,0), (-1,0), (0,1), (0,-1)]:\n            if dfs(r + dr, c + dc, idx + 1):\n                board[r][c] = temp\n                return True\n        board[r][c] = temp\n        return False\n    for r in range(m):\n        for c in range(n):\n            if dfs(r, c, 0):\n                return True\n    return False",
+  "time_complexity": "O(m * n * 4^L) where L is length of word",
+  "space_complexity": "O(L)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use DFS at each cell. Mark visited cells to avoid reusing them. Unmark them on backtracking return."
+  ]
+}

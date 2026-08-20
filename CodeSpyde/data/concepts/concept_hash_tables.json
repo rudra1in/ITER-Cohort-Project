@@ -1,0 +1,25 @@
+{
+  "id": "concept_hash_tables",
+  "title": "Hash Tables",
+  "document_type": "concept",
+  "topic": "Hash Tables",
+  "subtopic": "Associative Containers",
+  "definition": "A hash table is a data structure mapping keys to values using a hashing function.",
+  "intuition": "Enables near-constant time operations by computing key indices directly.",
+  "how_it_works": "Keys are passed to a hash function, mapping them to buckets. Collisions are handled via chaining or open addressing.",
+  "when_to_use": "For fast lookups, counting, caching, or checking membership.",
+  "when_not_to_use": "When keys need to be ordered or sorted.",
+  "common_mistakes": [
+    "Ignoring hash collisions",
+    "Using unhashable types as keys"
+  ],
+  "complexity": "Insert/Search/Delete: O(1) average, O(n) worst case",
+  "examples": [
+    "Frequency counters",
+    "Caching / Memoization"
+  ],
+  "related_patterns": [
+    "Hash Map Lookup"
+  ],
+  "content": "A hash table is a data structure mapping keys to values using a hashing function."
+}

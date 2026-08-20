@@ -1,0 +1,32 @@
+{
+  "id": "pattern_tree_bfs",
+  "title": "Tree BFS",
+  "document_type": "pattern",
+  "topic": "Binary Trees",
+  "pattern": "Tree BFS",
+  "intuition": "Traverse tree nodes level-by-level using a queue, tracking height transitions.",
+  "recognition_signals": [
+    "Level-by-level binary tree output",
+    "Shortest path to leaf"
+  ],
+  "step_by_step_strategy": [
+    "Initialize queue with root.",
+    "While queue is not empty, count level size.",
+    "Pop level-size elements, process and push children.",
+    "Increment depth counter."
+  ],
+  "common_mistakes": [
+    "Queue infinite loop by not updating size constraints",
+    "Failing to check root node for null beforehand"
+  ],
+  "complexity": "Time: O(n), Space: O(w) width of tree",
+  "example_problem_types": [
+    "Binary tree level order traversal",
+    "Binary tree right side view"
+  ],
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_queues"
+  ],
+  "content": "Traverse tree nodes level-by-level using a queue, tracking height transitions."
+}

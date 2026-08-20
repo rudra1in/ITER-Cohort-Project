@@ -1,0 +1,37 @@
+{
+  "id": "prob_string_03",
+  "title": "Valid Palindrome",
+  "document_type": "problem",
+  "topic": "Strings",
+  "subtopic": "Palindrome Checking",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "A phrase is a palindrome if, after converting all uppercase characters into lowercase and removing all non-alphanumeric characters, it reads the same forward and backward.",
+  "constraints": "1 <= s.length <= 2 * 10^5",
+  "examples": [
+    {
+      "input": "s = 'A man, a plan, a canal: Panama'",
+      "output": "true"
+    }
+  ],
+  "expected_input": "s: str",
+  "expected_output": "bool",
+  "edge_cases": [
+    "Empty string",
+    "Only non-alphanumeric characters"
+  ],
+  "hints": [
+    "Use two pointers from opposite ends. Skip non-alphanumeric characters."
+  ],
+  "expected_approach": "Two pointers checking characters after filtering.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_strings"
+  ],
+  "related_mistakes": [
+    "mistake_upper_lower"
+  ],
+  "code": "def solution(s):\n    l, r = 0, len(s) - 1\n    while l < r:\n        while l < r and not s[l].isalnum():\n            l += 1\n        while l < r and not s[r].isalnum():\n            r -= 1\n        if s[l].lower() != s[r].lower():\n            return False\n        l += 1\n        r -= 1\n    return True"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_dp_09",
+  "problem_id": "prob_dp_09",
+  "document_type": "solution",
+  "title": "Minimum Path Sum Grid - Solution",
+  "approach": "2D Grid DP in-place.",
+  "intuition": "Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "2D Grid DP in-place.",
+  "code": "def solution(grid):\n    m, n = len(grid), len(grid[0])\n    for r in range(m):\n        for c in range(n):\n            if r == 0 and c == 0: continue\n            elif r == 0: grid[r][c] += grid[r][c-1]\n            elif c == 0: grid[r][c] += grid[r-1][c]\n            else: grid[r][c] += min(grid[r-1][c], grid[r][c-1])\n    return grid[m-1][n-1]",
+  "time_complexity": "O(m * n)",
+  "space_complexity": "O(1) in-place",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Initialize boundaries (first row/column) as cumulative sums. For other cells: grid[i][j] + min(top, left)."
+  ]
+}

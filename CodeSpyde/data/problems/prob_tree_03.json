@@ -1,0 +1,38 @@
+{
+  "id": "prob_tree_03",
+  "title": "Same Tree Verification",
+  "document_type": "problem",
+  "topic": "Binary Trees",
+  "subtopic": "Tree Comparison",
+  "pattern": "Tree DFS",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given the roots of two binary trees p and q, write a function to check if they are the same or not.",
+  "constraints": "The number of nodes in both trees is in the range [0, 100].",
+  "examples": [
+    {
+      "input": "p = [1, 2], q = [1, 2]",
+      "output": "true"
+    }
+  ],
+  "expected_input": "p: Optional[TreeNode], q: Optional[TreeNode]",
+  "expected_output": "bool",
+  "edge_cases": [
+    "One tree is empty, other is not",
+    "Value mismatch on corresponding nodes"
+  ],
+  "hints": [
+    "Check if both are null (True), if one is null (False), or if values differ (False). Recurse."
+  ],
+  "expected_approach": "Simultaneous preorder recursive comparison.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_recursion"
+  ],
+  "related_mistakes": [
+    "mistake_root_check"
+  ],
+  "code": "def solution(p, q):\n    if not p and not q:\n        return True\n    if not p or not q:\n        return False\n    if p.val != q.val:\n        return False\n    return solution(p.left, q.left) and solution(p.right, q.right)"
+}

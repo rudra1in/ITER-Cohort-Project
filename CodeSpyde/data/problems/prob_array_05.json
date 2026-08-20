@@ -1,0 +1,38 @@
+{
+  "id": "prob_array_05",
+  "title": "Find Minimum in Rotated Sorted Array",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Search in Array",
+  "pattern": "Binary Search",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given a rotated sorted array of unique elements, find the minimum element in this array.",
+  "constraints": "1 <= nums.length <= 5000\n-5000 <= nums[i] <= 5000",
+  "examples": [
+    {
+      "input": "nums = [3, 4, 5, 1, 2]",
+      "output": "1"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Array not rotated",
+    "Array of size 1 or 2"
+  ],
+  "hints": [
+    "Use binary search. Compare mid element with the rightmost element."
+  ],
+  "expected_approach": "Binary search to identify the inflection point.",
+  "time_complexity": "O(log n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_arrays",
+    "concept_searching"
+  ],
+  "related_mistakes": [
+    "mistake_bs_bounds"
+  ],
+  "code": "def solution(nums):\n    l, r = 0, len(nums) - 1\n    while l < r:\n        mid = l + (r - l) // 2\n        if nums[mid] > nums[r]:\n            l = mid + 1\n        else:\n            r = mid\n    return nums[l]"
+}

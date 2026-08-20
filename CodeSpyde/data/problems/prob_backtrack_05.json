@@ -1,0 +1,37 @@
+{
+  "id": "prob_backtrack_05",
+  "title": "Word Search Board Game",
+  "document_type": "problem",
+  "topic": "Backtracking",
+  "subtopic": "Grid Traversal",
+  "pattern": "Backtracking",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an m x n grid of characters board and a string word, return true if word exists in the grid.",
+  "constraints": "m, n <= 6",
+  "examples": [
+    {
+      "input": "board = [['A','B','C','E']], word = 'ABCCED'",
+      "output": "true"
+    }
+  ],
+  "expected_input": "board: list[list[str]], word: str",
+  "expected_output": "bool",
+  "edge_cases": [
+    "Word is longer than total cells in grid",
+    "Loop cycle in paths"
+  ],
+  "hints": [
+    "Use DFS at each cell. Mark visited cells to avoid reusing them. Unmark them on backtracking return."
+  ],
+  "expected_approach": "Grid backtracking search.",
+  "time_complexity": "O(m * n * 4^L) where L is length of word",
+  "space_complexity": "O(L)",
+  "related_concepts": [
+    "concept_backtracking"
+  ],
+  "related_mistakes": [
+    "mistake_bt_revert"
+  ],
+  "code": "def solution(board, word):\n    m, n = len(board), len(board[0])\n    def dfs(r, c, idx):\n        if idx == len(word): return True\n        if not (0 <= r < m and 0 <= c < n) or board[r][c] != word[idx]:\n            return False\n        temp = board[r][c]\n        board[r][c] = '#'\n        for dr, dc in [(1,0), (-1,0), (0,1), (0,-1)]:\n            if dfs(r + dr, c + dc, idx + 1):\n                board[r][c] = temp\n                return True\n        board[r][c] = temp\n        return False\n    for r in range(m):\n        for c in range(n):\n            if dfs(r, c, 0):\n                return True\n    return False"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "pattern_tree_dfs",
+  "title": "Tree DFS",
+  "document_type": "pattern",
+  "topic": "Binary Trees",
+  "pattern": "Tree DFS",
+  "intuition": "Traverse binary trees recursively. Compute answers from subtree results dynamically.",
+  "recognition_signals": [
+    "Binary tree calculations, path traversals, diameter finds"
+  ],
+  "step_by_step_strategy": [
+    "Define recursive method accepting node.",
+    "Base Case: If node is Null, return default value.",
+    "Recurse left child, recurse right child.",
+    "Combine child values to form current node solution."
+  ],
+  "common_mistakes": [
+    "Incorrect base cases",
+    "Failing to return values from recursive calls"
+  ],
+  "complexity": "Time: O(n), Space: O(h)",
+  "example_problem_types": [
+    "Maximum depth of binary tree",
+    "Invert binary tree",
+    "Path sum"
+  ],
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_recursion"
+  ],
+  "content": "Traverse binary trees recursively. Compute answers from subtree results dynamically."
+}

@@ -1,0 +1,38 @@
+{
+  "id": "prob_tree_04",
+  "title": "Symmetric Tree Checking",
+  "document_type": "problem",
+  "topic": "Binary Trees",
+  "subtopic": "Tree Comparison",
+  "pattern": "Tree DFS",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).",
+  "constraints": "The number of nodes in the tree is in the range [1, 1000].",
+  "examples": [
+    {
+      "input": "root = [1, 2, 2, 3, 4, 4, 3]",
+      "output": "true"
+    }
+  ],
+  "expected_input": "root: Optional[TreeNode]",
+  "expected_output": "bool",
+  "edge_cases": [
+    "Single node tree",
+    "Asymmetric children"
+  ],
+  "hints": [
+    "Compare left subtree with mirror of right subtree recursively."
+  ],
+  "expected_approach": "Mirror helper comparison.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_recursion"
+  ],
+  "related_mistakes": [
+    "mistake_root_check"
+  ],
+  "code": "def solution(root):\n    if not root:\n        return True\n    def isMirror(t1, t2):\n        if not t1 and not t2:\n            return True\n        if not t1 or not t2:\n            return False\n        return t1.val == t2.val and isMirror(t1.left, t2.right) and isMirror(t1.right, t2.left)\n    return isMirror(root.left, root.right)"
+}

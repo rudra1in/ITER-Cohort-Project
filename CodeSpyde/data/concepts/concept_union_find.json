@@ -1,0 +1,24 @@
+{
+  "id": "concept_union_find",
+  "title": "Union Find / DSU",
+  "document_type": "concept",
+  "topic": "Graphs",
+  "subtopic": "Disjoint Set Union",
+  "definition": "Union-Find manages collection of disjoint sets, supporting union and find operations.",
+  "intuition": "Keep track of connected components dynamically.",
+  "how_it_works": "Find determines set membership. Union merges two sets. Optimizations include path compression and union by rank.",
+  "when_to_use": "Kruskal's MST, detecting cycles in undirected graphs, connected components.",
+  "when_not_to_use": "When graphs are directed or require edge deletions.",
+  "common_mistakes": [
+    "Forgetting path compression",
+    "Merging elements directly instead of representative roots"
+  ],
+  "complexity": "Find/Union: O(alpha(n)) near-constant time",
+  "examples": [
+    "Connected components in grid"
+  ],
+  "related_patterns": [
+    "Union Find"
+  ],
+  "content": "Union-Find manages collection of disjoint sets, supporting union and find operations."
+}

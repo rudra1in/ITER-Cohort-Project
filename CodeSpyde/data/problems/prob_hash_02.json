@@ -1,0 +1,37 @@
+{
+  "id": "prob_hash_02",
+  "title": "Contains Duplicate",
+  "document_type": "problem",
+  "topic": "Hash Tables",
+  "subtopic": "Membership Checking",
+  "pattern": "Hash Map Lookup",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.",
+  "constraints": "1 <= nums.length <= 10^5",
+  "examples": [
+    {
+      "input": "nums = [1, 2, 3, 1]",
+      "output": "true"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "bool",
+  "edge_cases": [
+    "Single element array",
+    "All duplicates"
+  ],
+  "hints": [
+    "Use a set to keep track of seen elements."
+  ],
+  "expected_approach": "Hashing set membership lookup.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [
+    "mistake_key_checking"
+  ],
+  "code": "def solution(nums):\n    seen = set()\n    for n in nums:\n        if n in seen:\n            return True\n        seen.add(n)\n    return False"
+}

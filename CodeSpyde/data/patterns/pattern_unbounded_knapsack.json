@@ -1,0 +1,28 @@
+{
+  "id": "pattern_unbounded_knapsack",
+  "title": "Unbounded Knapsack",
+  "document_type": "pattern",
+  "topic": "Dynamic Programming",
+  "pattern": "Unbounded Knapsack",
+  "intuition": "Items can be selected infinite times. State transition checks current item values again without decrementing item indexes.",
+  "recognition_signals": [
+    "Unlimited item choice supply (e.g. coin change denominations)"
+  ],
+  "step_by_step_strategy": [
+    "State: dp[w] is max value with weight limit w.",
+    "Transition: dp[w] = max(dp[w], val[i] + dp[w-wt[i]]) for each item i."
+  ],
+  "common_mistakes": [
+    "Applying 0/1 knapsack loop constraints (needs forward inner loop in bottom-up)"
+  ],
+  "complexity": "Time: O(n * W), Space: O(W)",
+  "example_problem_types": [
+    "Coin change",
+    "Coin change II",
+    "Combination sum IV"
+  ],
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "content": "Items can be selected infinite times. State transition checks current item values again without decrementing item indexes."
+}

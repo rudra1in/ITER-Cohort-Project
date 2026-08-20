@@ -1,0 +1,20 @@
+{
+  "id": "sol_graph_08",
+  "problem_id": "prob_graph_08",
+  "document_type": "solution",
+  "title": "Network Delay Time - Solution",
+  "approach": "Dijkstra shortest path algorithm.",
+  "intuition": "Find the minimum time it takes for all n nodes to receive a signal from source node k.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Dijkstra shortest path algorithm.",
+  "code": "import heapq\ndef solution(times, n, k):\n    adj = [[] for _ in range(n + 1)]\n    for u, v, w in times:\n        adj[u].append((v, w))\n    dist = {i: float('inf') for i in range(1, n + 1)}\n    dist[k] = 0\n    h = [(0, k)]\n    while h:\n        d, node = heapq.heappop(h)\n        if d > dist[node]: continue\n        for neighbor, weight in adj[node]:\n            if dist[node] + weight < dist[neighbor]:\n                dist[neighbor] = dist[node] + weight\n                heapq.heappush(h, (dist[neighbor], neighbor))\n    ans = max(dist.values())\n    return ans if ans != float('inf') else -1",
+  "time_complexity": "O(E log V)",
+  "space_complexity": "O(V + E)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use Dijkstra's algorithm to find the shortest path from k to all other nodes."
+  ]
+}

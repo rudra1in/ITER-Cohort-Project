@@ -1,0 +1,26 @@
+{
+  "id": "concept_bst",
+  "title": "BST (Binary Search Trees)",
+  "document_type": "concept",
+  "topic": "Binary Search Trees",
+  "subtopic": "Search-Optimized Trees",
+  "definition": "A BST is a binary tree where left child < parent and right child > parent.",
+  "intuition": "Combines binary search behavior with dynamic insertion capability.",
+  "how_it_works": "In-order traversal yields elements in sorted order. Searches narrow choice by half at each step.",
+  "when_to_use": "When search, insertion, and deletion must be done on dynamic datasets.",
+  "when_not_to_use": "When tree balancing isn't guaranteed (degenerates to O(n) list).",
+  "common_mistakes": [
+    "Forgetting to balance tree",
+    "Violating BST properties during delete"
+  ],
+  "complexity": "Search/Insert: O(log n) average, O(n) worst case",
+  "examples": [
+    "AVL trees",
+    "Red-Black Trees"
+  ],
+  "related_patterns": [
+    "Tree DFS",
+    "Binary Search"
+  ],
+  "content": "A BST is a binary tree where left child < parent and right child > parent."
+}

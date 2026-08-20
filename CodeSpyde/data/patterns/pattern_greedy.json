@@ -1,0 +1,31 @@
+{
+  "id": "pattern_greedy",
+  "title": "Greedy Pattern",
+  "document_type": "pattern",
+  "topic": "Greedy",
+  "pattern": "Greedy",
+  "intuition": "Assemble solutions step-by-step using local optimum choices without looking back.",
+  "recognition_signals": [
+    "Max/min values sought",
+    "Decisions do not affect past states"
+  ],
+  "step_by_step_strategy": [
+    "Identify sorting key or immediate criteria.",
+    "Iterate through sorted candidates.",
+    "Accept if candidate is compatible with current solution, else skip."
+  ],
+  "common_mistakes": [
+    "Applying greedy when DP is required",
+    "Failing to sort items beforehand"
+  ],
+  "complexity": "Typically O(n log n) or O(n)",
+  "example_problem_types": [
+    "Interval scheduling",
+    "Gas station",
+    "Jump game"
+  ],
+  "related_concepts": [
+    "concept_greedy"
+  ],
+  "content": "Assemble solutions step-by-step using local optimum choices without looking back."
+}

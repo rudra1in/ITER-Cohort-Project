@@ -1,0 +1,20 @@
+{
+  "id": "sol_stackqueue_09",
+  "problem_id": "prob_stackqueue_09",
+  "document_type": "solution",
+  "title": "Asteroid Collision Simulation - Solution",
+  "approach": "Collision stack simulation.",
+  "intuition": "Find the state of the asteroids after all collisions. Moving right positive, left negative.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Collision stack simulation.",
+  "code": "def solution(asteroids):\n    stack = []\n    for a in asteroids:\n        while stack and a < 0 < stack[-1]:\n            if stack[-1] < -a:\n                stack.pop()\n                continue\n            elif stack[-1] == -a:\n                stack.pop()\n            break\n        else:\n            stack.append(a)\n    return stack",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a stack to model active asteroids. Collision only occurs if top of stack moves right and new asteroid moves left."
+  ]
+}

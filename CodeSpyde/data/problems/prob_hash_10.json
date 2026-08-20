@@ -1,0 +1,35 @@
+{
+  "id": "prob_hash_10",
+  "title": "Valid Sudoku Configuration",
+  "document_type": "problem",
+  "topic": "Hash Tables",
+  "subtopic": "Board Verification",
+  "pattern": "Hash Map Lookup",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the Sudoku rules.",
+  "constraints": "board.length == 9\nboard[i].length == 9",
+  "examples": [
+    {
+      "input": "board = [['5','3','.','.','7','.','.','.','.']]",
+      "output": "true"
+    }
+  ],
+  "expected_input": "board: list[list[str]]",
+  "expected_output": "bool",
+  "edge_cases": [
+    "Board filled fully",
+    "Empty board"
+  ],
+  "hints": [
+    "Track rows, columns, and 3x3 subboxes seen values using sets."
+  ],
+  "expected_approach": "Single pass coordinate hashing checks.",
+  "time_complexity": "O(1) because size of board is fixed",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(board):\n    seen = set()\n    for r in range(9):\n        for c in range(9):\n            val = board[r][c]\n            if val != '.':\n                row_key = f'r_{r}_{val}'\n                col_key = f'c_{c}_{val}'\n                box_key = f'b_{r//3}_{c//3}_{val}'\n                if row_key in seen or col_key in seen or box_key in seen:\n                    return False\n                seen.add(row_key)\n                seen.add(col_key)\n                seen.add(box_key)\n    return True"
+}

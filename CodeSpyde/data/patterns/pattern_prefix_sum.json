@@ -1,0 +1,30 @@
+{
+  "id": "pattern_prefix_sum",
+  "title": "Prefix Sum",
+  "document_type": "pattern",
+  "topic": "Arrays",
+  "pattern": "Prefix Sum",
+  "intuition": "Precompute cumulative sums of an array to answer range sum queries in O(1) time.",
+  "recognition_signals": [
+    "Multiple subarray sum queries",
+    "Subarrays matching targets"
+  ],
+  "step_by_step_strategy": [
+    "Create prefix array of size N+1.",
+    "Fill P[i] = P[i-1] + A[i-1].",
+    "Query sum [i, j] = P[j+1] - P[i]."
+  ],
+  "common_mistakes": [
+    "Index out of range on bounds",
+    "Incorrect array offset mappings"
+  ],
+  "complexity": "Precomputation: O(n), Query: O(1), Space: O(n)",
+  "example_problem_types": [
+    "Range sum query immutable",
+    "Subarray sum equals k"
+  ],
+  "related_concepts": [
+    "concept_arrays"
+  ],
+  "content": "Precompute cumulative sums of an array to answer range sum queries in O(1) time."
+}

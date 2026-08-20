@@ -1,0 +1,24 @@
+{
+  "id": "concept_tries",
+  "title": "Tries",
+  "document_type": "concept",
+  "topic": "Tries",
+  "subtopic": "Tree structures",
+  "definition": "A trie (prefix tree) is a tree-like structure used to store and search keys in a dataset of strings.",
+  "intuition": "Nodes share common prefixes to optimize prefix lookup and memory.",
+  "how_it_works": "Each node contains children characters and a boolean marker denoting word completion.",
+  "when_to_use": "Auto-complete, spell check, prefix matching.",
+  "when_not_to_use": "When character set is huge and sparse (high memory cost).",
+  "common_mistakes": [
+    "Not updating the word ending marker",
+    "Inefficient children storage"
+  ],
+  "complexity": "Search/Insert: O(L) where L is string length",
+  "examples": [
+    "Dictionary storage"
+  ],
+  "related_patterns": [
+    "DFS"
+  ],
+  "content": "A trie (prefix tree) is a tree-like structure used to store and search keys in a dataset of strings."
+}

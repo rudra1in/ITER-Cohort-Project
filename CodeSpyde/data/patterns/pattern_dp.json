@@ -1,0 +1,34 @@
+{
+  "id": "pattern_dp",
+  "title": "Dynamic Programming Pattern",
+  "document_type": "pattern",
+  "topic": "Dynamic Programming",
+  "pattern": "Dynamic Programming",
+  "intuition": "Solve subproblems once, store results in table, and use transitions to find optimal answers.",
+  "recognition_signals": [
+    "Overlapping subproblems",
+    "Optimal substructure",
+    "Counting unique paths"
+  ],
+  "step_by_step_strategy": [
+    "Define DP state parameters.",
+    "Determine base cases.",
+    "Define transition formula (recurrence relation).",
+    "Implement top-down (memoization) or bottom-up (tabulation)."
+  ],
+  "common_mistakes": [
+    "DP table sizing index issues",
+    "Missing initialization state values",
+    "Redundant state spaces"
+  ],
+  "complexity": "Time: O(states * transition time), Space: O(states)",
+  "example_problem_types": [
+    "Climbing stairs",
+    "Edit distance",
+    "Coin change"
+  ],
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "content": "Solve subproblems once, store results in table, and use transitions to find optimal answers."
+}

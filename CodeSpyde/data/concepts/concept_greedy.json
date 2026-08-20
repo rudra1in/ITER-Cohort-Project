@@ -1,0 +1,25 @@
+{
+  "id": "concept_greedy",
+  "title": "Greedy Algorithms",
+  "document_type": "concept",
+  "topic": "Greedy",
+  "subtopic": "Optimization Paradigms",
+  "definition": "Greedy algorithms make local optimal choices at each step, hoping to reach a global optimum.",
+  "intuition": "Take the best immediate choice available without looking ahead.",
+  "how_it_works": "Selects the locally best candidate. Once chosen, choices are never reconsidered or retracted.",
+  "when_to_use": "When greedy choice property and optimal substructure can be proven.",
+  "when_not_to_use": "When choices have global interactions (use Dynamic Programming).",
+  "common_mistakes": [
+    "Making unproven assumptions about global correctness",
+    "Incorrect sorting key"
+  ],
+  "complexity": "Often O(n log n) due to sorting, or O(n)",
+  "examples": [
+    "Huffman Coding",
+    "Kruskal's MST"
+  ],
+  "related_patterns": [
+    "Greedy"
+  ],
+  "content": "Greedy algorithms make local optimal choices at each step, hoping to reach a global optimum."
+}

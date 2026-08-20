@@ -1,0 +1,20 @@
+{
+  "id": "sol_backtrack_06",
+  "problem_id": "prob_backtrack_06",
+  "document_type": "solution",
+  "title": "Letter Combinations of a Phone Number - Solution",
+  "approach": "Standard DFS recursion.",
+  "intuition": "Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Standard DFS recursion.",
+  "code": "def solution(digits):\n    if not digits: return []\n    mapping = {\n        '2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl',\n        '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'\n    }\n    res = []\n    def backtrack(idx, path):\n        if idx == len(digits):\n            res.append(''.join(path))\n            return\n        for letter in mapping[digits[idx]]:\n            path.append(letter)\n            backtrack(idx + 1, path)\n            path.pop()\n    backtrack(0, [])\n    return res",
+  "time_complexity": "O(3^N * 4^M)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use backtracking. Store mapping of digits to letters. Choose one letter for current digit, then recurse for next digit."
+  ]
+}

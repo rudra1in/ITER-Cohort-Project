@@ -1,0 +1,20 @@
+{
+  "id": "sol_tree_02",
+  "problem_id": "prob_tree_02",
+  "document_type": "solution",
+  "title": "Maximum Depth of Binary Tree - Solution",
+  "approach": "Bottom-up recursive traversal.",
+  "intuition": "Given the root of a binary tree, return its maximum depth. A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Bottom-up recursive traversal.",
+  "code": "def solution(root):\n    if not root:\n        return 0\n    return max(solution(root.left), solution(root.right)) + 1",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Calculate max depth of left and right child recursively, then take maximum + 1."
+  ]
+}

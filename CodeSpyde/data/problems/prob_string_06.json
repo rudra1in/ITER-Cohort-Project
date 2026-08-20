@@ -1,0 +1,40 @@
+{
+  "id": "prob_string_06",
+  "title": "String to Integer (atoi)",
+  "document_type": "problem",
+  "topic": "Strings",
+  "subtopic": "String Parsing",
+  "pattern": "Two Pointers",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Implement the myAtoi(s) function, which converts a string to a 32-bit signed integer.",
+  "constraints": "0 <= s.length <= 200",
+  "examples": [
+    {
+      "input": "s = '   -42'",
+      "output": "-42"
+    }
+  ],
+  "expected_input": "s: str",
+  "expected_output": "int",
+  "edge_cases": [
+    "Out of 32-bit integer range",
+    "Invalid characters present",
+    "Empty string"
+  ],
+  "hints": [
+    "Skip leading whitespace.",
+    "Check sign.",
+    "Read digits until non-digit character appears."
+  ],
+  "expected_approach": "Iterative state validation and range boundary checks.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_strings"
+  ],
+  "related_mistakes": [
+    "mistake_int_overflow"
+  ],
+  "code": "def solution(s):\n    s = s.lstrip()\n    if not s:\n        return 0\n    sign = 1\n    idx = 0\n    if s[0] == '-':\n        sign = -1\n        idx += 1\n    elif s[0] == '+':\n        idx += 1\n    num = 0\n    INT_MAX = 2**31 - 1\n    INT_MIN = -2**31\n    while idx < len(s) and s[idx].isdigit():\n        num = num * 10 + int(s[idx])\n        idx += 1\n    num *= sign\n    if num > INT_MAX:\n        return INT_MAX\n    if num < INT_MIN:\n        return INT_MIN\n    return num"
+}

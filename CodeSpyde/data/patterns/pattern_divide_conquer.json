@@ -1,0 +1,32 @@
+{
+  "id": "pattern_divide_conquer",
+  "title": "Divide and Conquer",
+  "document_type": "pattern",
+  "topic": "Recursion",
+  "pattern": "Divide and Conquer",
+  "intuition": "Divide problem into smaller independent subproblems, solve them, and combine their solutions.",
+  "recognition_signals": [
+    "Merging sorted parts",
+    "Identical independent subproblems"
+  ],
+  "step_by_step_strategy": [
+    "Define base case for small inputs.",
+    "Split input into halves or subparts.",
+    "Recurse solve on subparts.",
+    "Merge subproblem results."
+  ],
+  "common_mistakes": [
+    "Incomplete merging phases",
+    "Recursive call stacks exceeding limits"
+  ],
+  "complexity": "Merge Sort: O(n log n), Binary Search: O(log n)",
+  "example_problem_types": [
+    "Merge sort",
+    "Quick sort",
+    "Kth largest element"
+  ],
+  "related_concepts": [
+    "concept_recursion"
+  ],
+  "content": "Divide problem into smaller independent subproblems, solve them, and combine their solutions."
+}

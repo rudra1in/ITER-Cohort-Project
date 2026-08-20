@@ -1,0 +1,20 @@
+{
+  "id": "sol_graph_06",
+  "problem_id": "prob_graph_06",
+  "document_type": "solution",
+  "title": "Word Ladder Transform - Solution",
+  "approach": "BFS shortest path state tracking.",
+  "intuition": "Find the length of shortest transformation sequence from beginWord to endWord using wordList.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "BFS shortest path state tracking.",
+  "code": "from collections import deque\ndef solution(beginWord, endWord, wordList):\n    words = set(wordList)\n    if endWord not in words: return 0\n    q = deque([(beginWord, 1)])\n    while q:\n        word, steps = q.popleft()\n        if word == endWord:\n            return steps\n        for i in range(len(word)):\n            for c in 'abcdefghijklmnopqrstuvwxyz':\n                next_word = word[:i] + c + word[i+1:]\n                if next_word in words:\n                    words.remove(next_word)\n                    q.append((next_word, steps + 1))\n    return 0",
+  "time_complexity": "O(n * L^2) where L is length of word",
+  "space_complexity": "O(n * L^2)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Treat words as nodes. Two words have edge if they differ by 1 character. Find shortest path using BFS."
+  ]
+}

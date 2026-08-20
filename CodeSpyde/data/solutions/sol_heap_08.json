@@ -1,0 +1,20 @@
+{
+  "id": "sol_heap_08",
+  "problem_id": "prob_heap_08",
+  "document_type": "solution",
+  "title": "Swim in Rising Water - Solution",
+  "approach": "Dijkstra min-heap path search.",
+  "intuition": "Find the minimum time to reach the bottom right cell from top left cell on a grid rising water levels.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Dijkstra min-heap path search.",
+  "code": "import heapq\ndef solution(grid):\n    n = len(grid)\n    visited = {(0, 0)}\n    h = [(grid[0][0], 0, 0)]\n    ans = 0\n    while h:\n        val, r, c = heapq.heappop(h)\n        ans = max(ans, val)\n        if r == n - 1 and c == n - 1:\n            return ans\n        for nr, nc in [(r+1, c), (r-1, c), (r, c+1), (r, c-1)]:\n            if 0 <= nr < n and 0 <= nc < n and (nr, nc) not in visited:\n                visited.add((nr, nc))\n                heapq.heappush(h, (grid[nr][nc], nr, nc))\n    return ans",
+  "time_complexity": "O(n^2 log n)",
+  "space_complexity": "O(n^2)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use Dijkstra's algorithm. Maintain a min-heap of cells sorted by water height level required to reach them."
+  ]
+}

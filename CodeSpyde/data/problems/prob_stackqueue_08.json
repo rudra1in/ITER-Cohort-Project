@@ -1,0 +1,35 @@
+{
+  "id": "prob_stackqueue_08",
+  "title": "Simplify Directory Path",
+  "document_type": "problem",
+  "topic": "Stacks",
+  "subtopic": "Parsing",
+  "pattern": "Stack-based Traversal",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given a string path, which is an absolute path to a file or directory in a Unix-style file system, convert it to the simplified canonical path.",
+  "constraints": "1 <= path.length <= 3000",
+  "examples": [
+    {
+      "input": "path = '/home//foo/'",
+      "output": "'/home/foo'"
+    }
+  ],
+  "expected_input": "path: str",
+  "expected_output": "str",
+  "edge_cases": [
+    "Multiple slashes",
+    "Relative directories like '.' and '..'"
+  ],
+  "hints": [
+    "Split path by '/'. Iterate through tokens. Push directory names, pop on '..'."
+  ],
+  "expected_approach": "Tokenization + stack accumulation.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_stacks"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(path):\n    stack = []\n    parts = path.split('/')\n    for p in parts:\n        if p == '..':\n            if stack: stack.pop()\n        elif p and p != '.':\n            stack.append(p)\n    return '/' + '/'.join(stack)"
+}

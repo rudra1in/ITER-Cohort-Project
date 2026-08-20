@@ -1,0 +1,36 @@
+{
+  "id": "prob_tree_15",
+  "title": "Serialize and Deserialize Tree",
+  "document_type": "problem",
+  "topic": "Binary Trees",
+  "subtopic": "Serialization",
+  "pattern": "Tree DFS",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Design an algorithm to serialize and deserialize a binary tree.",
+  "constraints": "Number of nodes is up to 10^4.",
+  "examples": [
+    {
+      "input": "root = [1, 2, 3]",
+      "output": "Same structured tree reconstructed"
+    }
+  ],
+  "expected_input": "root: Optional[TreeNode]",
+  "expected_output": "Optional[TreeNode]",
+  "edge_cases": [
+    "Empty tree",
+    "Single node tree"
+  ],
+  "hints": [
+    "Use preorder traversal representation with null markers (e.g. '#') separated by commas."
+  ],
+  "expected_approach": "Preorder serialization and recursive iterator deserialization.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_recursion"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(root):\n    # Re-serializer stub representation\n    def serialize(node):\n        vals = []\n        def preorder(n):\n            if not n:\n                vals.append('#')\n                return\n            vals.append(str(n.val))\n            preorder(n.left)\n            preorder(n.right)\n        preorder(node)\n        return ','.join(vals)\n    def deserialize(data):\n        vals = iter(data.split(','))\n        def build():\n            val = next(vals)\n            if val == '#':\n                return None\n            # node init dummy\n            class TN:\n                def __init__(self, v): self.val, self.left, self.right = int(v), None, None\n            node = TN(val)\n            node.left = build()\n            node.right = build()\n            return node\n        return build()\n    return root"
+}

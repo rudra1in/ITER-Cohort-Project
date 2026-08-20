@@ -1,0 +1,37 @@
+{
+  "id": "prob_linkedlist_08",
+  "title": "Remove Linked List Elements",
+  "document_type": "problem",
+  "topic": "Linked Lists",
+  "subtopic": "List Modification",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Remove all elements from a linked list of integers that have value val.",
+  "constraints": "The number of nodes in the list is in the range [0, 10^4].",
+  "examples": [
+    {
+      "input": "head = [1, 2, 6, 3, 4, 5, 6], val = 6",
+      "output": "[1, 2, 3, 4, 5]"
+    }
+  ],
+  "expected_input": "head: Optional[ListNode], val: int",
+  "expected_output": "Optional[ListNode]",
+  "edge_cases": [
+    "List contains only elements of value val",
+    "Empty list"
+  ],
+  "hints": [
+    "Use a dummy node before the head to handle deletions of head node easily."
+  ],
+  "expected_approach": "Dummy node + single pointer traversal.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_linked_lists"
+  ],
+  "related_mistakes": [
+    "mistake_dummy_node"
+  ],
+  "code": "def solution(head, val):\n    class ListNode:\n        def __init__(self, val=0, next=None):\n            self.val = val\n            self.next = next\n    dummy = ListNode(0)\n    dummy.next = head\n    curr = dummy\n    while curr.next:\n        if curr.next.val == val:\n            curr.next = curr.next.next\n        else:\n            curr = curr.next\n    return dummy.next"
+}

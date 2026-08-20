@@ -1,0 +1,33 @@
+{
+  "id": "pattern_sliding_window",
+  "title": "Sliding Window",
+  "document_type": "pattern",
+  "topic": "Arrays",
+  "pattern": "Sliding Window",
+  "intuition": "Maintain a contiguous subsegment (window) using two pointers. Shift the boundaries to scan all valid contiguous ranges.",
+  "recognition_signals": [
+    "Contiguous subarray/substring mentioned",
+    "Seeking minimum, maximum, or target properties of subarrays"
+  ],
+  "step_by_step_strategy": [
+    "Initialize left and right boundaries at 0.",
+    "Expand right pointer to include elements.",
+    "When window condition is violated, advance left pointer to shrink the window.",
+    "Update maximum/minimum tracking at each valid window position."
+  ],
+  "common_mistakes": [
+    "Off-by-one window sizes",
+    "Updating global minimums inside invalid window loops"
+  ],
+  "complexity": "Time: O(n), Space: O(1) or O(k)",
+  "example_problem_types": [
+    "Longest substring without repeating characters",
+    "Minimum size subarray sum"
+  ],
+  "related_concepts": [
+    "concept_arrays",
+    "concept_strings",
+    "concept_hash_tables"
+  ],
+  "content": "Maintain a contiguous subsegment (window) using two pointers. Shift the boundaries to scan all valid contiguous ranges."
+}

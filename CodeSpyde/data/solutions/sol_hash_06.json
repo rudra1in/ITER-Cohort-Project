@@ -1,0 +1,20 @@
+{
+  "id": "sol_hash_06",
+  "problem_id": "prob_hash_06",
+  "document_type": "solution",
+  "title": "Subarray Sums Divisible by K - Solution",
+  "approach": "Hashing prefix sums modulo k.",
+  "intuition": "Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Hashing prefix sums modulo k.",
+  "code": "def solution(nums, k):\n    seen = {0: 1}\n    pref = 0\n    count = 0\n    for n in nums:\n        pref = (pref + n) % k\n        if pref in seen:\n            count += seen[pref]\n        seen[pref] = seen.get(pref, 0) + 1\n    return count",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(k)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use prefix sum remainder hash map: track count of (pref_sum % k)."
+  ]
+}

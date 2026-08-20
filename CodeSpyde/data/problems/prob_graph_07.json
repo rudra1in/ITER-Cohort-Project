@@ -1,0 +1,34 @@
+{
+  "id": "prob_graph_07",
+  "title": "Redundant Connection",
+  "document_type": "problem",
+  "topic": "Graphs",
+  "subtopic": "Disjoint Sets",
+  "pattern": "Union Find",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Find an edge that can be removed so that the resulting graph is a tree of n nodes.",
+  "constraints": "n == edges.length",
+  "examples": [
+    {
+      "input": "edges = [[1, 2], [1, 3], [2, 3]]",
+      "output": "[2, 3]"
+    }
+  ],
+  "expected_input": "edges: list[list[int]]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Multi-cycle graphs"
+  ],
+  "hints": [
+    "Use Union-Find. The first edge where both vertices already belong to the same set is redundant."
+  ],
+  "expected_approach": "Union-Find cycle detection.",
+  "time_complexity": "O(n alpha(n))",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_union_find"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(edges):\n    parent = list(range(len(edges) + 1))\n    def find(i):\n        if parent[i] == i:\n            return i\n        parent[i] = find(parent[i])\n        return parent[i]\n    def union(i, j):\n        root_i = find(i)\n        root_j = find(j)\n        if root_i == root_j:\n            return False\n        parent[root_i] = root_j\n        return True\n    for u, v in edges:\n        if not union(u, v):\n            return [u, v]\n    return []"
+}

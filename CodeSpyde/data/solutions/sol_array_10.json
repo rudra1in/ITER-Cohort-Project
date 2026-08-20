@@ -1,0 +1,20 @@
+{
+  "id": "sol_array_10",
+  "problem_id": "prob_array_10",
+  "document_type": "solution",
+  "title": "Subarray Sum Equals K - Solution",
+  "approach": "Prefix sum tracking with a hash map helper.",
+  "intuition": "Given an array of integers nums and an integer k, return the total number of continuous subarrays whose sum equals to k.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Prefix sum tracking with a hash map helper.",
+  "code": "def solution(nums, k):\n    count = 0\n    pref_sum = 0\n    seen = {0: 1}\n    for num in nums:\n        pref_sum += num\n        if pref_sum - k in seen:\n            count += seen[pref_sum - k]\n        seen[pref_sum] = seen.get(pref_sum, 0) + 1\n    return count",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a hash map to store prefix sums frequency."
+  ]
+}

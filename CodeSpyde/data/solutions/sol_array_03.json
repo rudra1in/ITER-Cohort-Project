@@ -1,0 +1,20 @@
+{
+  "id": "sol_array_03",
+  "problem_id": "prob_array_03",
+  "document_type": "solution",
+  "title": "Rotate Array by K Steps - Solution",
+  "approach": "Three-reversals method.",
+  "intuition": "Rotate an array of n elements to the right by k steps, where k is non-negative.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Three-reversals method.",
+  "code": "def solution(nums, k):\n    n = len(nums)\n    if n == 0:\n        return nums\n    k %= n\n    def reverse(l, r):\n        while l < r:\n            nums[l], nums[r] = nums[r], nums[l]\n            l += 1\n            r -= 1\n    reverse(0, n - 1)\n    reverse(0, k - 1)\n    reverse(k, n - 1)\n    return nums",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Reverse the whole array, then reverse first k elements, then reverse the rest."
+  ]
+}

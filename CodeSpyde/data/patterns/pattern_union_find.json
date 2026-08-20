@@ -1,0 +1,30 @@
+{
+  "id": "pattern_union_find",
+  "title": "Union Find Pattern",
+  "document_type": "pattern",
+  "topic": "Graphs",
+  "pattern": "Union Find",
+  "intuition": "Group elements into disjoint sets to check connectedness in undirected layouts dynamically.",
+  "recognition_signals": [
+    "Dynamic connectivity",
+    "Undirected graph cycle checking"
+  ],
+  "step_by_step_strategy": [
+    "Create parent array where parent[i] = i.",
+    "Implement find with path compression.",
+    "Implement union with rank validation."
+  ],
+  "common_mistakes": [
+    "Forgetting to flatten trees (missing path compression)",
+    "Updating parent references direct without representative root checks"
+  ],
+  "complexity": "Time: O(alpha(n)), Space: O(n)",
+  "example_problem_types": [
+    "Number of provinces",
+    "Redundant connection"
+  ],
+  "related_concepts": [
+    "concept_union_find"
+  ],
+  "content": "Group elements into disjoint sets to check connectedness in undirected layouts dynamically."
+}

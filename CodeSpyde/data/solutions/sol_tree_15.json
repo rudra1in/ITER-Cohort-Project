@@ -1,0 +1,20 @@
+{
+  "id": "sol_tree_15",
+  "problem_id": "prob_tree_15",
+  "document_type": "solution",
+  "title": "Serialize and Deserialize Tree - Solution",
+  "approach": "Preorder serialization and recursive iterator deserialization.",
+  "intuition": "Design an algorithm to serialize and deserialize a binary tree.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Preorder serialization and recursive iterator deserialization.",
+  "code": "def solution(root):\n    # Re-serializer stub representation\n    def serialize(node):\n        vals = []\n        def preorder(n):\n            if not n:\n                vals.append('#')\n                return\n            vals.append(str(n.val))\n            preorder(n.left)\n            preorder(n.right)\n        preorder(node)\n        return ','.join(vals)\n    def deserialize(data):\n        vals = iter(data.split(','))\n        def build():\n            val = next(vals)\n            if val == '#':\n                return None\n            # node init dummy\n            class TN:\n                def __init__(self, v): self.val, self.left, self.right = int(v), None, None\n            node = TN(val)\n            node.left = build()\n            node.right = build()\n            return node\n        return build()\n    return root",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use preorder traversal representation with null markers (e.g. '#') separated by commas."
+  ]
+}

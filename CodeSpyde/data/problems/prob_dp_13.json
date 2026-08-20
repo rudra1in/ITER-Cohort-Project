@@ -1,0 +1,35 @@
+{
+  "id": "prob_dp_13",
+  "title": "Coin Change II Combinations Count",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "Knapsack",
+  "pattern": "Unbounded Knapsack",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Return the number of combinations that make up that amount. If amount cannot be made up, return 0.",
+  "constraints": "Amount up to 5000.",
+  "examples": [
+    {
+      "input": "amount = 5, coins = [1, 2, 5]",
+      "output": "4"
+    }
+  ],
+  "expected_input": "amount: int, coins: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "amount is 0 (1 combination: empty set)",
+    "No combination possible"
+  ],
+  "hints": [
+    "State dp[i] holds combinations count for sum i. Iterate through coins, updating DP array forward."
+  ],
+  "expected_approach": "Unbounded knapsack combinations counting.",
+  "time_complexity": "O(n * amount)",
+  "space_complexity": "O(amount)",
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(amount, coins):\n    dp = [0] * (amount + 1)\n    dp[0] = 1\n    for c in coins:\n        for a in range(c, amount + 1):\n            dp[a] += dp[a - c]\n    return dp[amount]"
+}

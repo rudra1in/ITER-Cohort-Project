@@ -1,0 +1,23 @@
+{
+  "id": "concept_bit_manipulation",
+  "title": "Bit Manipulation",
+  "document_type": "concept",
+  "topic": "Bit Manipulation",
+  "subtopic": "Low-level operations",
+  "definition": "Bit manipulation performs logical operations directly on binary bits of integers.",
+  "intuition": "Fast, memory-efficient operations on numeric binaries.",
+  "how_it_works": "Uses bitwise operators: AND (&), OR (|), XOR (^), NOT (~), Left Shift (<<), Right Shift (>>).",
+  "when_to_use": "For subset representations, checking power of 2, toggling values, or optimization.",
+  "when_not_to_use": "When code readability is high priority over minor speedups.",
+  "common_mistakes": [
+    "Operator precedence mistakes",
+    "Signed vs unsigned bit representations"
+  ],
+  "complexity": "Bitwise operations: O(1)",
+  "examples": [
+    "Single Number",
+    "Number of 1 Bits"
+  ],
+  "related_patterns": [],
+  "content": "Bit manipulation performs logical operations directly on binary bits of integers."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_backtrack_03",
+  "problem_id": "prob_backtrack_03",
+  "document_type": "solution",
+  "title": "Combination Sum - Solution",
+  "approach": "Unlimited choice backtracking search.",
+  "intuition": "Given an array of distinct integers candidates and a target integer target, return all unique combinations where candidate numbers sum to target.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Unlimited choice backtracking search.",
+  "code": "def solution(candidates, target):\n    res = []\n    def backtrack(idx, path, curr_sum):\n        if curr_sum == target:\n            res.append(list(path))\n            return\n        if curr_sum > target:\n            return\n        for i in range(idx, len(candidates)):\n            path.append(candidates[i])\n            backtrack(i, path, curr_sum + candidates[i])\n            path.pop()\n    backtrack(0, [], 0)\n    return res",
+  "time_complexity": "O(2^t) worst case",
+  "space_complexity": "O(t/min_candidate)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use backtracking. Elements can be chosen multiple times, so don't advance the index parameter during recursive call unless choice is complete."
+  ]
+}

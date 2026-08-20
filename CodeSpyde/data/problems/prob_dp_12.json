@@ -1,0 +1,35 @@
+{
+  "id": "prob_dp_12",
+  "title": "Decode Ways Count",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "Counting Combinations",
+  "pattern": "Dynamic Programming",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given a string s containing only digits, return the number of ways to decode it.",
+  "constraints": "1 <= s.length <= 100",
+  "examples": [
+    {
+      "input": "s = '12'",
+      "output": "2"
+    }
+  ],
+  "expected_input": "s: str",
+  "expected_output": "int",
+  "edge_cases": [
+    "String starts with '0' (0 ways)",
+    "Contains zeros inside (e.g. '10' vs '30')"
+  ],
+  "hints": [
+    "State dp[i] holds decode ways for s[:i]. Check if single digit s[i-1] is valid (>0), and if double digit s[i-2:i] is valid (10-26)."
+  ],
+  "expected_approach": "1D DP state transition.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(s):\n    if not s or s[0] == '0': return 0\n    n = len(s)\n    dp = [0] * (n + 1)\n    dp[0], dp[1] = 1, 1\n    for i in range(2, n + 1):\n        if s[i-1] != '0':\n            dp[i] += dp[i-1]\n        two_digit = int(s[i-2:i])\n        if 10 <= two_digit <= 26:\n            dp[i] += dp[i-2]\n    return dp[n]"
+}

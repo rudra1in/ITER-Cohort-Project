@@ -1,0 +1,29 @@
+{
+  "id": "pattern_01_knapsack",
+  "title": "0/1 Knapsack",
+  "document_type": "pattern",
+  "topic": "Dynamic Programming",
+  "pattern": "0/1 Knapsack",
+  "intuition": "Items can either be selected (1) or excluded (0). State tracks index and remaining weight capacity.",
+  "recognition_signals": [
+    "Item selection under weight limit constraints",
+    "Binary choice optimization"
+  ],
+  "step_by_step_strategy": [
+    "State: dp[i][w] is max value choosing from first i items with weight limit w.",
+    "Transition: dp[i][w] = max(dp[i-1][w], val[i-1] + dp[i-1][w-wt[i-1]]) if wt[i-1] <= w else dp[i-1][w]."
+  ],
+  "common_mistakes": [
+    "Failing to check weights compatibility",
+    "Using incorrect item indices"
+  ],
+  "complexity": "Time: O(n * W), Space: O(n * W) or O(W)",
+  "example_problem_types": [
+    "Partition equal subset sum",
+    "Target sum"
+  ],
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "content": "Items can either be selected (1) or excluded (0). State tracks index and remaining weight capacity."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "prob_stackqueue_09",
+  "title": "Asteroid Collision Simulation",
+  "document_type": "problem",
+  "topic": "Stacks",
+  "subtopic": "Collision Simulation",
+  "pattern": "Stack-based Traversal",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Find the state of the asteroids after all collisions. Moving right positive, left negative.",
+  "constraints": "2 <= asteroids.length <= 10^4",
+  "examples": [
+    {
+      "input": "asteroids = [5, 10, -5]",
+      "output": "[5, 10]"
+    }
+  ],
+  "expected_input": "asteroids: list[int]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "All moving same direction",
+    "Symmetric size collisions"
+  ],
+  "hints": [
+    "Use a stack to model active asteroids. Collision only occurs if top of stack moves right and new asteroid moves left."
+  ],
+  "expected_approach": "Collision stack simulation.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_stacks"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(asteroids):\n    stack = []\n    for a in asteroids:\n        while stack and a < 0 < stack[-1]:\n            if stack[-1] < -a:\n                stack.pop()\n                continue\n            elif stack[-1] == -a:\n                stack.pop()\n            break\n        else:\n            stack.append(a)\n    return stack"
+}

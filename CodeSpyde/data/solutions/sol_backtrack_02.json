@@ -1,0 +1,20 @@
+{
+  "id": "sol_backtrack_02",
+  "problem_id": "prob_backtrack_02",
+  "document_type": "solution",
+  "title": "Permutations of Array - Solution",
+  "approach": "Backtracking search using visited marks.",
+  "intuition": "Given an array nums of distinct integers, return all the possible permutations.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Backtracking search using visited marks.",
+  "code": "def solution(nums):\n    res = []\n    visited = [False] * len(nums)\n    def backtrack(path):\n        if len(path) == len(nums):\n            res.append(list(path))\n            return\n        for i in range(len(nums)):\n            if not visited[i]:\n                visited[i] = True\n                path.append(nums[i])\n                backtrack(path)\n                path.pop()\n                visited[i] = False\n    backtrack([])\n    return res",
+  "time_complexity": "O(n * n!)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use backtracking. Choose elements that are not yet visited to build permutations."
+  ]
+}

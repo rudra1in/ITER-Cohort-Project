@@ -1,0 +1,35 @@
+{
+  "id": "prob_heap_07",
+  "title": "Furthest Building You Can Reach",
+  "document_type": "problem",
+  "topic": "Heaps",
+  "subtopic": "Simulation",
+  "pattern": "Heap / Top K",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Find the furthest building index you can reach using bricks and ladders.",
+  "constraints": "1 <= heights.length <= 10^5",
+  "examples": [
+    {
+      "input": "heights = [4, 2, 7, 6, 9], bricks = 5, ladders = 1",
+      "output": "4"
+    }
+  ],
+  "expected_input": "heights: list[int], bricks: int, ladders: int",
+  "expected_output": "int",
+  "edge_cases": [
+    "No ladders",
+    "No bricks"
+  ],
+  "hints": [
+    "Use a min-heap to keep track of the largest height differences. Use ladders for largest climbs and bricks for others."
+  ],
+  "expected_approach": "Min-heap greedy climb selection.",
+  "time_complexity": "O(n log l) where l is number of ladders",
+  "space_complexity": "O(l)",
+  "related_concepts": [
+    "concept_heaps"
+  ],
+  "related_mistakes": [],
+  "code": "import heapq\ndef solution(heights, bricks, ladders):\n    h = []\n    for i in range(len(heights) - 1):\n        diff = heights[i+1] - heights[i]\n        if diff > 0:\n            heapq.heappush(h, diff)\n            if len(h) > ladders:\n                bricks -= heapq.heappop(h)\n            if bricks < 0:\n                return i\n    return len(heights) - 1"
+}

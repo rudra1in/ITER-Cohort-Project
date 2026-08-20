@@ -1,0 +1,25 @@
+{
+  "id": "concept_queues",
+  "title": "Queues",
+  "document_type": "concept",
+  "topic": "Queues",
+  "subtopic": "Restricted Linear structures",
+  "definition": "A queue is a First-In-First-Out (FIFO) linear data structure.",
+  "intuition": "Like a waiting line: the first person to arrive is the first served.",
+  "how_it_works": "Elements are inserted at the back (enqueue) and removed from the front (dequeue).",
+  "when_to_use": "For BFS, print queues, task scheduling, and buffing.",
+  "when_not_to_use": "When LIFO or priority-based retrieval is needed.",
+  "common_mistakes": [
+    "Dequeuing from empty queue",
+    "Inefficient shift operations in arrays"
+  ],
+  "complexity": "Enqueue/Dequeue: O(1), Search: O(n)",
+  "examples": [
+    "Task queues",
+    "BFS queue"
+  ],
+  "related_patterns": [
+    "BFS"
+  ],
+  "content": "A queue is a First-In-First-Out (FIFO) linear data structure."
+}

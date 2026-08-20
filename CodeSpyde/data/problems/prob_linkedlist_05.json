@@ -1,0 +1,37 @@
+{
+  "id": "prob_linkedlist_05",
+  "title": "Merge Two Sorted Lists",
+  "document_type": "problem",
+  "topic": "Linked Lists",
+  "subtopic": "Merging Lists",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.",
+  "constraints": "The number of nodes in both lists is in the range [0, 50].\n-100 <= Node.val <= 100",
+  "examples": [
+    {
+      "input": "l1 = [1, 2, 4], l2 = [1, 3, 4]",
+      "output": "[1, 1, 2, 3, 4, 4]"
+    }
+  ],
+  "expected_input": "l1: Optional[ListNode], l2: Optional[ListNode]",
+  "expected_output": "Optional[ListNode]",
+  "edge_cases": [
+    "One or both lists are empty",
+    "Duplicate element values in lists"
+  ],
+  "hints": [
+    "Use a dummy node to easily construct the merged list."
+  ],
+  "expected_approach": "Iterative comparison and pointer splicing.",
+  "time_complexity": "O(n + m)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_linked_lists"
+  ],
+  "related_mistakes": [
+    "mistake_dummy_node"
+  ],
+  "code": "def solution(l1, l2):\n    class ListNode:\n        def __init__(self, val=0, next=None):\n            self.val = val\n            self.next = next\n    dummy = ListNode(0)\n    curr = dummy\n    while l1 and l2:\n        if l1.val < l2.val:\n            curr.next = l1\n            l1 = l1.next\n        else:\n            curr.next = l2\n            l2 = l2.next\n        curr = curr.next\n    curr.next = l1 if l1 else l2\n    return dummy.next"
+}

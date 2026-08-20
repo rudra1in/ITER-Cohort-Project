@@ -1,0 +1,34 @@
+{
+  "id": "pattern_dfs",
+  "title": "DFS (Depth First Search)",
+  "document_type": "pattern",
+  "topic": "Graphs",
+  "pattern": "DFS",
+  "intuition": "Explore paths completely to leaf/dead-end nodes using recursive stack backtracking before tracing back.",
+  "recognition_signals": [
+    "Path existence search",
+    "Connected components finder",
+    "Deep hierarchies"
+  ],
+  "step_by_step_strategy": [
+    "Define helper function taking current node.",
+    "Mark current node as visited.",
+    "For each unvisited neighbor, call helper recursively.",
+    "Trace back results."
+  ],
+  "common_mistakes": [
+    "Missing base/visited state conditions causing infinite loops",
+    "High recursive depth stack overflow"
+  ],
+  "complexity": "Time: O(V + E), Space: O(V) due to call stack",
+  "example_problem_types": [
+    "All paths search",
+    "Connected components",
+    "Clone graph"
+  ],
+  "related_concepts": [
+    "concept_recursion",
+    "concept_graphs"
+  ],
+  "content": "Explore paths completely to leaf/dead-end nodes using recursive stack backtracking before tracing back."
+}

@@ -1,0 +1,34 @@
+{
+  "id": "pattern_binary_search",
+  "title": "Binary Search",
+  "document_type": "pattern",
+  "topic": "Searching",
+  "pattern": "Binary Search",
+  "intuition": "Divide the sorted search space in half at each iteration, reducing lookup to O(log n).",
+  "recognition_signals": [
+    "Sorted input sequence",
+    "Searching for boundary conditions (e.g. search space of answers)"
+  ],
+  "step_by_step_strategy": [
+    "Initialize low at start, high at end.",
+    "Calculate mid = low + (high - low) // 2.",
+    "Evaluate condition at mid.",
+    "Adjust low or high to discard half of search space."
+  ],
+  "common_mistakes": [
+    "Integer overflow when calculating mid",
+    "Infinite loops due to incorrect low/high adjustments",
+    "Failing to check boundaries"
+  ],
+  "complexity": "Time: O(log n), Space: O(1)",
+  "example_problem_types": [
+    "Search in sorted array",
+    "Find peak element",
+    "Sqrt(x)"
+  ],
+  "related_concepts": [
+    "concept_searching",
+    "concept_sorting"
+  ],
+  "content": "Divide the sorted search space in half at each iteration, reducing lookup to O(log n)."
+}

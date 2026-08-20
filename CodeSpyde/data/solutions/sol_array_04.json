@@ -1,0 +1,20 @@
+{
+  "id": "sol_array_04",
+  "problem_id": "prob_array_04",
+  "document_type": "solution",
+  "title": "Maximum Subarray Sum - Solution",
+  "approach": "Iterate through the array, updating the current subarray sum. If it goes below zero, reset it to zero.",
+  "intuition": "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Iterate through the array, updating the current subarray sum. If it goes below zero, reset it to zero.",
+  "code": "def solution(nums):\n    if not nums:\n        return 0\n    max_sum = nums[0]\n    curr_sum = nums[0]\n    for i in range(1, len(nums)):\n        curr_sum = max(nums[i], curr_sum + nums[i])\n        max_sum = max(max_sum, curr_sum)\n    return max_sum",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Kadane's Algorithm: track local maximum sum at each index."
+  ]
+}

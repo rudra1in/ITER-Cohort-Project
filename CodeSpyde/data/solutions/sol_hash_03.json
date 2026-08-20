@@ -1,0 +1,20 @@
+{
+  "id": "sol_hash_03",
+  "problem_id": "prob_hash_03",
+  "document_type": "solution",
+  "title": "Intersection of Two Arrays - Solution",
+  "approach": "Set intersection lookup.",
+  "intuition": "Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Set intersection lookup.",
+  "code": "def solution(nums1, nums2):\n    return list(set(nums1) & set(nums2))",
+  "time_complexity": "O(n + m)",
+  "space_complexity": "O(n + m)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Convert both arrays to sets and find intersection."
+  ]
+}

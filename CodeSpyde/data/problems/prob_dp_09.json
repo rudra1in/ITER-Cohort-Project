@@ -1,0 +1,34 @@
+{
+  "id": "prob_dp_09",
+  "title": "Minimum Path Sum Grid",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "Grid Paths",
+  "pattern": "Grid DP",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.",
+  "constraints": "m == grid.length, n == grid[i].length",
+  "examples": [
+    {
+      "input": "grid = [[1,3,1],[1,5,1],[4,2,1]]",
+      "output": "7"
+    }
+  ],
+  "expected_input": "grid: list[list[int]]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Grid of size 1"
+  ],
+  "hints": [
+    "Initialize boundaries (first row/column) as cumulative sums. For other cells: grid[i][j] + min(top, left)."
+  ],
+  "expected_approach": "2D Grid DP in-place.",
+  "time_complexity": "O(m * n)",
+  "space_complexity": "O(1) in-place",
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(grid):\n    m, n = len(grid), len(grid[0])\n    for r in range(m):\n        for c in range(n):\n            if r == 0 and c == 0: continue\n            elif r == 0: grid[r][c] += grid[r][c-1]\n            elif c == 0: grid[r][c] += grid[r-1][c]\n            else: grid[r][c] += min(grid[r-1][c], grid[r][c-1])\n    return grid[m-1][n-1]"
+}

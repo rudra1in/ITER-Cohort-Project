@@ -1,0 +1,33 @@
+{
+  "id": "pattern_fast_slow_pointers",
+  "title": "Fast and Slow Pointers",
+  "document_type": "pattern",
+  "topic": "Linked Lists",
+  "pattern": "Fast and Slow Pointers",
+  "intuition": "Also known as Floyd's cycle detection. Use two pointers moving at different speeds to detect cycles or find specific nodes.",
+  "recognition_signals": [
+    "Cycle detection in linked list/array",
+    "Find middle of linked list",
+    "Find start of a cycle"
+  ],
+  "step_by_step_strategy": [
+    "Initialize slow and fast pointers at head.",
+    "Advance slow by 1 step, fast by 2 steps.",
+    "If fast reaches null, there is no cycle.",
+    "If fast equals slow, a cycle is detected."
+  ],
+  "common_mistakes": [
+    "Not checking next or next.next pointers on fast for nulls",
+    "Forgetting to initialize at the same node"
+  ],
+  "complexity": "Time: O(n), Space: O(1)",
+  "example_problem_types": [
+    "Linked list cycle",
+    "Middle of linked list",
+    "Happy number"
+  ],
+  "related_concepts": [
+    "concept_linked_lists"
+  ],
+  "content": "Also known as Floyd's cycle detection. Use two pointers moving at different speeds to detect cycles or find specific nodes."
+}

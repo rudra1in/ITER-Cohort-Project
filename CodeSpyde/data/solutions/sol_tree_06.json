@@ -1,0 +1,20 @@
+{
+  "id": "sol_tree_06",
+  "problem_id": "prob_tree_06",
+  "document_type": "solution",
+  "title": "Level Order Traversal - Solution",
+  "approach": "BFS traversal with size marker tracking.",
+  "intuition": "Given the root of a binary tree, return the level order traversal of its nodes' values (i.e. from left to right, level by level).",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "BFS traversal with size marker tracking.",
+  "code": "from collections import deque\ndef solution(root):\n    if not root:\n        return []\n    res = []\n    q = deque([root])\n    while q:\n        level_sz = len(q)\n        curr_level = []\n        for _ in range(level_sz):\n            node = q.popleft()\n            curr_level.append(node.val)\n            if node.left: q.append(node.left)\n            if node.right: q.append(node.right)\n        res.append(curr_level)\n    return res",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(w) maximum tree width",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a queue to process nodes level by level. Track level count in each step."
+  ]
+}

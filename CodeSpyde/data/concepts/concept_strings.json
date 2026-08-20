@@ -1,0 +1,26 @@
+{
+  "id": "concept_strings",
+  "title": "Strings",
+  "document_type": "concept",
+  "topic": "Strings",
+  "subtopic": "Sequence Data Structures",
+  "definition": "A string is a sequence of characters, often represented as an array of characters.",
+  "intuition": "Strings represent text. In Python, strings are immutable.",
+  "how_it_works": "Characters are stored sequentially. String operations like concatenation often create new strings.",
+  "when_to_use": "To represent, parse, or manipulate textual data.",
+  "when_not_to_use": "When heavy in-place modifications are required (use lists instead).",
+  "common_mistakes": [
+    "Inefficient concatenation in loops (O(n^2))",
+    "Index out of range"
+  ],
+  "complexity": "Access: O(1), Comparison: O(n), Concatenation: O(n+m)",
+  "examples": [
+    "Palindromes",
+    "Anagrams"
+  ],
+  "related_patterns": [
+    "Two Pointers",
+    "Sliding Window"
+  ],
+  "content": "A string is a sequence of characters, often represented as an array of characters."
+}
