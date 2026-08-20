@@ -1,0 +1,35 @@
+{
+  "id": "prob_greedy_04",
+  "title": "Minimum Number of Arrows to Burst Balloons",
+  "document_type": "problem",
+  "topic": "Greedy",
+  "subtopic": "Intervals",
+  "pattern": "Greedy",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Find minimum arrows needed to burst all balloons aligned in intervals.",
+  "constraints": "1 <= points.length <= 10^5",
+  "examples": [
+    {
+      "input": "points = [[10,16],[2,8],[1,6],[7,12]]",
+      "output": "2"
+    }
+  ],
+  "expected_input": "points: list[list[int]]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Balloons overlap at single boundaries"
+  ],
+  "hints": [
+    "Sort intervals by their end coordinates. Shoot arrows at the end coordinates of balloons greedily."
+  ],
+  "expected_approach": "Sort + greedy end arrow tracker.",
+  "time_complexity": "O(n log n)",
+  "space_complexity": "O(1) or O(n) for sorting",
+  "related_concepts": [
+    "concept_greedy",
+    "concept_sorting"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(points):\n    if not points: return 0\n    points.sort(key=lambda x: x[1])\n    arrows = 1\n    end = points[0][1]\n    for s, e in points[1:]:\n        if s > end:\n            arrows += 1\n            end = e\n    return arrows"
+}

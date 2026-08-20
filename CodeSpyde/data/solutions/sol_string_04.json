@@ -1,0 +1,20 @@
+{
+  "id": "sol_string_04",
+  "problem_id": "prob_string_04",
+  "document_type": "solution",
+  "title": "Longest Substring Without Repeating Characters - Solution",
+  "approach": "Sliding window with dynamic left pointer update.",
+  "intuition": "Given a string s, find the length of the longest substring without repeating characters.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Sliding window with dynamic left pointer update.",
+  "code": "def solution(s):\n    seen = {}\n    max_len = 0\n    l = 0\n    for r in range(len(s)):\n        if s[r] in seen and seen[s[r]] >= l:\n            l = seen[s[r]] + 1\n        seen[s[r]] = r\n        max_len = max(max_len, r - l + 1)\n    return max_len",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1) because size of alphabet is constant",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a sliding window with a dictionary to store indices of characters."
+  ]
+}

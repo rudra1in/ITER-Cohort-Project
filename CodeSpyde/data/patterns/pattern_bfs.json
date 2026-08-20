@@ -1,0 +1,34 @@
+{
+  "id": "pattern_bfs",
+  "title": "BFS (Breadth First Search)",
+  "document_type": "pattern",
+  "topic": "Graphs",
+  "pattern": "BFS",
+  "intuition": "Explore node neighbors level-by-level using a FIFO queue, finding shortest paths in unweighted structures.",
+  "recognition_signals": [
+    "Shortest path in unweighted graphs",
+    "Level-order processing",
+    "Closest connection find"
+  ],
+  "step_by_step_strategy": [
+    "Initialize queue with start node, mark as visited.",
+    "While queue is not empty, get current level count.",
+    "Dequeue element, process neighbors.",
+    "Add unvisited neighbors to queue, mark visited."
+  ],
+  "common_mistakes": [
+    "Not marking node visited immediately at enqueue (leads to duplicates)",
+    "Confusion of queue and stack usage"
+  ],
+  "complexity": "Time: O(V + E), Space: O(V)",
+  "example_problem_types": [
+    "Binary tree level order traversal",
+    "Word ladder",
+    "Number of islands (BFS version)"
+  ],
+  "related_concepts": [
+    "concept_queues",
+    "concept_graphs"
+  ],
+  "content": "Explore node neighbors level-by-level using a FIFO queue, finding shortest paths in unweighted structures."
+}

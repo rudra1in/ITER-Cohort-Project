@@ -1,0 +1,36 @@
+{
+  "id": "prob_searchsort_05",
+  "title": "Quick Sort Array",
+  "document_type": "problem",
+  "topic": "Sorting",
+  "subtopic": "Divide and Conquer",
+  "pattern": "Divide and Conquer",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an array of integers nums, sort the array in ascending order using Quick Sort.",
+  "constraints": "1 <= nums.length <= 5 * 10^4",
+  "examples": [
+    {
+      "input": "nums = [5, 2, 3, 1]",
+      "output": "[1, 2, 3, 5]"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Array contains identical values",
+    "Already sorted (degenerate case)"
+  ],
+  "hints": [
+    "Select a pivot element. Partition array such that elements smaller than pivot are left, and larger are right. Recurse."
+  ],
+  "expected_approach": "In-place partition recursion.",
+  "time_complexity": "O(n log n) average, O(n^2) worst case",
+  "space_complexity": "O(log n) call stack",
+  "related_concepts": [
+    "concept_sorting",
+    "concept_recursion"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(nums):\n    def quicksort(arr):\n        if len(arr) <= 1: return arr\n        pivot = arr[len(arr) // 2]\n        left = [x for x in arr if x < pivot]\n        middle = [x for x in arr if x == pivot]\n        right = [x for x in arr if x > pivot]\n        return quicksort(left) + middle + quicksort(right)\n    return quicksort(nums)"
+}

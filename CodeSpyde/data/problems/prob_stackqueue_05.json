@@ -1,0 +1,37 @@
+{
+  "id": "prob_stackqueue_05",
+  "title": "Generate Parentheses",
+  "document_type": "problem",
+  "topic": "Stacks",
+  "subtopic": "Backtracking",
+  "pattern": "Backtracking",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.",
+  "constraints": "1 <= n <= 8",
+  "examples": [
+    {
+      "input": "n = 3",
+      "output": "['((()))','(()())','(())()','()(())','()()()']"
+    }
+  ],
+  "expected_input": "n: int",
+  "expected_output": "list[str]",
+  "edge_cases": [
+    "n is 1"
+  ],
+  "hints": [
+    "Backtrack with count of left and right parentheses placed so far."
+  ],
+  "expected_approach": "DFS backtracking path building.",
+  "time_complexity": "O(4^n / sqrt(n)) Catalan number",
+  "space_complexity": "O(n) recursion stack",
+  "related_concepts": [
+    "concept_backtracking",
+    "concept_recursion"
+  ],
+  "related_mistakes": [
+    "mistake_bracket_count"
+  ],
+  "code": "def solution(n):\n    res = []\n    def backtrack(curr, open_c, close_c):\n        if len(curr) == 2 * n:\n            res.append(curr)\n            return\n        if open_c < n:\n            backtrack(curr + '(', open_c + 1, close_c)\n        if close_c < open_c:\n            backtrack(curr + ')', open_c, close_c + 1)\n    backtrack('', 0, 0)\n    return res"
+}

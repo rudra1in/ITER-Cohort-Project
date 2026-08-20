@@ -1,0 +1,35 @@
+{
+  "id": "prob_graph_10",
+  "title": "Shortest Path in Binary Matrix",
+  "document_type": "problem",
+  "topic": "Graphs",
+  "subtopic": "Grid Traversal",
+  "pattern": "BFS",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Return the length of the shortest clear path in the matrix. Path must connect top left to bottom right.",
+  "constraints": "n == grid.length",
+  "examples": [
+    {
+      "input": "grid = [[0, 1], [1, 0]]",
+      "output": "2"
+    }
+  ],
+  "expected_input": "grid: list[list[int]]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Start or end cell is blocked (1)"
+  ],
+  "hints": [
+    "Use BFS with 8 directions. Keep track of coordinates and steps."
+  ],
+  "expected_approach": "Grid coordinate BFS.",
+  "time_complexity": "O(n^2)",
+  "space_complexity": "O(n^2)",
+  "related_concepts": [
+    "concept_graphs",
+    "concept_queues"
+  ],
+  "related_mistakes": [],
+  "code": "from collections import deque\ndef solution(grid):\n    n = len(grid)\n    if grid[0][0] == 1 or grid[n-1][n-1] == 1:\n        return -1\n    q = deque([(0, 0, 1)])\n    visited = {(0, 0)}\n    while q:\n        r, c, d = q.popleft()\n        if r == n - 1 and c == n - 1:\n            return d\n        for dr in [-1, 0, 1]:\n            for dc in [-1, 0, 1]:\n                nr, nc = r + dr, c + dc\n                if 0 <= nr < n and 0 <= nc < n and grid[nr][nc] == 0 and (nr, nc) not in visited:\n                    visited.add((nr, nc))\n                    q.append((nr, nc, d + 1))\n    return -1"
+}

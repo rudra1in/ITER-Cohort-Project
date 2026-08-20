@@ -1,0 +1,36 @@
+{
+  "id": "prob_greedy_05",
+  "title": "Partition Labels",
+  "document_type": "problem",
+  "topic": "Greedy",
+  "subtopic": "Intervals",
+  "pattern": "Greedy",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Partition string into as many parts as possible such that each letter appears in at most one part.",
+  "constraints": "1 <= s.length <= 500",
+  "examples": [
+    {
+      "input": "s = 'ababcbacadefegdehijhklij'",
+      "output": "[9, 7, 8]"
+    }
+  ],
+  "expected_input": "s: str",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Single character string",
+    "No repeated characters in string"
+  ],
+  "hints": [
+    "Store the last index occurrence of each character. Traverse and maintain a boundary window index based on the max last index seen."
+  ],
+  "expected_approach": "Last occurrence index lookup tracking.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1) alphabet size constant",
+  "related_concepts": [
+    "concept_greedy",
+    "concept_strings"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(s):\n    last = {c: i for i, c in enumerate(s)}\n    anchor = 0\n    boundary = 0\n    res = []\n    for i, c in enumerate(s):\n        boundary = max(boundary, last[c])\n        if i == boundary:\n            res.append(i - anchor + 1)\n            anchor = i + 1\n    return res"
+}

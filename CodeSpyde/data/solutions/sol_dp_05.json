@@ -1,0 +1,20 @@
+{
+  "id": "sol_dp_05",
+  "problem_id": "prob_dp_05",
+  "document_type": "solution",
+  "title": "House Robber Maximum Sum - Solution",
+  "approach": "Iterative state transition space optimization.",
+  "intuition": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. Return maximum rob amount.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Iterative state transition space optimization.",
+  "code": "def solution(nums):\n    if not nums: return 0\n    if len(nums) <= 2: return max(nums)\n    r1, r2 = nums[0], max(nums[0], nums[1])\n    for i in range(2, len(nums)):\n        r1, r2 = r2, max(r2, r1 + nums[i])\n    return r2",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "For house i, you either rob it (money[i] + max_rob(i-2)) or skip it (max_rob(i-1))."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_linkedlist_05",
+  "problem_id": "prob_linkedlist_05",
+  "document_type": "solution",
+  "title": "Merge Two Sorted Lists - Solution",
+  "approach": "Iterative comparison and pointer splicing.",
+  "intuition": "Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Iterative comparison and pointer splicing.",
+  "code": "def solution(l1, l2):\n    class ListNode:\n        def __init__(self, val=0, next=None):\n            self.val = val\n            self.next = next\n    dummy = ListNode(0)\n    curr = dummy\n    while l1 and l2:\n        if l1.val < l2.val:\n            curr.next = l1\n            l1 = l1.next\n        else:\n            curr.next = l2\n            l2 = l2.next\n        curr = curr.next\n    curr.next = l1 if l1 else l2\n    return dummy.next",
+  "time_complexity": "O(n + m)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a dummy node to easily construct the merged list."
+  ]
+}

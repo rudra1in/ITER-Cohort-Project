@@ -1,0 +1,37 @@
+{
+  "id": "prob_linkedlist_02",
+  "title": "Find Middle of Linked List",
+  "document_type": "problem",
+  "topic": "Linked Lists",
+  "subtopic": "Traversal",
+  "pattern": "Fast and Slow Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.",
+  "constraints": "The number of nodes in the list is in the range [1, 100].",
+  "examples": [
+    {
+      "input": "head = [1, 2, 3, 4]",
+      "output": "3"
+    }
+  ],
+  "expected_input": "head: Optional[ListNode]",
+  "expected_output": "Optional[ListNode]",
+  "edge_cases": [
+    "Single node list",
+    "Two nodes list"
+  ],
+  "hints": [
+    "Fast pointer moves twice as fast as slow pointer."
+  ],
+  "expected_approach": "Two-pointers fast/slow scan.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_linked_lists"
+  ],
+  "related_mistakes": [
+    "mistake_fast_slow_null"
+  ],
+  "code": "def solution(head):\n    slow = head\n    fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n    return slow"
+}

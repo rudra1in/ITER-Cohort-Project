@@ -1,0 +1,20 @@
+{
+  "id": "sol_greedy_07",
+  "problem_id": "prob_greedy_07",
+  "document_type": "solution",
+  "title": "Queue Reconstruction by Height - Solution",
+  "approach": "Custom sort + insertion index positioning.",
+  "intuition": "Reconstruct queue of people with height h and k taller people constraints.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Custom sort + insertion index positioning.",
+  "code": "def solution(people):\n    people.sort(key=lambda x: (-x[0], x[1]))\n    res = []\n    for p in people:\n        res.insert(p[1], p)\n    return res",
+  "time_complexity": "O(n^2)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Sort people by height descending, then by k ascending. Insert each person into output list at index k greedily."
+  ]
+}

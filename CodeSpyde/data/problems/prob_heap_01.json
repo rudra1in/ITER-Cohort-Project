@@ -1,0 +1,35 @@
+{
+  "id": "prob_heap_01",
+  "title": "Kth Largest Element in Array",
+  "document_type": "problem",
+  "topic": "Heaps",
+  "subtopic": "Top K",
+  "pattern": "Heap / Top K",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an integer array nums and an integer k, return the kth largest element in the array.",
+  "constraints": "1 <= k <= nums.length <= 10^5\n-10^4 <= nums[i] <= 10^4",
+  "examples": [
+    {
+      "input": "nums = [3, 2, 1, 5, 6, 4], k = 2",
+      "output": "5"
+    }
+  ],
+  "expected_input": "nums: list[int], k: int",
+  "expected_output": "int",
+  "edge_cases": [
+    "k = 1",
+    "k equals array length"
+  ],
+  "hints": [
+    "Use a min-heap of size k. Keep pushing elements. Pop if size exceeds k."
+  ],
+  "expected_approach": "Min-heap of fixed size K tracking values.",
+  "time_complexity": "O(n log k)",
+  "space_complexity": "O(k)",
+  "related_concepts": [
+    "concept_heaps"
+  ],
+  "related_mistakes": [],
+  "code": "import heapq\ndef solution(nums, k):\n    h = []\n    for n in nums:\n        heapq.heappush(h, n)\n        if len(h) > k:\n            heapq.heappop(h)\n    return h[0]"
+}

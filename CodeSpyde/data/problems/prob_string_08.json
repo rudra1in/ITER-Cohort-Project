@@ -1,0 +1,39 @@
+{
+  "id": "prob_string_08",
+  "title": "Group Anagrams",
+  "document_type": "problem",
+  "topic": "Strings",
+  "subtopic": "Anagram Grouping",
+  "pattern": "Hash Map Lookup",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an array of strings strs, group the anagrams together. You can return the answer in any order.",
+  "constraints": "1 <= strs.length <= 10^4\n0 <= strs[i].length <= 100",
+  "examples": [
+    {
+      "input": "strs = ['eat','tea','tan','ate','nat','bat']",
+      "output": "[['bat'],['nat','tan'],['ate','eat','tea']]"
+    }
+  ],
+  "expected_input": "strs: list[str]",
+  "expected_output": "list[list[str]]",
+  "edge_cases": [
+    "Empty strings",
+    "Single character lists"
+  ],
+  "hints": [
+    "Use sorted string representations as dictionary keys."
+  ],
+  "expected_approach": "Sort each string and use it as a key in a hash map to collect groups.",
+  "time_complexity": "O(n * k log k) where k is max string length",
+  "space_complexity": "O(n * k)",
+  "related_concepts": [
+    "concept_strings",
+    "concept_hash_tables",
+    "concept_sorting"
+  ],
+  "related_mistakes": [
+    "mistake_key_checking"
+  ],
+  "code": "def solution(strs):\n    groups = {}\n    for s in strs:\n        key = ''.join(sorted(s))\n        if key not in groups:\n            groups[key] = []\n        groups[key].append(s)\n    return list(groups.values())"
+}

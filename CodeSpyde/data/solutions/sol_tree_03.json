@@ -1,0 +1,20 @@
+{
+  "id": "sol_tree_03",
+  "problem_id": "prob_tree_03",
+  "document_type": "solution",
+  "title": "Same Tree Verification - Solution",
+  "approach": "Simultaneous preorder recursive comparison.",
+  "intuition": "Given the roots of two binary trees p and q, write a function to check if they are the same or not.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Simultaneous preorder recursive comparison.",
+  "code": "def solution(p, q):\n    if not p and not q:\n        return True\n    if not p or not q:\n        return False\n    if p.val != q.val:\n        return False\n    return solution(p.left, q.left) and solution(p.right, q.right)",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Check if both are null (True), if one is null (False), or if values differ (False). Recurse."
+  ]
+}

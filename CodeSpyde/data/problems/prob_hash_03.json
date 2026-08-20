@@ -1,0 +1,35 @@
+{
+  "id": "prob_hash_03",
+  "title": "Intersection of Two Arrays",
+  "document_type": "problem",
+  "topic": "Hash Tables",
+  "subtopic": "Set Intersection",
+  "pattern": "Hash Map Lookup",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique.",
+  "constraints": "1 <= nums1.length, nums2.length <= 1000",
+  "examples": [
+    {
+      "input": "nums1 = [1, 2, 2, 1], nums2 = [2, 2]",
+      "output": "[2]"
+    }
+  ],
+  "expected_input": "nums1: list[int], nums2: list[int]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "No intersection",
+    "One empty array"
+  ],
+  "hints": [
+    "Convert both arrays to sets and find intersection."
+  ],
+  "expected_approach": "Set intersection lookup.",
+  "time_complexity": "O(n + m)",
+  "space_complexity": "O(n + m)",
+  "related_concepts": [
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(nums1, nums2):\n    return list(set(nums1) & set(nums2))"
+}

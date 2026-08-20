@@ -1,0 +1,37 @@
+{
+  "id": "prob_dp_02",
+  "title": "Coin Change Minimum Count",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "Knapsack",
+  "pattern": "Unbounded Knapsack",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Return the fewest number of coins that you need to make up that amount. If amount cannot be made up, return -1.",
+  "constraints": "0 <= amount <= 10^4",
+  "examples": [
+    {
+      "input": "coins = [1, 2, 5], amount = 11",
+      "output": "3"
+    }
+  ],
+  "expected_input": "coins: list[int], amount: int",
+  "expected_output": "int",
+  "edge_cases": [
+    "amount is 0",
+    "No combination of coins matches amount"
+  ],
+  "hints": [
+    "Use bottom-up DP. State dp[i] holds min coins for amount i. Transition: dp[i] = min(dp[i], dp[i-coin] + 1) for each coin."
+  ],
+  "expected_approach": "Bottom-up 1D DP.",
+  "time_complexity": "O(n * amount)",
+  "space_complexity": "O(amount)",
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "related_mistakes": [
+    "mistake_dp_init"
+  ],
+  "code": "def solution(coins, amount):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n    for c in coins:\n        for a in range(c, amount + 1):\n            dp[a] = min(dp[a], dp[a - c] + 1)\n    return dp[amount] if dp[amount] != float('inf') else -1"
+}

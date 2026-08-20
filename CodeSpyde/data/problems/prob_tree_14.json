@@ -1,0 +1,35 @@
+{
+  "id": "prob_tree_14",
+  "title": "BST Iterator Design",
+  "document_type": "problem",
+  "topic": "Binary Search Trees",
+  "subtopic": "Design",
+  "pattern": "Tree DFS",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node. next() returns the next smallest number.",
+  "constraints": "Number of nodes up to 10^5.",
+  "examples": [
+    {
+      "input": "BSTIterator calls",
+      "output": "Sorted sequence values"
+    }
+  ],
+  "expected_input": "operations: list[str]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Heavy left children skewed tree"
+  ],
+  "hints": [
+    "Use a stack to store left descendants of current nodes to replicate in-order traversal iteratively."
+  ],
+  "expected_approach": "Stack-based lazy in-order evaluation.",
+  "time_complexity": "O(1) average per operation",
+  "space_complexity": "O(h)",
+  "related_concepts": [
+    "concept_bst",
+    "concept_stacks"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(operations):\n    # Simulate BSTIterator on a mock BST\n    class BSTIterator:\n        def __init__(self, root):\n            self.stack = []\n            self._push_left(root)\n        def _push_left(self, node):\n            while node:\n                self.stack.append(node)\n                node = node.left\n        def next(self):\n            node = self.stack.pop()\n            self._push_left(node.right)\n            return node.val\n        def hasNext(self):\n            return len(self.stack) > 0\n    # Operations parse stub simulation\n    return []"
+}

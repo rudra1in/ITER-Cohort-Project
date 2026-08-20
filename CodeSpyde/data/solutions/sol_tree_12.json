@@ -1,0 +1,20 @@
+{
+  "id": "sol_tree_12",
+  "problem_id": "prob_tree_12",
+  "document_type": "solution",
+  "title": "Construct Tree from Preorder and Inorder - Solution",
+  "approach": "Recursive divider-and-conquer partition matching.",
+  "intuition": "Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Recursive divider-and-conquer partition matching.",
+  "code": "def solution(preorder, inorder):\n    class TreeNode:\n        def __init__(self, val=0, left=None, right=None):\n            self.val = val\n            self.left = left\n            self.right = right\n    in_map = {val: idx for idx, val in enumerate(inorder)}\n    pre_idx = 0\n    def build(low, high):\n        nonlocal pre_idx\n        if low > high:\n            return None\n        root_val = preorder[pre_idx]\n        pre_idx += 1\n        root = TreeNode(root_val)\n        mid = in_map[root_val]\n        root.left = build(low, mid - 1)\n        root.right = build(mid + 1, high)\n        return root\n    return build(0, len(inorder) - 1)",
+  "time_complexity": "O(n) with hash map mapping",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "First element in preorder is always root. Find root in inorder to split left/right subtrees."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_linkedlist_08",
+  "problem_id": "prob_linkedlist_08",
+  "document_type": "solution",
+  "title": "Remove Linked List Elements - Solution",
+  "approach": "Dummy node + single pointer traversal.",
+  "intuition": "Remove all elements from a linked list of integers that have value val.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Dummy node + single pointer traversal.",
+  "code": "def solution(head, val):\n    class ListNode:\n        def __init__(self, val=0, next=None):\n            self.val = val\n            self.next = next\n    dummy = ListNode(0)\n    dummy.next = head\n    curr = dummy\n    while curr.next:\n        if curr.next.val == val:\n            curr.next = curr.next.next\n        else:\n            curr = curr.next\n    return dummy.next",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a dummy node before the head to handle deletions of head node easily."
+  ]
+}

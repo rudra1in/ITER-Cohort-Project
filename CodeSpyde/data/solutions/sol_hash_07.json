@@ -1,0 +1,21 @@
+{
+  "id": "sol_hash_07",
+  "problem_id": "prob_hash_07",
+  "document_type": "solution",
+  "title": "Longest Consecutive Sequence - Solution",
+  "approach": "Set membership check to build contiguous sequences.",
+  "intuition": "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Set membership check to build contiguous sequences.",
+  "code": "def solution(nums):\n    num_set = set(nums)\n    longest = 0\n    for n in num_set:\n        if n - 1 not in num_set:\n            curr = n\n            streak = 1\n            while curr + 1 in num_set:\n                curr += 1\n                streak += 1\n            longest = max(longest, streak)\n    return longest",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Place elements in a set.",
+    "Only start building sequence from a number if its predecessor is not in the set."
+  ]
+}

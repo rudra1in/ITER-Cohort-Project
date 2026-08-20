@@ -1,0 +1,38 @@
+{
+  "id": "prob_tree_01",
+  "title": "Invert Binary Tree",
+  "document_type": "problem",
+  "topic": "Binary Trees",
+  "subtopic": "Tree Manipulation",
+  "pattern": "Tree DFS",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given the root of a binary tree, invert the tree, and return its root.",
+  "constraints": "The number of nodes in the tree is in the range [0, 100].",
+  "examples": [
+    {
+      "input": "root = [4, 2, 7]",
+      "output": "[4, 7, 2]"
+    }
+  ],
+  "expected_input": "root: Optional[TreeNode]",
+  "expected_output": "Optional[TreeNode]",
+  "edge_cases": [
+    "Empty tree",
+    "Single node tree"
+  ],
+  "hints": [
+    "Invert left and right subtrees recursively."
+  ],
+  "expected_approach": "Recursive depth-first traversal.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_recursion"
+  ],
+  "related_mistakes": [
+    "mistake_root_check"
+  ],
+  "code": "def solution(root):\n    if not root:\n        return None\n    root.left, root.right = solution(root.right), solution(root.left)\n    return root"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "prob_linkedlist_09",
+  "title": "Add Two Numbers",
+  "document_type": "problem",
+  "topic": "Linked Lists",
+  "subtopic": "List Math",
+  "pattern": "Two Pointers",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order. Add the two numbers and return the sum as a linked list.",
+  "constraints": "The number of nodes in each linked list is in the range [1, 100].\n0 <= Node.val <= 9",
+  "examples": [
+    {
+      "input": "l1 = [2, 4, 3], l2 = [5, 6, 4]",
+      "output": "[7, 0, 8]"
+    }
+  ],
+  "expected_input": "l1: Optional[ListNode], l2: Optional[ListNode]",
+  "expected_output": "Optional[ListNode]",
+  "edge_cases": [
+    "One list is longer than the other",
+    "Carry digit at the very end"
+  ],
+  "hints": [
+    "Iterate through both lists. Keep track of the carry value."
+  ],
+  "expected_approach": "Iterative element addition with carry tracking.",
+  "time_complexity": "O(max(n, m))",
+  "space_complexity": "O(max(n, m))",
+  "related_concepts": [
+    "concept_linked_lists"
+  ],
+  "related_mistakes": [
+    "mistake_dummy_node"
+  ],
+  "code": "def solution(l1, l2):\n    class ListNode:\n        def __init__(self, val=0, next=None):\n            self.val = val\n            self.next = next\n    dummy = ListNode(0)\n    curr = dummy\n    carry = 0\n    while l1 or l2 or carry:\n        v1 = l1.val if l1 else 0\n        v2 = l2.val if l2 else 0\n        val = v1 + v2 + carry\n        carry = val // 10\n        curr.next = ListNode(val % 10)\n        curr = curr.next\n        if l1: l1 = l1.next\n        if l2: l2 = l2.next\n    return dummy.next"
+}

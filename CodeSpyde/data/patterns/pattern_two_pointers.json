@@ -1,0 +1,36 @@
+{
+  "id": "pattern_two_pointers",
+  "title": "Two Pointers",
+  "document_type": "pattern",
+  "topic": "Arrays",
+  "pattern": "Two Pointers",
+  "intuition": "Use two index markers to scan array from different directions or speeds to find pairs or scan sequences in O(n).",
+  "recognition_signals": [
+    "Sorted array input",
+    "Finding pairs satisfying a target",
+    "Reversing arrays",
+    "Two sorted sequences to merge"
+  ],
+  "step_by_step_strategy": [
+    "Initialize left at 0, right at len - 1.",
+    "Compare elements or sum at pointers.",
+    "Adjust pointers toward each other based on conditions.",
+    "Terminate when pointers meet or cross."
+  ],
+  "common_mistakes": [
+    "Index out of bounds",
+    "Incorrect update conditions causing infinite loop",
+    "Applying on unsorted data without sorting first"
+  ],
+  "complexity": "Time: O(n), Space: O(1)",
+  "example_problem_types": [
+    "Pair sum",
+    "Container with most water",
+    "Reverse array"
+  ],
+  "related_concepts": [
+    "concept_arrays",
+    "concept_sorting"
+  ],
+  "content": "Use two index markers to scan array from different directions or speeds to find pairs or scan sequences in O(n)."
+}

@@ -1,0 +1,34 @@
+{
+  "id": "prob_stackqueue_02",
+  "title": "Min Stack",
+  "document_type": "problem",
+  "topic": "Stacks",
+  "subtopic": "Design",
+  "pattern": "Stack-based Traversal",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. Return min value from a series of operations.",
+  "constraints": "Methods called are valid and numbers are integers.",
+  "examples": [
+    {
+      "input": "MinStack operations",
+      "output": "min element"
+    }
+  ],
+  "expected_input": "operations: list[str]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Minimum element popped"
+  ],
+  "hints": [
+    "Use an auxiliary stack to keep track of the minimum value at each push state."
+  ],
+  "expected_approach": "Synchronized dual-stack tracking.",
+  "time_complexity": "O(1) per operation",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_stacks"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(operations):\n    stack = []\n    min_stack = []\n    res = []\n    for op in operations:\n        cmd = op[0]\n        if cmd == 'push':\n            val = op[1]\n            stack.append(val)\n            if not min_stack or val <= min_stack[-1]:\n                min_stack.append(val)\n        elif cmd == 'pop':\n            if stack:\n                val = stack.pop()\n                if val == min_stack[-1]:\n                    min_stack.pop()\n        elif cmd == 'getMin':\n            res.append(min_stack[-1] if min_stack else None)\n    return res"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_heap_04",
+  "problem_id": "prob_heap_04",
+  "document_type": "solution",
+  "title": "Find Median from Data Stream - Solution",
+  "approach": "Balanced min-max heap dual tracking.",
+  "intuition": "Design a data structure that supports finding median from a dynamic data stream.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Balanced min-max heap dual tracking.",
+  "code": "import heapq\ndef solution(operations):\n    # Simulate MedianFinder\n    # left (max_heap, negative values) and right (min_heap)\n    left, right = [], []\n    res = []\n    for op in operations:\n        cmd = op[0]\n        if cmd == 'add':\n            val = op[1]\n            heapq.heappush(left, -val)\n            # balance\n            heapq.heappush(right, -heapq.heappop(left))\n            if len(right) > len(left):\n                heapq.heappush(left, -heapq.heappop(right))\n        elif cmd == 'findMedian':\n            if len(left) > len(right):\n                res.append(-left[0])\n            else:\n                res.append((-left[0] + right[0]) / 2.0)\n    return res",
+  "time_complexity": "O(log n) to insert, O(1) to find median",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use two heaps: a max-heap for lower half numbers, and a min-heap for upper half numbers."
+  ]
+}

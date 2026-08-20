@@ -1,0 +1,38 @@
+{
+  "id": "prob_backtrack_01",
+  "title": "Subsets Generation",
+  "document_type": "problem",
+  "topic": "Backtracking",
+  "subtopic": "Permutations/Subsets",
+  "pattern": "Backtracking",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an integer array nums of unique elements, return all possible subsets (the power set).",
+  "constraints": "1 <= nums.length <= 10",
+  "examples": [
+    {
+      "input": "nums = [1, 2]",
+      "output": "[[], [1], [2], [1, 2]]"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "list[list[int]]",
+  "edge_cases": [
+    "Empty list",
+    "Single element list"
+  ],
+  "hints": [
+    "Use backtracking. At each index, decide whether to include the element in the subset or not."
+  ],
+  "expected_approach": "Decision tree backtracking traversal.",
+  "time_complexity": "O(2^n * n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_backtracking",
+    "concept_recursion"
+  ],
+  "related_mistakes": [
+    "mistake_bt_revert"
+  ],
+  "code": "def solution(nums):\n    res = []\n    def backtrack(idx, path):\n        res.append(list(path))\n        for i in range(idx, len(nums)):\n            path.append(nums[i])\n            backtrack(i + 1, path)\n            path.pop()\n    backtrack(0, [])\n    return res"
+}

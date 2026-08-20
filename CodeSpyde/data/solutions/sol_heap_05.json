@@ -1,0 +1,20 @@
+{
+  "id": "sol_heap_05",
+  "problem_id": "prob_heap_05",
+  "document_type": "solution",
+  "title": "K Closest Points to Origin - Solution",
+  "approach": "Max-heap distance sorting filter.",
+  "intuition": "Given an array of points where points[i] = [x, y] represents a point on the X-Y plane and an integer k, return the k closest points to the origin.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Max-heap distance sorting filter.",
+  "code": "import heapq\ndef solution(points, k):\n    h = []\n    for x, y in points:\n        dist = -(x**2 + y**2)\n        heapq.heappush(h, (dist, [x, y]))\n        if len(h) > k:\n            heapq.heappop(h)\n    return [item[1] for item in h]",
+  "time_complexity": "O(n log k)",
+  "space_complexity": "O(k)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a max-heap of size k storing pairs of (distance, point) to keep tracking k closest."
+  ]
+}

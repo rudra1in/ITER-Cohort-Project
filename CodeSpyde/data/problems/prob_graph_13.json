@@ -1,0 +1,34 @@
+{
+  "id": "prob_graph_13",
+  "title": "Min Cost to Connect All Points",
+  "document_type": "problem",
+  "topic": "Graphs",
+  "subtopic": "MST",
+  "pattern": "Union Find",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Find the minimum cost to connect all points. Cost is Manhattan distance.",
+  "constraints": "points.length <= 1000",
+  "examples": [
+    {
+      "input": "points = [[0,0],[2,2],[3,10]]",
+      "output": "18"
+    }
+  ],
+  "expected_input": "points: list[list[int]]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Points already connected cost 0"
+  ],
+  "hints": [
+    "Treat points as nodes. Edges are Manhattan distances. Find MST using Prim's or Kruskal's algorithm."
+  ],
+  "expected_approach": "Prim's minimum spanning tree using min-heap.",
+  "time_complexity": "O(n^2 log n) or O(n^2)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_union_find"
+  ],
+  "related_mistakes": [],
+  "code": "import heapq\ndef solution(points):\n    n = len(points)\n    visited = [False] * n\n    h = [(0, 0)]\n    cost = 0\n    num_visited = 0\n    while h and num_visited < n:\n        w, u = heapq.heappop(h)\n        if visited[u]: continue\n        visited[u] = True\n        cost += w\n        num_visited += 1\n        for v in range(n):\n            if not visited[v]:\n                dist = abs(points[u][0] - points[v][0]) + abs(points[u][1] - points[v][1])\n                heapq.heappush(h, (dist, v))\n    return cost"
+}

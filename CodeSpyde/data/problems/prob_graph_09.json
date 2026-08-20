@@ -1,0 +1,35 @@
+{
+  "id": "prob_graph_09",
+  "title": "Cheapest Flights Within K Stops",
+  "document_type": "problem",
+  "topic": "Graphs",
+  "subtopic": "Shortest Path",
+  "pattern": "Dynamic Programming",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Find cheapest price from src to dst with at most k stops.",
+  "constraints": "n <= 100",
+  "examples": [
+    {
+      "input": "n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1",
+      "output": "200"
+    }
+  ],
+  "expected_input": "n: int, flights: list[list[int]], src: int, dst: int, k: int",
+  "expected_output": "int",
+  "edge_cases": [
+    "No route exists",
+    "0 stops constraints"
+  ],
+  "hints": [
+    "Use Bellman-Ford algorithm with K+1 relaxation limit iterations."
+  ],
+  "expected_approach": "Iterative state distance updates.",
+  "time_complexity": "O(k * E)",
+  "space_complexity": "O(V)",
+  "related_concepts": [
+    "concept_graphs"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(n, flights, src, dst, k):\n    prices = [float('inf')] * n\n    prices[src] = 0\n    for _ in range(k + 1):\n        temp = list(prices)\n        for u, v, w in flights:\n            if prices[u] != float('inf') and prices[u] + w < temp[v]:\n                temp[v] = prices[u] + w\n        prices = temp\n    return prices[dst] if prices[dst] != float('inf') else -1"
+}

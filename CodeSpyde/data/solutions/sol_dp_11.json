@@ -1,0 +1,20 @@
+{
+  "id": "sol_dp_11",
+  "problem_id": "prob_dp_11",
+  "document_type": "solution",
+  "title": "Maximal Square Area - Solution",
+  "approach": "2D Grid DP tabulation.",
+  "intuition": "Given an m x n binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "2D Grid DP tabulation.",
+  "code": "def solution(matrix):\n    if not matrix: return 0\n    m, n = len(matrix), len(matrix[0])\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    max_side = 0\n    for r in range(1, m + 1):\n        for c in range(1, n + 1):\n            if matrix[r-1][c-1] == '1':\n                dp[r][c] = min(dp[r-1][c], dp[r][c-1], dp[r-1][c-1]) + 1\n                max_side = max(max_side, dp[r][c])\n    return max_side ** 2",
+  "time_complexity": "O(m * n)",
+  "space_complexity": "O(m * n) or O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "State dp[i][j] holds max square side length ending at cell. Transition: if cell is 1, min(top, left, top-left) + 1."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "sol_heap_06",
+  "problem_id": "prob_heap_06",
+  "document_type": "solution",
+  "title": "Last Stone Weight - Solution",
+  "approach": "Max-heap simulation.",
+  "intuition": "Simulate smashing the two heaviest stones iteratively. Return weight of last stone or 0 if none remain.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Max-heap simulation.",
+  "code": "import heapq\ndef solution(stones):\n    h = [-s for s in stones]\n    heapq.heapify(h)\n    while len(h) > 1:\n        s1 = -heapq.heappop(h)\n        s2 = -heapq.heappop(h)\n        if s1 != s2:\n            heapq.heappush(h, -(s1 - s2))\n    return -h[0] if h else 0",
+  "time_complexity": "O(n log n)",
+  "space_complexity": "O(n) or O(1) in-place",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Convert stones list into a max-heap by negating values.",
+    "Repeatedly pop two stones, smash them, and push remainder if > 0."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "sol_array_15",
+  "problem_id": "prob_array_15",
+  "document_type": "solution",
+  "title": "First Missing Positive - Solution",
+  "approach": "Place each valid positive integer at its correct matching index.",
+  "intuition": "Given an unsorted integer array nums, return the smallest missing positive integer.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Place each valid positive integer at its correct matching index.",
+  "code": "def solution(nums):\n    n = len(nums)\n    for i in range(n):\n        while 1 <= nums[i] <= n and nums[nums[i] - 1] != nums[i]:\n            correct_idx = nums[i] - 1\n            nums[i], nums[correct_idx] = nums[correct_idx], nums[i]\n    for i in range(n):\n        if nums[i] != i + 1:\n            return i + 1\n    return n + 1",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Try to put each number x at index x - 1.",
+    "Use cyclic sort method."
+  ]
+}

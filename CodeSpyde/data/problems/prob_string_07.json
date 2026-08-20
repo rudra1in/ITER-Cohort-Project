@@ -1,0 +1,37 @@
+{
+  "id": "prob_string_07",
+  "title": "Implement strStr()",
+  "document_type": "problem",
+  "topic": "Strings",
+  "subtopic": "Pattern Matching",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.",
+  "constraints": "1 <= haystack.length, needle.length <= 10^4",
+  "examples": [
+    {
+      "input": "haystack = 'sadbutsad', needle = 'sad'",
+      "output": "0"
+    }
+  ],
+  "expected_input": "haystack: str, needle: str",
+  "expected_output": "int",
+  "edge_cases": [
+    "needle is longer than haystack",
+    "needle not present"
+  ],
+  "hints": [
+    "Compare substring of length equal to needle at each index of haystack."
+  ],
+  "expected_approach": "Iterative window comparison.",
+  "time_complexity": "O(n * m)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_strings"
+  ],
+  "related_mistakes": [
+    "mistake_index_oob"
+  ],
+  "code": "def solution(haystack, needle):\n    h, n = len(haystack), len(needle)\n    for i in range(h - n + 1):\n        if haystack[i:i+n] == needle:\n            return i\n    return -1"
+}

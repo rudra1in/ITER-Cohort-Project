@@ -1,0 +1,37 @@
+{
+  "id": "prob_array_08",
+  "title": "Majority Element",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Counting Elements",
+  "pattern": "Greedy",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given an array nums of size n, return the majority element which appears more than n // 2 times.",
+  "constraints": "1 <= nums.length <= 5 * 10^4",
+  "examples": [
+    {
+      "input": "nums = [3, 2, 3]",
+      "output": "3"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Array of size 1",
+    "Multiple elements but only one dominates"
+  ],
+  "hints": [
+    "Boyer-Moore Voting Algorithm: maintain a candidate and a counter."
+  ],
+  "expected_approach": "Boyer-Moore Voting Algorithm.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_arrays"
+  ],
+  "related_mistakes": [
+    "mistake_majority_init"
+  ],
+  "code": "def solution(nums):\n    candidate = None\n    count = 0\n    for num in nums:\n        if count == 0:\n            candidate = num\n        count += 1 if num == candidate else -1\n    return candidate"
+}

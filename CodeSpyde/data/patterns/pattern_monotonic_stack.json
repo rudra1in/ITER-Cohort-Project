@@ -1,0 +1,32 @@
+{
+  "id": "pattern_monotonic_stack",
+  "title": "Monotonic Stack",
+  "document_type": "pattern",
+  "topic": "Stacks",
+  "pattern": "Monotonic Stack",
+  "intuition": "Maintain a stack of elements in strictly increasing or decreasing order to solve next-greater element problems in linear time.",
+  "recognition_signals": [
+    "Finding next greater or next smaller element",
+    "Nearest element boundaries"
+  ],
+  "step_by_step_strategy": [
+    "Iterate through array.",
+    "While stack is not empty and current element violates monotonicity, pop from stack.",
+    "Record relationship for popped elements.",
+    "Push current index/element onto stack."
+  ],
+  "common_mistakes": [
+    "Popping indices instead of values by accident",
+    "Checking stack empty condition before pop"
+  ],
+  "complexity": "Time: O(n), Space: O(n)",
+  "example_problem_types": [
+    "Next greater element",
+    "Daily temperatures",
+    "Largest rectangle in histogram"
+  ],
+  "related_concepts": [
+    "concept_stacks"
+  ],
+  "content": "Maintain a stack of elements in strictly increasing or decreasing order to solve next-greater element problems in linear time."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_linkedlist_02",
+  "problem_id": "prob_linkedlist_02",
+  "document_type": "solution",
+  "title": "Find Middle of Linked List - Solution",
+  "approach": "Two-pointers fast/slow scan.",
+  "intuition": "Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Two-pointers fast/slow scan.",
+  "code": "def solution(head):\n    slow = head\n    fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n    return slow",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Fast pointer moves twice as fast as slow pointer."
+  ]
+}

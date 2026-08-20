@@ -1,0 +1,20 @@
+{
+  "id": "sol_greedy_04",
+  "problem_id": "prob_greedy_04",
+  "document_type": "solution",
+  "title": "Minimum Number of Arrows to Burst Balloons - Solution",
+  "approach": "Sort + greedy end arrow tracker.",
+  "intuition": "Find minimum arrows needed to burst all balloons aligned in intervals.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Sort + greedy end arrow tracker.",
+  "code": "def solution(points):\n    if not points: return 0\n    points.sort(key=lambda x: x[1])\n    arrows = 1\n    end = points[0][1]\n    for s, e in points[1:]:\n        if s > end:\n            arrows += 1\n            end = e\n    return arrows",
+  "time_complexity": "O(n log n)",
+  "space_complexity": "O(1) or O(n) for sorting",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Sort intervals by their end coordinates. Shoot arrows at the end coordinates of balloons greedily."
+  ]
+}

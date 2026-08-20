@@ -1,0 +1,20 @@
+{
+  "id": "sol_searchsort_07",
+  "problem_id": "prob_searchsort_07",
+  "document_type": "solution",
+  "title": "Top K Elements Priority Sorting - Solution",
+  "approach": "Frequency counting + sorting.",
+  "intuition": "Sort character frequencies descending. Return sorted string.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Frequency counting + sorting.",
+  "code": "def solution(s):\n    count = {}\n    for c in s:\n        count[c] = count.get(c, 0) + 1\n    sorted_chars = sorted(count.keys(), key=lambda x: -count[x])\n    return ''.join(c * count[c] for c in sorted_chars)",
+  "time_complexity": "O(n log k) where k is unique characters",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Count character frequencies. Sort unique characters by frequency descending. Reconstruct string."
+  ]
+}

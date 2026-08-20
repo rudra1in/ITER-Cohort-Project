@@ -1,0 +1,36 @@
+{
+  "id": "prob_heap_02",
+  "title": "Top K Frequent Elements",
+  "document_type": "problem",
+  "topic": "Heaps",
+  "subtopic": "Top K",
+  "pattern": "Heap / Top K",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.",
+  "constraints": "1 <= nums.length <= 10^5",
+  "examples": [
+    {
+      "input": "nums = [1, 1, 1, 2, 2, 3], k = 2",
+      "output": "[1, 2]"
+    }
+  ],
+  "expected_input": "nums: list[int], k: int",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "k is equal to unique element counts",
+    "Single element array"
+  ],
+  "hints": [
+    "Count element frequencies first. Push pairs of (freq, element) to min-heap of size k."
+  ],
+  "expected_approach": "Frequency map + min-heap size K filter.",
+  "time_complexity": "O(n log k)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_heaps",
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [],
+  "code": "import heapq\ndef solution(nums, k):\n    count = {}\n    for n in nums:\n        count[n] = count.get(n, 0) + 1\n    h = []\n    for n, f in count.items():\n        heapq.heappush(h, (f, n))\n        if len(h) > k:\n            heapq.heappop(h)\n    return [item[1] for item in h]"
+}

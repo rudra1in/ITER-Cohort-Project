@@ -1,0 +1,34 @@
+{
+  "id": "prob_graph_14",
+  "title": "Reconstruct Itinerary",
+  "document_type": "problem",
+  "topic": "Graphs",
+  "subtopic": "Eulerian Path",
+  "pattern": "DFS",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Reconstruct the itinerary in order. Flight must start from JFK.",
+  "constraints": "tickets.length <= 300",
+  "examples": [
+    {
+      "input": "tickets = [['MUC','LHR'],['JFK','MUC']]",
+      "output": "['JFK','MUC','LHR']"
+    }
+  ],
+  "expected_input": "tickets: list[list[str]]",
+  "expected_output": "list[str]",
+  "edge_cases": [
+    "Multiple valid itineraries (choose lexical smallest)"
+  ],
+  "hints": [
+    "Use Hierholzer's algorithm for Eulerian Path. Sort destinations lexically."
+  ],
+  "expected_approach": "Eulerian DFS post-order accumulation.",
+  "time_complexity": "O(E log (E/V))",
+  "space_complexity": "O(V + E)",
+  "related_concepts": [
+    "concept_graphs"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(tickets):\n    adj = {}\n    for u, v in tickets:\n        if u not in adj: adj[u] = []\n        adj[u].append(v)\n    for u in adj:\n        adj[u].sort(reverse=True)\n    route = []\n    def dfs(airport):\n        while adj.get(airport):\n            next_dest = adj[airport].pop()\n            dfs(next_dest)\n        route.append(airport)\n    dfs('JFK')\n    return route[::-1]"
+}

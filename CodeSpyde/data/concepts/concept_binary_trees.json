@@ -1,0 +1,26 @@
+{
+  "id": "concept_binary_trees",
+  "title": "Binary Trees",
+  "document_type": "concept",
+  "topic": "Binary Trees",
+  "subtopic": "Restricted Trees",
+  "definition": "A binary tree is a tree structure where each node has at most two children: left and right.",
+  "intuition": "Enables divide-and-conquer processing pathways.",
+  "how_it_works": "Recursive definition: a binary tree is empty, or has a root node pointing to left/right binary subtrees.",
+  "when_to_use": "For expressions, search optimization, or hierarchical binary splits.",
+  "when_not_to_use": "When nodes require more than two branches.",
+  "common_mistakes": [
+    "Treating generic binary trees as BSTs",
+    "Null checks missed on child pointers"
+  ],
+  "complexity": "Traversal (In/Pre/Post-order): O(n)",
+  "examples": [
+    "Expression trees",
+    "Decision trees"
+  ],
+  "related_patterns": [
+    "Tree DFS",
+    "Tree BFS"
+  ],
+  "content": "A binary tree is a tree structure where each node has at most two children: left and right."
+}

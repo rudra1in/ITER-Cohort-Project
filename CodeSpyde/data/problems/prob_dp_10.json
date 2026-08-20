@@ -1,0 +1,36 @@
+{
+  "id": "prob_dp_10",
+  "title": "Word Break Combination Check",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "String Segments",
+  "pattern": "Dynamic Programming",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.",
+  "constraints": "s length up to 300.",
+  "examples": [
+    {
+      "input": "s = 'leetcode', wordDict = ['leet', 'code']",
+      "output": "true"
+    }
+  ],
+  "expected_input": "s: str, wordDict: list[str]",
+  "expected_output": "bool",
+  "edge_cases": [
+    "String cannot be broken",
+    "Multiple matching words overlaps"
+  ],
+  "hints": [
+    "State dp[i] denotes if substring s[:i] can be segmented. Transition: check all prefix slices dp[j] and s[j:i] in dict."
+  ],
+  "expected_approach": "Bottom-up 1D Boolean DP.",
+  "time_complexity": "O(n^2)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_dp",
+    "concept_strings"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(s, wordDict):\n    words = set(wordDict)\n    dp = [False] * (len(s) + 1)\n    dp[0] = True\n    for i in range(1, len(s) + 1):\n        for j in range(i):\n            if dp[j] and s[j:i] in words:\n                dp[i] = True\n                break\n    return dp[len(s)]"
+}

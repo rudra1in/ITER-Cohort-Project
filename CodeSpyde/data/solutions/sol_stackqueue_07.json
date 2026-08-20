@@ -1,0 +1,20 @@
+{
+  "id": "sol_stackqueue_07",
+  "problem_id": "prob_stackqueue_07",
+  "document_type": "solution",
+  "title": "Sliding Window Maximum - Solution",
+  "approach": "Monotonic deque scanning.",
+  "intuition": "Given an integer array nums and a sliding window size k, return the max element in each sliding window position.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Monotonic deque scanning.",
+  "code": "from collections import deque\ndef solution(nums, k):\n    d = deque()\n    res = []\n    for i, n in enumerate(nums):\n        if d and d[0] < i - k + 1:\n            d.popleft()\n        while d and nums[d[-1]] < n:\n            d.pop()\n        d.append(i)\n        if i >= k - 1:\n            res.append(nums[d[0]])\n    return res",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(k)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Maintain indices of maximum values in a double-ended queue (deque) sorted descendingly by value."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "concept_stacks",
+  "title": "Stacks",
+  "document_type": "concept",
+  "topic": "Stacks",
+  "subtopic": "Restricted Linear structures",
+  "definition": "A stack is a Last-In-First-Out (LIFO) linear data structure.",
+  "intuition": "Like a stack of plates: the last one placed is the first one removed.",
+  "how_it_works": "Operations are restricted to one end: push adds, pop removes, peek views.",
+  "when_to_use": "For backtrack tracking, matching brackets, evaluation, and depth-first search.",
+  "when_not_to_use": "When random access or FIFO behavior is required.",
+  "common_mistakes": [
+    "Stack overflow (infinite recursion)",
+    "Popping from an empty stack"
+  ],
+  "complexity": "Push/Pop/Peek: O(1), Search: O(n)",
+  "examples": [
+    "Browser history",
+    "Undo mechanism"
+  ],
+  "related_patterns": [
+    "Monotonic Stack",
+    "Stack-based Traversal"
+  ],
+  "content": "A stack is a Last-In-First-Out (LIFO) linear data structure."
+}

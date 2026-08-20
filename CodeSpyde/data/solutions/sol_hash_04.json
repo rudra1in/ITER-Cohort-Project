@@ -1,0 +1,20 @@
+{
+  "id": "sol_hash_04",
+  "problem_id": "prob_hash_04",
+  "document_type": "solution",
+  "title": "Happy Number - Solution",
+  "approach": "Trace digital squares sum; exit with False if sum repeats.",
+  "intuition": "Determine if a number n is happy. A happy number is defined by a process of replacing the number by the sum of squares of its digits repeatedly until it reaches 1.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Trace digital squares sum; exit with False if sum repeats.",
+  "code": "def solution(n):\n    seen = set()\n    while n != 1 and n not in seen:\n        seen.add(n)\n        n = sum(int(digit) ** 2 for digit in str(n))\n    return n == 1",
+  "time_complexity": "O(log n)",
+  "space_complexity": "O(log n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a set to track numbers we have already seen to detect cycles."
+  ]
+}

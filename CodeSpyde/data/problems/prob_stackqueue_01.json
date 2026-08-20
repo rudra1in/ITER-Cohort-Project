@@ -1,0 +1,37 @@
+{
+  "id": "prob_stackqueue_01",
+  "title": "Valid Parentheses",
+  "document_type": "problem",
+  "topic": "Stacks",
+  "subtopic": "Parsing",
+  "pattern": "Monotonic Stack",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+  "constraints": "1 <= s.length <= 10^4",
+  "examples": [
+    {
+      "input": "s = '()[]{}'",
+      "output": "true"
+    }
+  ],
+  "expected_input": "s: str",
+  "expected_output": "bool",
+  "edge_cases": [
+    "String with only opening brackets",
+    "Brackets close in wrong order"
+  ],
+  "hints": [
+    "Use a stack. Push opening brackets. Pop on closing brackets to verify matching pair."
+  ],
+  "expected_approach": "Stack mapping verification.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_stacks"
+  ],
+  "related_mistakes": [
+    "mistake_stack_underflow"
+  ],
+  "code": "def solution(s):\n    stack = []\n    mapping = {')': '(', '}': '{', ']': '['}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack"
+}

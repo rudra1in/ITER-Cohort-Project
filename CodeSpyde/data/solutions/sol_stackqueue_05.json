@@ -1,0 +1,20 @@
+{
+  "id": "sol_stackqueue_05",
+  "problem_id": "prob_stackqueue_05",
+  "document_type": "solution",
+  "title": "Generate Parentheses - Solution",
+  "approach": "DFS backtracking path building.",
+  "intuition": "Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "DFS backtracking path building.",
+  "code": "def solution(n):\n    res = []\n    def backtrack(curr, open_c, close_c):\n        if len(curr) == 2 * n:\n            res.append(curr)\n            return\n        if open_c < n:\n            backtrack(curr + '(', open_c + 1, close_c)\n        if close_c < open_c:\n            backtrack(curr + ')', open_c, close_c + 1)\n    backtrack('', 0, 0)\n    return res",
+  "time_complexity": "O(4^n / sqrt(n)) Catalan number",
+  "space_complexity": "O(n) recursion stack",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Backtrack with count of left and right parentheses placed so far."
+  ]
+}

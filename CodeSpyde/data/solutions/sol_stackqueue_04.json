@@ -1,0 +1,20 @@
+{
+  "id": "sol_stackqueue_04",
+  "problem_id": "prob_stackqueue_04",
+  "document_type": "solution",
+  "title": "Evaluate Reverse Polish Notation - Solution",
+  "approach": "Post-order token stack evaluation.",
+  "intuition": "Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, and /.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Post-order token stack evaluation.",
+  "code": "def solution(tokens):\n    stack = []\n    for t in tokens:\n        if t in {'+', '-', '*', '/'}:\n            b = stack.pop()\n            a = stack.pop()\n            if t == '+': stack.append(a + b)\n            elif t == '-': stack.append(a - b)\n            elif t == '*': stack.append(a * b)\n            elif t == '/': stack.append(int(a / b))\n        else:\n            stack.append(int(t))\n    return stack[0]",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a stack. Push numbers. Pop two numbers and perform operation when operator is seen."
+  ]
+}

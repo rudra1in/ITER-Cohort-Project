@@ -1,0 +1,35 @@
+{
+  "id": "prob_heap_04",
+  "title": "Find Median from Data Stream",
+  "document_type": "problem",
+  "topic": "Heaps",
+  "subtopic": "Design",
+  "pattern": "Heap / Top K",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Design a data structure that supports finding median from a dynamic data stream.",
+  "constraints": "Calls are valid.",
+  "examples": [
+    {
+      "input": "DataStream operations",
+      "output": "Median values"
+    }
+  ],
+  "expected_input": "operations: list[str]",
+  "expected_output": "list[float]",
+  "edge_cases": [
+    "Even number of elements",
+    "Odd number of elements"
+  ],
+  "hints": [
+    "Use two heaps: a max-heap for lower half numbers, and a min-heap for upper half numbers."
+  ],
+  "expected_approach": "Balanced min-max heap dual tracking.",
+  "time_complexity": "O(log n) to insert, O(1) to find median",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_heaps"
+  ],
+  "related_mistakes": [],
+  "code": "import heapq\ndef solution(operations):\n    # Simulate MedianFinder\n    # left (max_heap, negative values) and right (min_heap)\n    left, right = [], []\n    res = []\n    for op in operations:\n        cmd = op[0]\n        if cmd == 'add':\n            val = op[1]\n            heapq.heappush(left, -val)\n            # balance\n            heapq.heappush(right, -heapq.heappop(left))\n            if len(right) > len(left):\n                heapq.heappush(left, -heapq.heappop(right))\n        elif cmd == 'findMedian':\n            if len(left) > len(right):\n                res.append(-left[0])\n            else:\n                res.append((-left[0] + right[0]) / 2.0)\n    return res"
+}

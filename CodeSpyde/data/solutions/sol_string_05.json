@@ -1,0 +1,20 @@
+{
+  "id": "sol_string_05",
+  "problem_id": "prob_string_05",
+  "document_type": "solution",
+  "title": "Longest Palindromic Substring - Solution",
+  "approach": "Examine odd and even length palindromes centered at each index.",
+  "intuition": "Given a string s, return the longest palindromic substring in s.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Examine odd and even length palindromes centered at each index.",
+  "code": "def solution(s):\n    if not s:\n        return ''\n    start = 0\n    max_len = 0\n    def expand(l, r):\n        while l >= 0 and r < len(s) and s[l] == s[r]:\n            l -= 1\n            r += 1\n        return r - l - 1\n    for i in range(len(s)):\n        len1 = expand(i, i)\n        len2 = expand(i, i + 1)\n        curr_len = max(len1, len2)\n        if curr_len > max_len:\n            max_len = curr_len\n            start = i - (curr_len - 1) // 2\n    return s[start:start + max_len]",
+  "time_complexity": "O(n^2)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Expand around center for each index."
+  ]
+}

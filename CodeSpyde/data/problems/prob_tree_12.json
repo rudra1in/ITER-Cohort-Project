@@ -1,0 +1,35 @@
+{
+  "id": "prob_tree_12",
+  "title": "Construct Tree from Preorder and Inorder",
+  "document_type": "problem",
+  "topic": "Binary Trees",
+  "subtopic": "Tree Construction",
+  "pattern": "Tree DFS",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.",
+  "constraints": "1 <= preorder.length <= 3000\ninorder.length == preorder.length",
+  "examples": [
+    {
+      "input": "preorder = [3, 9, 20], inorder = [9, 3, 20]",
+      "output": "[3, 9, 20]"
+    }
+  ],
+  "expected_input": "preorder: list[int], inorder: list[int]",
+  "expected_output": "Optional[TreeNode]",
+  "edge_cases": [
+    "Single node tree"
+  ],
+  "hints": [
+    "First element in preorder is always root. Find root in inorder to split left/right subtrees."
+  ],
+  "expected_approach": "Recursive divider-and-conquer partition matching.",
+  "time_complexity": "O(n) with hash map mapping",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_recursion"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(preorder, inorder):\n    class TreeNode:\n        def __init__(self, val=0, left=None, right=None):\n            self.val = val\n            self.left = left\n            self.right = right\n    in_map = {val: idx for idx, val in enumerate(inorder)}\n    pre_idx = 0\n    def build(low, high):\n        nonlocal pre_idx\n        if low > high:\n            return None\n        root_val = preorder[pre_idx]\n        pre_idx += 1\n        root = TreeNode(root_val)\n        mid = in_map[root_val]\n        root.left = build(low, mid - 1)\n        root.right = build(mid + 1, high)\n        return root\n    return build(0, len(inorder) - 1)"
+}

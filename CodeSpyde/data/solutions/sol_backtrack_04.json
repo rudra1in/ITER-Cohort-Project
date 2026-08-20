@@ -1,0 +1,20 @@
+{
+  "id": "sol_backtrack_04",
+  "problem_id": "prob_backtrack_04",
+  "document_type": "solution",
+  "title": "Palindrome Partitioning - Solution",
+  "approach": "DFS backtracking split verification.",
+  "intuition": "Given a string s, partition s such that every substring of the partition is a palindrome.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "DFS backtracking split verification.",
+  "code": "def solution(s):\n    res = []\n    def is_pal(sub):\n        return sub == sub[::-1]\n    def backtrack(start, path):\n        if start == len(s):\n            res.append(list(path))\n            return\n        for end in range(start + 1, len(s) + 1):\n            prefix = s[start:end]\n            if is_pal(prefix):\n                path.append(prefix)\n                backtrack(end, path)\n                path.pop()\n    backtrack(0, [])\n    return res",
+  "time_complexity": "O(n * 2^n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use backtracking. Chop off prefixes of string s. Recurse if the prefix is a palindrome."
+  ]
+}

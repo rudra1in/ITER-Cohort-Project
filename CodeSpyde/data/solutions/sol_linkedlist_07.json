@@ -1,0 +1,22 @@
+{
+  "id": "sol_linkedlist_07",
+  "problem_id": "prob_linkedlist_07",
+  "document_type": "solution",
+  "title": "Palindrome Linked List - Solution",
+  "approach": "Half-list reversal + pointer comparison.",
+  "intuition": "Given the head of a singly linked list, return true if it is a palindrome.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Half-list reversal + pointer comparison.",
+  "code": "def solution(head):\n    if not head or not head.next:\n        return True\n    slow, fast = head, head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n    prev = None\n    curr = slow\n    while curr:\n        nxt = curr.next\n        curr.next = prev\n        prev = curr\n        curr = nxt\n    p1, p2 = head, prev\n    while p2:\n        if p1.val != p2.val:\n            return False\n        p1 = p1.next\n        p2 = p2.next\n    return True",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Find middle node.",
+    "Reverse the second half of the list.",
+    "Compare first and second halves."
+  ]
+}

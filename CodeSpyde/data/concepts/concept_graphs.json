@@ -1,0 +1,27 @@
+{
+  "id": "concept_graphs",
+  "title": "Graphs",
+  "document_type": "concept",
+  "topic": "Graphs",
+  "subtopic": "Network Data Structures",
+  "definition": "A graph consists of vertices (nodes) connected by edges.",
+  "intuition": "Models arbitrary networks: friendships, roads, routing maps, dependency graphs.",
+  "how_it_works": "Represented by adjacency lists or adjacency matrices. Nodes can be visited using BFS/DFS.",
+  "when_to_use": "When relationships are complex and cyclic.",
+  "when_not_to_use": "When a simpler linear or tree representation is sufficient.",
+  "common_mistakes": [
+    "Ignoring infinite recursion due to cycles (need visited sets)",
+    "Index out of range in matrices"
+  ],
+  "complexity": "DFS/BFS: O(V + E) with adjacency list",
+  "examples": [
+    "Social networks",
+    "Routing directions"
+  ],
+  "related_patterns": [
+    "BFS",
+    "DFS",
+    "Topological Sort"
+  ],
+  "content": "A graph consists of vertices (nodes) connected by edges."
+}

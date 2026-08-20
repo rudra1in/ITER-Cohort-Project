@@ -1,0 +1,38 @@
+{
+  "id": "prob_hash_09",
+  "title": "Subarray Sums Divisible by Positive K",
+  "document_type": "problem",
+  "topic": "Hash Tables",
+  "subtopic": "Prefix Remainders",
+  "pattern": "Prefix Sum",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an integer array nums and a positive integer k, find if there is a contiguous subarray of size at least two whose sum is a multiple of k.",
+  "constraints": "1 <= nums.length <= 10^5\n1 <= k <= 2^31 - 1",
+  "examples": [
+    {
+      "input": "nums = [23, 2, 4, 6, 7], k = 6",
+      "output": "true"
+    }
+  ],
+  "expected_input": "nums: list[int], k: int",
+  "expected_output": "bool",
+  "edge_cases": [
+    "k is 0 or negative (constraint excludes this)",
+    "Subarray of size less than 2"
+  ],
+  "hints": [
+    "Store first seen indices of prefix sum remainders in a dictionary."
+  ],
+  "expected_approach": "Prefix sums modulo k index validation.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(min(n, k))",
+  "related_concepts": [
+    "concept_hash_tables",
+    "concept_prefix_sum"
+  ],
+  "related_mistakes": [
+    "mistake_negative_modulo"
+  ],
+  "code": "def solution(nums, k):\n    pref = 0\n    seen = {0: -1}\n    for i, n in enumerate(nums):\n        pref = (pref + n) % k\n        if pref in seen:\n            if i - seen[pref] > 1:\n                return True\n        else:\n            seen[pref] = i\n    return False"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "prob_heap_03",
+  "title": "Merge K Sorted Lists",
+  "document_type": "problem",
+  "topic": "Heaps",
+  "subtopic": "Multi-Way Merge",
+  "pattern": "Heap / Top K",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "You are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.",
+  "constraints": "lists.length <= 10^4\nlists[i].length <= 500",
+  "examples": [
+    {
+      "input": "lists = [[1, 4, 5], [1, 3, 4], [2, 6]]",
+      "output": "[1, 1, 2, 3, 4, 4, 5, 6]"
+    }
+  ],
+  "expected_input": "lists: list[Optional[ListNode]]",
+  "expected_output": "Optional[ListNode]",
+  "edge_cases": [
+    "Empty input lists list",
+    "Lists list contains only empty lists"
+  ],
+  "hints": [
+    "Push the head nodes of all k sorted lists into a min-heap.",
+    "Pop node with smallest value, link it, and push its next node."
+  ],
+  "expected_approach": "Min-heap priority comparison.",
+  "time_complexity": "O(n log k) where n is total node count",
+  "space_complexity": "O(k)",
+  "related_concepts": [
+    "concept_heaps",
+    "concept_linked_lists"
+  ],
+  "related_mistakes": [
+    "mistake_lost_head"
+  ],
+  "code": "import heapq\ndef solution(lists):\n    class ListNode:\n        def __init__(self, val=0, next=None):\n            self.val = val\n            self.next = next\n    h = []\n    for idx, node in enumerate(lists):\n        if node:\n            # Python heapq tuple comparator safety needs index\n            heapq.heappush(h, (node.val, idx, node))\n    dummy = ListNode(0)\n    curr = dummy\n    while h:\n        val, idx, node = heapq.heappop(h)\n        curr.next = node\n        curr = curr.next\n        if node.next:\n            heapq.heappush(h, (node.next.val, idx, node.next))\n    return dummy.next"
+}

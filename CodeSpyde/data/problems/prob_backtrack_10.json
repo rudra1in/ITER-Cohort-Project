@@ -1,0 +1,38 @@
+{
+  "id": "prob_backtrack_10",
+  "title": "Permutations II",
+  "document_type": "problem",
+  "topic": "Backtracking",
+  "subtopic": "Permutations/Subsets",
+  "pattern": "Backtracking",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.",
+  "constraints": "1 <= nums.length <= 8",
+  "examples": [
+    {
+      "input": "nums = [1, 1, 2]",
+      "output": "[[1, 1, 2], [1, 2, 1], [2, 1, 1]]"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "list[list[int]]",
+  "edge_cases": [
+    "All identical elements",
+    "No duplicates"
+  ],
+  "hints": [
+    "Sort the array. Keep track of visited indices. If nums[i] == nums[i-1] and not visited[i-1], skip i to avoid duplicate permutations."
+  ],
+  "expected_approach": "Sort + visited checking backtracking.",
+  "time_complexity": "O(n * n!)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_backtracking",
+    "concept_sorting"
+  ],
+  "related_mistakes": [
+    "mistake_duplicate_skip"
+  ],
+  "code": "def solution(nums):\n    nums.sort()\n    res = []\n    visited = [False] * len(nums)\n    def backtrack(path):\n        if len(path) == len(nums):\n            res.append(list(path))\n            return\n        for i in range(len(nums)):\n            if visited[i]: continue\n            if i > 0 and nums[i] == nums[i-1] and not visited[i-1]:\n                continue\n            visited[i] = True\n            path.append(nums[i])\n            backtrack(path)\n            path.pop()\n            visited[i] = False\n    backtrack([])\n    return res"
+}

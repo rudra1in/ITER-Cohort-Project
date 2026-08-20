@@ -1,0 +1,27 @@
+{
+  "id": "concept_dp",
+  "title": "Dynamic Programming",
+  "document_type": "concept",
+  "topic": "Dynamic Programming",
+  "subtopic": "Optimization Paradigms",
+  "definition": "DP solves complex problems by breaking them down into overlapping subproblems, storing results to avoid redundant work.",
+  "intuition": "Remember past answers to solve future calculations quickly.",
+  "how_it_works": "Can be Top-down (Memoization) or Bottom-up (Tabulation) based on state-transitions.",
+  "when_to_use": "When problems exhibit overlapping subproblems and optimal substructure.",
+  "when_not_to_use": "When subproblems do not overlap (use standard divide-and-conquer).",
+  "common_mistakes": [
+    "Incorrect state transition formula",
+    "Incorrect table initialization",
+    "Memory limit exceeded"
+  ],
+  "complexity": "Time: O(number of states * transition time)",
+  "examples": [
+    "Knapsack",
+    "Fibonacci",
+    "Longest Common Subsequence"
+  ],
+  "related_patterns": [
+    "Dynamic Programming"
+  ],
+  "content": "DP solves complex problems by breaking them down into overlapping subproblems, storing results to avoid redundant work."
+}

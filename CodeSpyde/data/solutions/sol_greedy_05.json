@@ -1,0 +1,20 @@
+{
+  "id": "sol_greedy_05",
+  "problem_id": "prob_greedy_05",
+  "document_type": "solution",
+  "title": "Partition Labels - Solution",
+  "approach": "Last occurrence index lookup tracking.",
+  "intuition": "Partition string into as many parts as possible such that each letter appears in at most one part.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Last occurrence index lookup tracking.",
+  "code": "def solution(s):\n    last = {c: i for i, c in enumerate(s)}\n    anchor = 0\n    boundary = 0\n    res = []\n    for i, c in enumerate(s):\n        boundary = max(boundary, last[c])\n        if i == boundary:\n            res.append(i - anchor + 1)\n            anchor = i + 1\n    return res",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1) alphabet size constant",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Store the last index occurrence of each character. Traverse and maintain a boundary window index based on the max last index seen."
+  ]
+}

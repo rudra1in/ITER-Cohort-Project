@@ -1,0 +1,29 @@
+{
+  "id": "pattern_grid_dp",
+  "title": "Grid DP",
+  "document_type": "pattern",
+  "topic": "Dynamic Programming",
+  "pattern": "Grid DP",
+  "intuition": "DP transitions performed over two-dimensional grid layouts, looking at top and left neighbors.",
+  "recognition_signals": [
+    "Grid traversal optimization",
+    "Unique path counting in matrixes"
+  ],
+  "step_by_step_strategy": [
+    "State: dp[i][j] is min/max value reaching coordinate (i, j).",
+    "Transition: dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])."
+  ],
+  "common_mistakes": [
+    "Index error on first row/column boundaries",
+    "Failing to initialize starting cell properly"
+  ],
+  "complexity": "Time: O(m * n), Space: O(m * n) or O(n)",
+  "example_problem_types": [
+    "Minimum path sum",
+    "Unique paths"
+  ],
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "content": "DP transitions performed over two-dimensional grid layouts, looking at top and left neighbors."
+}

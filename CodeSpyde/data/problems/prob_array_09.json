@@ -1,0 +1,38 @@
+{
+  "id": "prob_array_09",
+  "title": "Product of Array Except Self",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Prefix Operations",
+  "pattern": "Prefix Sum",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]. Solve without division.",
+  "constraints": "2 <= nums.length <= 10^5",
+  "examples": [
+    {
+      "input": "nums = [1, 2, 3, 4]",
+      "output": "[24, 12, 8, 6]"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Array contains one zero",
+    "Array contains multiple zeroes"
+  ],
+  "hints": [
+    "Calculate prefix products and suffix products separately."
+  ],
+  "expected_approach": "Accumulate products from left to right, then right to left in a single result array.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_arrays",
+    "concept_prefix_sum"
+  ],
+  "related_mistakes": [
+    "mistake_division_zero"
+  ],
+  "code": "def solution(nums):\n    n = len(nums)\n    res = [1] * n\n    prefix = 1\n    for i in range(n):\n        res[i] = prefix\n        prefix *= nums[i]\n    suffix = 1\n    for i in range(n - 1, -1, -1):\n        res[i] *= suffix\n        suffix *= nums[i]\n    return res"
+}

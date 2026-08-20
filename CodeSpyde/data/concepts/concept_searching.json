@@ -1,0 +1,25 @@
+{
+  "id": "concept_searching",
+  "title": "Searching",
+  "document_type": "concept",
+  "topic": "Searching",
+  "subtopic": "Algorithmic Paradigms",
+  "definition": "Searching retrieves specific elements or values from a collection.",
+  "intuition": "Locating information efficiently is a fundamental database operation.",
+  "how_it_works": "Linear scan sequentially or Binary Search by halving search intervals.",
+  "when_to_use": "Retrieving data or validating membership of elements.",
+  "when_not_to_use": "When constant-time hash-table lookup is more appropriate.",
+  "common_mistakes": [
+    "Failing to sort array before binary search",
+    "Infinite loop in search bounds"
+  ],
+  "complexity": "Linear: O(n), Binary: O(log n)",
+  "examples": [
+    "Binary search on sorted arrays",
+    "Linear scan"
+  ],
+  "related_patterns": [
+    "Binary Search"
+  ],
+  "content": "Searching retrieves specific elements or values from a collection."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_graph_02",
+  "problem_id": "prob_graph_02",
+  "document_type": "solution",
+  "title": "Clone Graph - Solution",
+  "approach": "DFS traversal with clone dictionary lookup.",
+  "intuition": "Given a reference of a node in a connected undirected graph. Return a deep copy (clone) of the graph.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "DFS traversal with clone dictionary lookup.",
+  "code": "def solution(node):\n    if not node:\n        return None\n    class Node:\n        def __init__(self, val=0, neighbors=None):\n            self.val = val\n            self.neighbors = neighbors if neighbors is not None else []\n    cloned = {}\n    def dfs(curr):\n        if curr in cloned:\n            return cloned[curr]\n        copy = Node(curr.val)\n        cloned[curr] = copy\n        for n in curr.neighbors:\n            copy.neighbors.append(dfs(n))\n        return copy\n    return dfs(node)",
+  "time_complexity": "O(V + E)",
+  "space_complexity": "O(V)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a hash map to map original nodes to their cloned counterparts to avoid infinite loops in cycles."
+  ]
+}

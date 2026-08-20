@@ -1,0 +1,37 @@
+{
+  "id": "prob_stackqueue_06",
+  "title": "Daily Temperatures",
+  "document_type": "problem",
+  "topic": "Stacks",
+  "subtopic": "Array Traversal",
+  "pattern": "Monotonic Stack",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the i-th day to get a warmer temperature.",
+  "constraints": "1 <= temperatures.length <= 10^5",
+  "examples": [
+    {
+      "input": "temperatures = [73, 74, 75, 71, 69, 72]",
+      "output": "[1, 1, 0, 2, 1, 0]"
+    }
+  ],
+  "expected_input": "temperatures: list[int]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Temperatures strictly decreasing",
+    "Temperatures strictly increasing"
+  ],
+  "hints": [
+    "Use a monotonic decreasing stack storing indices of temperatures."
+  ],
+  "expected_approach": "Monotonic stack comparison and index tracking.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_stacks"
+  ],
+  "related_mistakes": [
+    "mistake_index_oob"
+  ],
+  "code": "def solution(temperatures):\n    n = len(temperatures)\n    ans = [0] * n\n    stack = []\n    for i, t in enumerate(temperatures):\n        while stack and temperatures[stack[-1]] < t:\n            prev_idx = stack.pop()\n            ans[prev_idx] = i - prev_idx\n        stack.append(i)\n    return ans"
+}

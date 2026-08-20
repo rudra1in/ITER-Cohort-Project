@@ -1,0 +1,20 @@
+{
+  "id": "sol_graph_04",
+  "problem_id": "prob_graph_04",
+  "document_type": "solution",
+  "title": "Pacific Atlantic Water Flow - Solution",
+  "approach": "Border DFS reachable sets intersection.",
+  "intuition": "Find coordinates where water can flow to both Pacific and Atlantic oceans.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Border DFS reachable sets intersection.",
+  "code": "def solution(heights):\n    if not heights: return []\n    m, n = len(heights), len(heights[0])\n    pac, atl = set(), set()\n    def dfs(r, c, ocean):\n        ocean.add((r, c))\n        for nr, nc in [(r+1, c), (r-1, c), (r, c+1), (r, c-1)]:\n            if 0 <= nr < m and 0 <= nc < n and (nr, nc) not in ocean:\n                if heights[nr][nc] >= heights[r][c]:\n                    dfs(nr, nc, ocean)\n    for c in range(n):\n        dfs(0, c, pac)\n        dfs(m - 1, c, atl)\n    for r in range(m):\n        dfs(r, 0, pac)\n        dfs(r, n - 1, atl)\n    return [list(cell) for cell in (pac & atl)]",
+  "time_complexity": "O(m * n)",
+  "space_complexity": "O(m * n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Run DFS outwards from ocean borders inward, matching cell heights where water can run downwards (so climb upwards)."
+  ]
+}

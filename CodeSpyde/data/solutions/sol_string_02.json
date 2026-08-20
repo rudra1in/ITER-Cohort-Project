@@ -1,0 +1,20 @@
+{
+  "id": "sol_string_02",
+  "problem_id": "prob_string_02",
+  "document_type": "solution",
+  "title": "Valid Anagram - Solution",
+  "approach": "Frequency map verification.",
+  "intuition": "Given two strings s and t, return true if t is an anagram of s, and false otherwise.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Frequency map verification.",
+  "code": "def solution(s, t):\n    if len(s) != len(t):\n        return False\n    count = {}\n    for char in s:\n        count[char] = count.get(char, 0) + 1\n    for char in t:\n        if char not in count:\n            return False\n        count[char] -= 1\n        if count[char] < 0:\n            return False\n    return True",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1) if alphabet is fixed",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Count occurrences of each character using a dictionary."
+  ]
+}

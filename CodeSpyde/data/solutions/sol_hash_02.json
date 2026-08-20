@@ -1,0 +1,20 @@
+{
+  "id": "sol_hash_02",
+  "problem_id": "prob_hash_02",
+  "document_type": "solution",
+  "title": "Contains Duplicate - Solution",
+  "approach": "Hashing set membership lookup.",
+  "intuition": "Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Hashing set membership lookup.",
+  "code": "def solution(nums):\n    seen = set()\n    for n in nums:\n        if n in seen:\n            return True\n        seen.add(n)\n    return False",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a set to keep track of seen elements."
+  ]
+}

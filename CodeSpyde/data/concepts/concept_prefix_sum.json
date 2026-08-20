@@ -1,0 +1,24 @@
+{
+  "id": "concept_prefix_sum",
+  "title": "Prefix Sum",
+  "document_type": "concept",
+  "topic": "Arrays",
+  "subtopic": "Array Traversal",
+  "definition": "Prefix sum is a technique where cumulative sums of elements are precomputed.",
+  "intuition": "Allows O(1) range sum queries by calculating prefix sums beforehand.",
+  "how_it_works": "P[i] = P[i-1] + A[i]. Range sum of [L, R] = P[R] - P[L-1].",
+  "when_to_use": "Frequent range sum or count queries on static arrays.",
+  "when_not_to_use": "When arrays undergo frequent dynamic updates (use Segment Trees).",
+  "common_mistakes": [
+    "Off-by-one errors with boundaries",
+    "Using incorrect prefix array sizing"
+  ],
+  "complexity": "Precomputation: O(n), Range Query: O(1)",
+  "examples": [
+    "Subarray Sum Equals K"
+  ],
+  "related_patterns": [
+    "Prefix Sum"
+  ],
+  "content": "Prefix sum is a technique where cumulative sums of elements are precomputed."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_tree_11",
+  "problem_id": "prob_tree_11",
+  "document_type": "solution",
+  "title": "Path Sum - Solution",
+  "approach": "Recursive preorder path tracking.",
+  "intuition": "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Recursive preorder path tracking.",
+  "code": "def solution(root, targetSum):\n    if not root:\n        return False\n    if not root.left and not root.right:\n        return targetSum == root.val\n    return solution(root.left, targetSum - root.val) or solution(root.right, targetSum - root.val)",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Subtract node value from targetSum and recursively check children. A leaf node must have targetSum == node.val."
+  ]
+}

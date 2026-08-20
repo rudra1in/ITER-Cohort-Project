@@ -1,0 +1,37 @@
+{
+  "id": "prob_linkedlist_10",
+  "title": "Reverse Nodes in K-Group",
+  "document_type": "problem",
+  "topic": "Linked Lists",
+  "subtopic": "Pointer Reversal",
+  "pattern": "Two Pointers",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Given a linked list, reverse the nodes of a linked list k at a time and return its modified head.",
+  "constraints": "The number of nodes in the list is sz.\n1 <= sz <= 5000\n1 <= k <= sz",
+  "examples": [
+    {
+      "input": "head = [1, 2, 3, 4, 5], k = 2",
+      "output": "[2, 1, 4, 3, 5]"
+    }
+  ],
+  "expected_input": "head: Optional[ListNode], k: int",
+  "expected_output": "Optional[ListNode]",
+  "edge_cases": [
+    "k is greater than list length",
+    "List size is multiple of k"
+  ],
+  "hints": [
+    "Verify that at least k nodes exist before reversing. If not, keep original order."
+  ],
+  "expected_approach": "Recursive or iterative block traversal + local reverse.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n/k) recursive or O(1) iterative",
+  "related_concepts": [
+    "concept_linked_lists"
+  ],
+  "related_mistakes": [
+    "mistake_lost_head"
+  ],
+  "code": "def solution(head, k):\n    curr = head\n    count = 0\n    while curr and count < k:\n        curr = curr.next\n        count += 1\n    if count == k:\n        prev = None\n        curr = head\n        for _ in range(k):\n            nxt = curr.next\n            curr.next = prev\n            prev = curr\n            curr = nxt\n        head.next = solution(curr, k)\n        return prev\n    return head"
+}

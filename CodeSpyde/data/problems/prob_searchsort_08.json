@@ -1,0 +1,37 @@
+{
+  "id": "prob_searchsort_08",
+  "title": "Median of Two Sorted Arrays",
+  "document_type": "problem",
+  "topic": "Searching",
+  "subtopic": "Search Array",
+  "pattern": "Binary Search",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.",
+  "constraints": "m, n <= 1000",
+  "examples": [
+    {
+      "input": "nums1 = [1, 3], nums2 = [2]",
+      "output": "2.0"
+    }
+  ],
+  "expected_input": "nums1: list[int], nums2: list[int]",
+  "expected_output": "float",
+  "edge_cases": [
+    "One array empty",
+    "Odd or even total lengths"
+  ],
+  "hints": [
+    "Use binary search partition. Partition both arrays such that left parts contain half elements, and left_max <= right_min."
+  ],
+  "expected_approach": "Partition-based binary search.",
+  "time_complexity": "O(log(min(m, n)))",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_searching"
+  ],
+  "related_mistakes": [
+    "mistake_bs_bounds"
+  ],
+  "code": "def solution(nums1, nums2):\n    A, B = nums1, nums2\n    total = len(A) + len(B)\n    half = total // 2\n    if len(B) < len(A):\n        A, B = B, A\n    l, r = 0, len(A) - 1\n    while True:\n        i = l + (r - l) // 2\n        j = half - i - 2\n        Aleft = A[i] if i >= 0 else float('-inf')\n        Aright = A[i+1] if (i+1) < len(A) else float('inf')\n        Bleft = B[j] if j >= 0 else float('-inf')\n        Bright = B[j+1] if (j+1) < len(B) else float('inf')\n        if Aleft <= Bright and Bleft <= Aright:\n            if total % 2 != 0:\n                return min(Aright, Bright)\n            return (max(Aleft, Bleft) + min(Aright, Bright)) / 2.0\n        elif Aleft > Bright:\n            r = i - 1\n            # Correcting offset for empty partitions\n            if r < -1: r = -1\n        else:\n            l = i + 1\n"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_array_11",
+  "problem_id": "prob_array_11",
+  "document_type": "solution",
+  "title": "Container With Most Water - Solution",
+  "approach": "Shrink window from outer boundaries toward center, tracking max area.",
+  "intuition": "Given n non-negative integers representing heights of vertical lines, find two lines that together with the x-axis form a container, such that the container contains the most water.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Shrink window from outer boundaries toward center, tracking max area.",
+  "code": "def solution(height):\n    l, r = 0, len(height) - 1\n    max_area = 0\n    while l < r:\n        h = min(height[l], height[r])\n        max_area = max(max_area, h * (r - l))\n        if height[l] < height[r]:\n            l += 1\n        else:\n            r -= 1\n    return max_area",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use two pointers at both ends. Move the pointer pointing to the shorter line inward."
+  ]
+}

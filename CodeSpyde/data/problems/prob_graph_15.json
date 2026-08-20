@@ -1,0 +1,37 @@
+{
+  "id": "prob_graph_15",
+  "title": "Longest Cycle in Graph",
+  "document_type": "problem",
+  "topic": "Graphs",
+  "subtopic": "Cycle Detection",
+  "pattern": "DFS",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Return the length of the longest cycle in the graph. If no cycle exists, return -1.",
+  "constraints": "1 <= edges.length <= 10^5",
+  "examples": [
+    {
+      "input": "edges = [3, 3, 4, 2, 3]",
+      "output": "3"
+    }
+  ],
+  "expected_input": "edges: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Disconnected components",
+    "Graph has multiple cycles"
+  ],
+  "hints": [
+    "DFS with step count distance markers to track visited indices inside current path traversal."
+  ],
+  "expected_approach": "DFS path tracking cycle detection.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_graphs"
+  ],
+  "related_mistakes": [
+    "mistake_cycle_detection"
+  ],
+  "code": "def solution(edges):\n    n = len(edges)\n    visited = [False] * n\n    longest = -1\n    for i in range(n):\n        if visited[i]: continue\n        dist = {}\n        curr = i\n        step = 0\n        while curr != -1:\n            if curr in dist:\n                longest = max(longest, step - dist[curr])\n                break\n            if visited[curr]: break\n            visited[curr] = True\n            dist[curr] = step\n            curr = edges[curr]\n            step += 1\n    return longest"
+}

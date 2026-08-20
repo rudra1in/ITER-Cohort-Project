@@ -1,0 +1,38 @@
+{
+  "id": "prob_backtrack_09",
+  "title": "Generate Subsets II",
+  "document_type": "problem",
+  "topic": "Backtracking",
+  "subtopic": "Permutations/Subsets",
+  "pattern": "Backtracking",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an integer array nums that may contain duplicates, return all possible subsets. The solution set must not contain duplicate subsets.",
+  "constraints": "1 <= nums.length <= 10",
+  "examples": [
+    {
+      "input": "nums = [1, 2, 2]",
+      "output": "[[],[1],[1,2],[1,2,2],[2],[2,2]]"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "list[list[int]]",
+  "edge_cases": [
+    "All elements duplicates",
+    "No duplicate elements"
+  ],
+  "hints": [
+    "Sort the array first. Skip duplicate elements at the same recursion depth during loop."
+  ],
+  "expected_approach": "Sort + duplicate checking backtracking.",
+  "time_complexity": "O(2^n * n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_backtracking",
+    "concept_sorting"
+  ],
+  "related_mistakes": [
+    "mistake_duplicate_skip"
+  ],
+  "code": "def solution(nums):\n    nums.sort()\n    res = []\n    def backtrack(idx, path):\n        res.append(list(path))\n        for i in range(idx, len(nums)):\n            if i > idx and nums[i] == nums[i-1]:\n                continue\n            path.append(nums[i])\n            backtrack(i + 1, path)\n            path.pop()\n    backtrack(0, [])\n    return res"
+}

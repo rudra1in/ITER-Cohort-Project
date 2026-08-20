@@ -1,0 +1,33 @@
+{
+  "id": "pattern_merge_intervals",
+  "title": "Merge Intervals",
+  "document_type": "pattern",
+  "topic": "Sorting",
+  "pattern": "Merge Intervals",
+  "intuition": "Sort intervals by start times, then merge overlapping segments sequentially.",
+  "recognition_signals": [
+    "Interval list",
+    "Overlap merging",
+    "Scheduling ranges"
+  ],
+  "step_by_step_strategy": [
+    "Sort intervals by start value.",
+    "Initialize merged array with first interval.",
+    "Iterate through intervals; if current starts before previous ends, merge by updating end time.",
+    "Otherwise, append current interval as new segment."
+  ],
+  "common_mistakes": [
+    "Forgetting to sort intervals first",
+    "Updating merged bounds incorrectly"
+  ],
+  "complexity": "Time: O(n log n) due to sorting, Space: O(1) or O(n)",
+  "example_problem_types": [
+    "Merge intervals",
+    "Insert interval"
+  ],
+  "related_concepts": [
+    "concept_sorting",
+    "concept_arrays"
+  ],
+  "content": "Sort intervals by start times, then merge overlapping segments sequentially."
+}

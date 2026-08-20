@@ -1,0 +1,34 @@
+{
+  "id": "pattern_backtracking",
+  "title": "Backtracking Pattern",
+  "document_type": "pattern",
+  "topic": "Backtracking",
+  "pattern": "Backtracking",
+  "intuition": "Build candidate solutions incrementally and reject paths dynamically when they fail constraint verification.",
+  "recognition_signals": [
+    "Generate all possibilities (permutations, subsets, sudoku)",
+    "Combinatorial constraints"
+  ],
+  "step_by_step_strategy": [
+    "If current state is a valid complete solution, record it.",
+    "Iterate through choices.",
+    "If choice is valid, apply choice.",
+    "Recurse next state.",
+    "Remove choice (backtrack)."
+  ],
+  "common_mistakes": [
+    "Failing to undo choice step before returning",
+    "Missing boundary constraint checking before recursion"
+  ],
+  "complexity": "Time: Exponential (O(2^n), O(n!)), Space: O(depth)",
+  "example_problem_types": [
+    "Subsets",
+    "Permutations",
+    "N-Queens"
+  ],
+  "related_concepts": [
+    "concept_backtracking",
+    "concept_recursion"
+  ],
+  "content": "Build candidate solutions incrementally and reject paths dynamically when they fail constraint verification."
+}

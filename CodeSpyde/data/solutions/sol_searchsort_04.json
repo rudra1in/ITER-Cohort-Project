@@ -1,0 +1,20 @@
+{
+  "id": "sol_searchsort_04",
+  "problem_id": "prob_searchsort_04",
+  "document_type": "solution",
+  "title": "Merge Sort Array - Solution",
+  "approach": "Divide and conquer recursion.",
+  "intuition": "Given an array of integers nums, sort the array in ascending order using Merge Sort.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Divide and conquer recursion.",
+  "code": "def solution(nums):\n    if len(nums) <= 1: return nums\n    mid = len(nums) // 2\n    left = solution(nums[:mid])\n    right = solution(nums[mid:])\n    res = []\n    i = j = 0\n    while i < len(left) and j < len(right):\n        if left[i] < right[j]:\n            res.append(left[i])\n            i += 1\n        else:\n            res.append(right[j])\n            j += 1\n    res.extend(left[i:])\n    res.extend(right[j:])\n    return res",
+  "time_complexity": "O(n log n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Divide the array in halves recursively. Merge the two sorted halves back together using two pointers."
+  ]
+}

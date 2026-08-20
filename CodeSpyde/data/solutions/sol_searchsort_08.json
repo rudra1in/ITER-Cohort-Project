@@ -1,0 +1,20 @@
+{
+  "id": "sol_searchsort_08",
+  "problem_id": "prob_searchsort_08",
+  "document_type": "solution",
+  "title": "Median of Two Sorted Arrays - Solution",
+  "approach": "Partition-based binary search.",
+  "intuition": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Partition-based binary search.",
+  "code": "def solution(nums1, nums2):\n    A, B = nums1, nums2\n    total = len(A) + len(B)\n    half = total // 2\n    if len(B) < len(A):\n        A, B = B, A\n    l, r = 0, len(A) - 1\n    while True:\n        i = l + (r - l) // 2\n        j = half - i - 2\n        Aleft = A[i] if i >= 0 else float('-inf')\n        Aright = A[i+1] if (i+1) < len(A) else float('inf')\n        Bleft = B[j] if j >= 0 else float('-inf')\n        Bright = B[j+1] if (j+1) < len(B) else float('inf')\n        if Aleft <= Bright and Bleft <= Aright:\n            if total % 2 != 0:\n                return min(Aright, Bright)\n            return (max(Aleft, Bleft) + min(Aright, Bright)) / 2.0\n        elif Aleft > Bright:\n            r = i - 1\n            # Correcting offset for empty partitions\n            if r < -1: r = -1\n        else:\n            l = i + 1\n",
+  "time_complexity": "O(log(min(m, n)))",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use binary search partition. Partition both arrays such that left parts contain half elements, and left_max <= right_min."
+  ]
+}

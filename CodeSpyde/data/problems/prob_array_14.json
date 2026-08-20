@@ -1,0 +1,37 @@
+{
+  "id": "prob_array_14",
+  "title": "Merge Sorted Array",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Array Merging",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array. nums1 has size m+n where first m are elements to merge.",
+  "constraints": "nums1.length == m + n\nnums2.length == n",
+  "examples": [
+    {
+      "input": "nums1 = [1, 2, 3, 0, 0, 0], m = 3, nums2 = [2, 5, 6], n = 3",
+      "output": "[1, 2, 2, 3, 5, 6]"
+    }
+  ],
+  "expected_input": "nums1: list[int], m: int, nums2: list[int], n: int",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "m = 0",
+    "n = 0"
+  ],
+  "hints": [
+    "Start merging from the end of the arrays to avoid overwriting elements in nums1."
+  ],
+  "expected_approach": "Three pointers starting from indices m-1, n-1, and m+n-1 working backwards.",
+  "time_complexity": "O(m + n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_arrays"
+  ],
+  "related_mistakes": [
+    "mistake_overwrite_front"
+  ],
+  "code": "def solution(nums1, m, nums2, n):\n    p1, p2, p = m - 1, n - 1, m + n - 1\n    while p1 >= 0 and p2 >= 0:\n        if nums1[p1] > nums2[p2]:\n            nums1[p] = nums1[p1]\n            p1 -= 1\n        else:\n            nums1[p] = nums2[p2]\n            p2 -= 1\n        p -= 1\n    while p2 >= 0:\n        nums1[p] = nums2[p2]\n        p2 -= 1\n        p -= 1\n    return nums1"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "prob_backtrack_03",
+  "title": "Combination Sum",
+  "document_type": "problem",
+  "topic": "Backtracking",
+  "subtopic": "Combinations",
+  "pattern": "Backtracking",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an array of distinct integers candidates and a target integer target, return all unique combinations where candidate numbers sum to target.",
+  "constraints": "Candidates size <= 30.",
+  "examples": [
+    {
+      "input": "candidates = [2, 3, 6, 7], target = 7",
+      "output": "[[2, 2, 3], [7]]"
+    }
+  ],
+  "expected_input": "candidates: list[int], target: int",
+  "expected_output": "list[list[int]]",
+  "edge_cases": [
+    "No valid combinations possible",
+    "Target matches one candidate"
+  ],
+  "hints": [
+    "Use backtracking. Elements can be chosen multiple times, so don't advance the index parameter during recursive call unless choice is complete."
+  ],
+  "expected_approach": "Unlimited choice backtracking search.",
+  "time_complexity": "O(2^t) worst case",
+  "space_complexity": "O(t/min_candidate)",
+  "related_concepts": [
+    "concept_backtracking"
+  ],
+  "related_mistakes": [
+    "mistake_bt_revert"
+  ],
+  "code": "def solution(candidates, target):\n    res = []\n    def backtrack(idx, path, curr_sum):\n        if curr_sum == target:\n            res.append(list(path))\n            return\n        if curr_sum > target:\n            return\n        for i in range(idx, len(candidates)):\n            path.append(candidates[i])\n            backtrack(i, path, curr_sum + candidates[i])\n            path.pop()\n    backtrack(0, [], 0)\n    return res"
+}

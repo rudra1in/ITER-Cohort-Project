@@ -1,0 +1,35 @@
+{
+  "id": "prob_graph_06",
+  "title": "Word Ladder Transform",
+  "document_type": "problem",
+  "topic": "Graphs",
+  "subtopic": "Word Search",
+  "pattern": "BFS",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Find the length of shortest transformation sequence from beginWord to endWord using wordList.",
+  "constraints": "Word list size up to 5000.",
+  "examples": [
+    {
+      "input": "beginWord = 'hit', endWord = 'cog', wordList = ['hot','dot','dog','lot','log','cog']",
+      "output": "5"
+    }
+  ],
+  "expected_input": "beginWord: str, endWord: str, wordList: list[str]",
+  "expected_output": "int",
+  "edge_cases": [
+    "endWord not in wordList"
+  ],
+  "hints": [
+    "Treat words as nodes. Two words have edge if they differ by 1 character. Find shortest path using BFS."
+  ],
+  "expected_approach": "BFS shortest path state tracking.",
+  "time_complexity": "O(n * L^2) where L is length of word",
+  "space_complexity": "O(n * L^2)",
+  "related_concepts": [
+    "concept_graphs",
+    "concept_queues"
+  ],
+  "related_mistakes": [],
+  "code": "from collections import deque\ndef solution(beginWord, endWord, wordList):\n    words = set(wordList)\n    if endWord not in words: return 0\n    q = deque([(beginWord, 1)])\n    while q:\n        word, steps = q.popleft()\n        if word == endWord:\n            return steps\n        for i in range(len(word)):\n            for c in 'abcdefghijklmnopqrstuvwxyz':\n                next_word = word[:i] + c + word[i+1:]\n                if next_word in words:\n                    words.remove(next_word)\n                    q.append((next_word, steps + 1))\n    return 0"
+}

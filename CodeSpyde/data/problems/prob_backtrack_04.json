@@ -1,0 +1,36 @@
+{
+  "id": "prob_backtrack_04",
+  "title": "Palindrome Partitioning",
+  "document_type": "problem",
+  "topic": "Backtracking",
+  "subtopic": "Combinations",
+  "pattern": "Backtracking",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given a string s, partition s such that every substring of the partition is a palindrome.",
+  "constraints": "1 <= s.length <= 16",
+  "examples": [
+    {
+      "input": "s = 'aab'",
+      "output": "[['a', 'a', 'b'], ['aa', 'b']]"
+    }
+  ],
+  "expected_input": "s: str",
+  "expected_output": "list[list[str]]",
+  "edge_cases": [
+    "All characters unique",
+    "Entire string is a palindrome"
+  ],
+  "hints": [
+    "Use backtracking. Chop off prefixes of string s. Recurse if the prefix is a palindrome."
+  ],
+  "expected_approach": "DFS backtracking split verification.",
+  "time_complexity": "O(n * 2^n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_backtracking",
+    "concept_strings"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(s):\n    res = []\n    def is_pal(sub):\n        return sub == sub[::-1]\n    def backtrack(start, path):\n        if start == len(s):\n            res.append(list(path))\n            return\n        for end in range(start + 1, len(s) + 1):\n            prefix = s[start:end]\n            if is_pal(prefix):\n                path.append(prefix)\n                backtrack(end, path)\n                path.pop()\n    backtrack(0, [])\n    return res"
+}
