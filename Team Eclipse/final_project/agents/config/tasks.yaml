@@ -1,0 +1,23 @@
+evaluate_vision_telemetry:
+  description: >
+    Analyze the provided visual frame telemetry: {vision_data}.
+    Identify any gaze deviations, missing/multiple faces, head pose shifts, or detected prohibited objects.
+  expected_output: >
+    A structured summary of visual violations detected, severity level, and time offsets.
+  agent: vision_analyst
+
+evaluate_audio_telemetry:
+  description: >
+    Analyze voice activity flags and transcription text: {audio_data}.
+    Check whether spoken text matches exam content or indicates secondary assistance.
+  expected_output: >
+    An acoustic report detailing background speech presence and transcription text analysis.
+  agent: audio_transcript_analyst
+
+assess_exam_integrity:
+  description: >
+    Combine the outputs of vision analysis and audio analysis. Use the ChromaDBSearchTool to query 'exam_rules' for relevant policies regarding the flagged behaviors.
+    Calculate a final Candidate Credibility Score (0-100%) and issue an overall Proctoring Verdict.
+  expected_output: >
+    A comprehensive proctoring report including aggregated violations, ChromaDB rule citations, integrity score, and action recommendation.
+  agent: incident_evaluator
