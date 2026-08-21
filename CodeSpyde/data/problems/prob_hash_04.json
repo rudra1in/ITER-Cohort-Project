@@ -1,0 +1,37 @@
+{
+  "id": "prob_hash_04",
+  "title": "Happy Number",
+  "document_type": "problem",
+  "topic": "Hash Tables",
+  "subtopic": "Cycle Detection",
+  "pattern": "Hash Map Lookup",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Determine if a number n is happy. A happy number is defined by a process of replacing the number by the sum of squares of its digits repeatedly until it reaches 1.",
+  "constraints": "1 <= n <= 2^31 - 1",
+  "examples": [
+    {
+      "input": "n = 19",
+      "output": "true"
+    }
+  ],
+  "expected_input": "n: int",
+  "expected_output": "bool",
+  "edge_cases": [
+    "n is 1",
+    "n enters infinite cycle"
+  ],
+  "hints": [
+    "Use a set to track numbers we have already seen to detect cycles."
+  ],
+  "expected_approach": "Trace digital squares sum; exit with False if sum repeats.",
+  "time_complexity": "O(log n)",
+  "space_complexity": "O(log n)",
+  "related_concepts": [
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [
+    "mistake_key_checking"
+  ],
+  "code": "def solution(n):\n    seen = set()\n    while n != 1 and n not in seen:\n        seen.add(n)\n        n = sum(int(digit) ** 2 for digit in str(n))\n    return n == 1"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "pattern_topological_sort",
+  "title": "Topological Sort",
+  "document_type": "pattern",
+  "topic": "Graphs",
+  "pattern": "Topological Sort",
+  "intuition": "Sort vertices of a DAG linearly such that for every directed edge uv, vertex u comes before v.",
+  "recognition_signals": [
+    "Directed acyclic graph input",
+    "Dependency resolving",
+    "Scheduling constraints"
+  ],
+  "step_by_step_strategy": [
+    "Calculate in-degrees for all nodes.",
+    "Enqueue nodes with in-degree 0.",
+    "While queue is not empty, dequeue node, decrement neighbor in-degrees.",
+    "If a neighbor's in-degree reaches 0, enqueue it."
+  ],
+  "common_mistakes": [
+    "Failing to detect cycle loops (if sorted nodes < total nodes, cycle exists)",
+    "Using incorrect node representations"
+  ],
+  "complexity": "Time: O(V + E), Space: O(V)",
+  "example_problem_types": [
+    "Course schedule",
+    "Alien dictionary"
+  ],
+  "related_concepts": [
+    "concept_graphs",
+    "concept_queues"
+  ],
+  "content": "Sort vertices of a DAG linearly such that for every directed edge uv, vertex u comes before v."
+}

@@ -1,0 +1,34 @@
+{
+  "id": "prob_heap_05",
+  "title": "K Closest Points to Origin",
+  "document_type": "problem",
+  "topic": "Heaps",
+  "subtopic": "Top K",
+  "pattern": "Heap / Top K",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an array of points where points[i] = [x, y] represents a point on the X-Y plane and an integer k, return the k closest points to the origin.",
+  "constraints": "1 <= k <= points.length <= 10^4",
+  "examples": [
+    {
+      "input": "points = [[1, 3], [-2, 2]], k = 1",
+      "output": "[[-2, 2]]"
+    }
+  ],
+  "expected_input": "points: list[list[int]], k: int",
+  "expected_output": "list[list[int]]",
+  "edge_cases": [
+    "Multiple points with equal distances"
+  ],
+  "hints": [
+    "Use a max-heap of size k storing pairs of (distance, point) to keep tracking k closest."
+  ],
+  "expected_approach": "Max-heap distance sorting filter.",
+  "time_complexity": "O(n log k)",
+  "space_complexity": "O(k)",
+  "related_concepts": [
+    "concept_heaps"
+  ],
+  "related_mistakes": [],
+  "code": "import heapq\ndef solution(points, k):\n    h = []\n    for x, y in points:\n        dist = -(x**2 + y**2)\n        heapq.heappush(h, (dist, [x, y]))\n        if len(h) > k:\n            heapq.heappop(h)\n    return [item[1] for item in h]"
+}

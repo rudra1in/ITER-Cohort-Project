@@ -1,0 +1,46 @@
+{
+  "id": "prob_reverse_array",
+  "title": "Reverse Array",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Array Manipulation",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+
+  "problem": "Given an array of integers, return the array with its elements reversed.",
+
+  "intuition": "Use two pointers, one starting from the beginning and one from the end. Swap their values and move both pointers toward the center.",
+
+  "approach": "Initialize left to zero and right to the final index. While left is smaller than right, swap the elements and move both pointers.",
+
+  "algorithm": [
+    "Set left to 0.",
+    "Set right to len(nums) - 1.",
+    "While left is less than right, swap nums[left] and nums[right].",
+    "Move left forward.",
+    "Move right backward."
+  ],
+
+  "examples": [
+    {
+      "input": "[1,2,3,4]",
+      "output": "[4,3,2,1]"
+    }
+  ],
+
+  "mistakes": [
+    "Using the wrong right pointer.",
+    "Continuing after left reaches right.",
+    "Forgetting to move both pointers.",
+    "Swapping the wrong elements."
+  ],
+
+  "time_complexity": "O(n)",
+
+  "space_complexity": "O(1)",
+
+  "solution": "Use two pointers and swap elements from opposite ends.",
+
+  "code": "def solution(nums):\n    left = 0\n    right = len(nums) - 1\n\n    while left < right:\n        nums[left], nums[right] = nums[right], nums[left]\n        left += 1\n        right -= 1\n\n    return nums"
+}

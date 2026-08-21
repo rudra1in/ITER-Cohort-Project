@@ -1,0 +1,20 @@
+{
+  "id": "sol_greedy_08",
+  "problem_id": "prob_greedy_08",
+  "document_type": "solution",
+  "title": "Candy Distribution Min Count - Solution",
+  "approach": "Two-pass array bounds accumulation.",
+  "intuition": "Distribute candies to children satisfying ratings constraint with minimum total count.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Two-pass array bounds accumulation.",
+  "code": "def solution(ratings):\n    n = len(ratings)\n    candies = [1] * n\n    for i in range(1, n):\n        if ratings[i] > ratings[i-1]:\n            candies[i] = candies[i-1] + 1\n    for i in range(n - 2, -1, -1):\n        if ratings[i] > ratings[i+1]:\n            candies[i] = max(candies[i], candies[i+1] + 1)\n    return sum(candies)",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use two passes. Left-to-right pass satisfying rating checks on left neighbors, then right-to-left pass satisfying checks on right neighbors."
+  ]
+}

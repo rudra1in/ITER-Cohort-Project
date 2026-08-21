@@ -1,0 +1,20 @@
+{
+  "id": "sol_graph_10",
+  "problem_id": "prob_graph_10",
+  "document_type": "solution",
+  "title": "Shortest Path in Binary Matrix - Solution",
+  "approach": "Grid coordinate BFS.",
+  "intuition": "Return the length of the shortest clear path in the matrix. Path must connect top left to bottom right.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Grid coordinate BFS.",
+  "code": "from collections import deque\ndef solution(grid):\n    n = len(grid)\n    if grid[0][0] == 1 or grid[n-1][n-1] == 1:\n        return -1\n    q = deque([(0, 0, 1)])\n    visited = {(0, 0)}\n    while q:\n        r, c, d = q.popleft()\n        if r == n - 1 and c == n - 1:\n            return d\n        for dr in [-1, 0, 1]:\n            for dc in [-1, 0, 1]:\n                nr, nc = r + dr, c + dc\n                if 0 <= nr < n and 0 <= nc < n and grid[nr][nc] == 0 and (nr, nc) not in visited:\n                    visited.add((nr, nc))\n                    q.append((nr, nc, d + 1))\n    return -1",
+  "time_complexity": "O(n^2)",
+  "space_complexity": "O(n^2)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use BFS with 8 directions. Keep track of coordinates and steps."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "prob_greedy_01",
+  "title": "Assign Cookies",
+  "document_type": "problem",
+  "topic": "Greedy",
+  "subtopic": "Optimization",
+  "pattern": "Greedy",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Assign cookies to children greedily to maximize content children count. Each child has greed value, each cookie has size.",
+  "constraints": "Children/cookie list sizes up to 3 * 10^4.",
+  "examples": [
+    {
+      "input": "g = [1, 2, 3], s = [1, 1]",
+      "output": "1"
+    }
+  ],
+  "expected_input": "g: list[int], s: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "No cookies left",
+    "Cookies too small"
+  ],
+  "hints": [
+    "Sort both children greed values and cookie sizes. Iterate with two pointers greedily matching smallest cookie satisfying next smallest greed value."
+  ],
+  "expected_approach": "Sort + double pointer scan.",
+  "time_complexity": "O(n log n + m log m)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_greedy",
+    "concept_sorting"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(g, s):\n    g.sort()\n    s.sort()\n    ch, ck = 0, 0\n    while ch < len(g) and ck < len(s):\n        if s[ck] >= g[ch]:\n            ch += 1\n        ck += 1\n    return ch"
+}

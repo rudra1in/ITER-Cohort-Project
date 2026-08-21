@@ -1,0 +1,20 @@
+{
+  "id": "sol_graph_07",
+  "problem_id": "prob_graph_07",
+  "document_type": "solution",
+  "title": "Redundant Connection - Solution",
+  "approach": "Union-Find cycle detection.",
+  "intuition": "Find an edge that can be removed so that the resulting graph is a tree of n nodes.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Union-Find cycle detection.",
+  "code": "def solution(edges):\n    parent = list(range(len(edges) + 1))\n    def find(i):\n        if parent[i] == i:\n            return i\n        parent[i] = find(parent[i])\n        return parent[i]\n    def union(i, j):\n        root_i = find(i)\n        root_j = find(j)\n        if root_i == root_j:\n            return False\n        parent[root_i] = root_j\n        return True\n    for u, v in edges:\n        if not union(u, v):\n            return [u, v]\n    return []",
+  "time_complexity": "O(n alpha(n))",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use Union-Find. The first edge where both vertices already belong to the same set is redundant."
+  ]
+}

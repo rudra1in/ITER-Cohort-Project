@@ -1,0 +1,20 @@
+{
+  "id": "sol_searchsort_05",
+  "problem_id": "prob_searchsort_05",
+  "document_type": "solution",
+  "title": "Quick Sort Array - Solution",
+  "approach": "In-place partition recursion.",
+  "intuition": "Given an array of integers nums, sort the array in ascending order using Quick Sort.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "In-place partition recursion.",
+  "code": "def solution(nums):\n    def quicksort(arr):\n        if len(arr) <= 1: return arr\n        pivot = arr[len(arr) // 2]\n        left = [x for x in arr if x < pivot]\n        middle = [x for x in arr if x == pivot]\n        right = [x for x in arr if x > pivot]\n        return quicksort(left) + middle + quicksort(right)\n    return quicksort(nums)",
+  "time_complexity": "O(n log n) average, O(n^2) worst case",
+  "space_complexity": "O(log n) call stack",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Select a pivot element. Partition array such that elements smaller than pivot are left, and larger are right. Recurse."
+  ]
+}

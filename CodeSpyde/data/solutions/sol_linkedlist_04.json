@@ -1,0 +1,20 @@
+{
+  "id": "sol_linkedlist_04",
+  "problem_id": "prob_linkedlist_04",
+  "document_type": "solution",
+  "title": "Remove Nth Node From End of List - Solution",
+  "approach": "Two pointer traversal with dummy node offset.",
+  "intuition": "Given the head of a linked list, remove the nth node from the end of the list and return its head.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Two pointer traversal with dummy node offset.",
+  "code": "def solution(head, n):\n    class ListNode:\n        def __init__(self, val=0, next=None):\n            self.val = val\n            self.next = next\n    dummy = ListNode(0)\n    dummy.next = head\n    first = dummy\n    second = dummy\n    for _ in range(n + 1):\n        first = first.next\n    while first:\n        first = first.next\n        second = second.next\n    second.next = second.next.next\n    return dummy.next",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a dummy node to simplify edge cases. Use two pointers with a gap of n."
+  ]
+}

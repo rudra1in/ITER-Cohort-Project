@@ -1,0 +1,35 @@
+{
+  "id": "prob_stackqueue_03",
+  "title": "Implement Queue using Stacks",
+  "document_type": "problem",
+  "topic": "Queues",
+  "subtopic": "Design",
+  "pattern": "Stack-based Traversal",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Implement a first in first out (FIFO) queue using only two stacks.",
+  "constraints": "All operations are valid.",
+  "examples": [
+    {
+      "input": "Queue operations",
+      "output": "FIFO outputs"
+    }
+  ],
+  "expected_input": "operations: list[str]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Heavy pops after multiple pushes"
+  ],
+  "hints": [
+    "Use one input stack and one output stack. Transfer elements when output stack is empty."
+  ],
+  "expected_approach": "Amortized dual-stack transfer.",
+  "time_complexity": "O(1) amortized",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_stacks",
+    "concept_queues"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(operations):\n    s1 = []\n    s2 = []\n    res = []\n    for op in operations:\n        cmd = op[0]\n        if cmd == 'push':\n            val = op[1]\n            s1.append(val)\n        elif cmd == 'pop':\n            if not s2:\n                while s1:\n                    s2.append(s1.pop())\n            if s2:\n                res.append(s2.pop())\n    return res"
+}

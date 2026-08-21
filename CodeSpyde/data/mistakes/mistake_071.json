@@ -1,0 +1,19 @@
+{
+  "id": "mistake_071",
+  "title": "Common Bug Category 71",
+  "document_type": "mistake",
+  "topic": "Arrays",
+  "subtopic": "Pointers",
+  "pattern": "Two Pointers",
+  "mistake_type": "off-by-one",
+  "symptoms": "IndexError or infinite loop behavior.",
+  "why_it_happens": "Improper boundary initialization or missing increments.",
+  "explanation": "Ensure pointer bounds do not exceed bounds of the collection.",
+  "bad_example": "def solution(arr):\n    return arr[len(arr)]",
+  "corrected_example": "def solution(arr):\n    return arr[len(arr)-1] if arr else None",
+  "content": "Mistake Type: off-by-one\nSymptoms: IndexError or infinite loop behavior.\nWhy it happens: Improper boundary initialization or missing increments.\nExplanation: Ensure pointer bounds do not exceed bounds of the collection.\nBad Example:\ndef solution(arr):\n    return arr[len(arr)]\nCorrected Example:\ndef solution(arr):\n    return arr[len(arr)-1] if arr else None",
+  "hint": "Check the upper index of your loop.",
+  "recommended_concept": "concept_arrays",
+  "recommended_pattern": "pattern_two_pointers",
+  "complexity_impact": "Degrades performance from O(N) to O(N^2) or crashes the program."
+}

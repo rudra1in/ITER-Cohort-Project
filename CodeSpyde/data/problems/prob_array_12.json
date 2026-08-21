@@ -1,0 +1,37 @@
+{
+  "id": "prob_array_12",
+  "title": "Best Time to Buy and Sell Stock",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Profit Optimization",
+  "pattern": "Sliding Window",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Find the maximum profit you can achieve from buying and selling a stock on different days, given an array of prices.",
+  "constraints": "1 <= prices.length <= 10^5",
+  "examples": [
+    {
+      "input": "prices = [7, 1, 5, 3, 6, 4]",
+      "output": "5"
+    }
+  ],
+  "expected_input": "prices: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Strictly decreasing prices",
+    "Strictly increasing prices"
+  ],
+  "hints": [
+    "Track the minimum price seen so far and the maximum profit calculated."
+  ],
+  "expected_approach": "One-pass minimum tracking.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_arrays"
+  ],
+  "related_mistakes": [
+    "mistake_profit_init"
+  ],
+  "code": "def solution(prices):\n    if not prices:\n        return 0\n    min_price = prices[0]\n    max_profit = 0\n    for p in prices:\n        if p < min_price:\n            min_price = p\n        else:\n            max_profit = max(max_profit, p - min_price)\n    return max_profit"
+}

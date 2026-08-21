@@ -1,0 +1,36 @@
+{
+  "id": "prob_tree_07",
+  "title": "Kth Smallest Element in BST",
+  "document_type": "problem",
+  "topic": "Binary Search Trees",
+  "subtopic": "Search BST",
+  "pattern": "Tree DFS",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.",
+  "constraints": "The number of nodes in the tree is n.\n1 <= k <= n <= 10^4",
+  "examples": [
+    {
+      "input": "root = [3, 1, 4, null, 2], k = 1",
+      "output": "1"
+    }
+  ],
+  "expected_input": "root: Optional[TreeNode], k: int",
+  "expected_output": "int",
+  "edge_cases": [
+    "k is 1",
+    "k is number of elements in tree"
+  ],
+  "hints": [
+    "In-order traversal of a BST yields sorted elements. Stop traversal when kth element is reached."
+  ],
+  "expected_approach": "Iterative in-order traversal tracking nodes count.",
+  "time_complexity": "O(h + k)",
+  "space_complexity": "O(h)",
+  "related_concepts": [
+    "concept_bst",
+    "concept_binary_trees"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(root, k):\n    stack = []\n    curr = root\n    while curr or stack:\n        while curr:\n            stack.append(curr)\n            curr = curr.left\n        curr = stack.pop()\n        k -= 1\n        if k == 0:\n            return curr.val\n        curr = curr.right"
+}

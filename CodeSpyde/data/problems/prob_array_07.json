@@ -1,0 +1,39 @@
+{
+  "id": "prob_array_07",
+  "title": "Square of Sorted Array",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Sorting",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.",
+  "constraints": "1 <= nums.length <= 10^4\n-10^4 <= nums[i] <= 10^4\nnums is sorted in non-decreasing order.",
+  "examples": [
+    {
+      "input": "nums = [-4, -1, 0, 3, 10]",
+      "output": "[0, 1, 9, 16, 100]"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "All negative numbers",
+    "All positive numbers",
+    "Mixture of negative and positive"
+  ],
+  "hints": [
+    "Use two pointers at both ends of the array and fill the result array backwards."
+  ],
+  "expected_approach": "Compare squares at left and right pointers and place the larger square at the end of the output array.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_arrays",
+    "concept_sorting"
+  ],
+  "related_mistakes": [
+    "mistake_right_pointer"
+  ],
+  "code": "def solution(nums):\n    n = len(nums)\n    res = [0] * n\n    l, r = 0, n - 1\n    for i in range(n - 1, -1, -1):\n        if abs(nums[l]) > abs(nums[r]):\n            res[i] = nums[l] ** 2\n            l += 1\n        else:\n            res[i] = nums[r] ** 2\n            r -= 1\n    return res"
+}

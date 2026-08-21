@@ -1,0 +1,20 @@
+{
+  "id": "sol_string_07",
+  "problem_id": "prob_string_07",
+  "document_type": "solution",
+  "title": "Implement strStr() - Solution",
+  "approach": "Iterative window comparison.",
+  "intuition": "Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Iterative window comparison.",
+  "code": "def solution(haystack, needle):\n    h, n = len(haystack), len(needle)\n    for i in range(h - n + 1):\n        if haystack[i:i+n] == needle:\n            return i\n    return -1",
+  "time_complexity": "O(n * m)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Compare substring of length equal to needle at each index of haystack."
+  ]
+}

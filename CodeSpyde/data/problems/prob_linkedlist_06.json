@@ -1,0 +1,35 @@
+{
+  "id": "prob_linkedlist_06",
+  "title": "Intersection of Two Linked Lists",
+  "document_type": "problem",
+  "topic": "Linked Lists",
+  "subtopic": "Intersection Search",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If they do not intersect, return null.",
+  "constraints": "The number of nodes of listA is m, listB is n.\n1 <= m, n <= 3 * 10^4",
+  "examples": [
+    {
+      "input": "intersectVal = 8, listA = [4, 1, 8, 4, 5], listB = [5, 6, 1, 8, 4, 5]",
+      "output": "Reference to node 8"
+    }
+  ],
+  "expected_input": "headA: ListNode, headB: ListNode",
+  "expected_output": "Optional[ListNode]",
+  "edge_cases": [
+    "No intersection exists",
+    "Intersect at the first node"
+  ],
+  "hints": [
+    "If you traverse list A and then switch to list B's head, and vice-versa, the path lengths will equalize."
+  ],
+  "expected_approach": "Dual pointer traversal with head swap on completion.",
+  "time_complexity": "O(n + m)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_linked_lists"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(headA, headB):\n    if not headA or not headB:\n        return None\n    pA, pB = headA, headB\n    while pA != pB:\n        pA = pA.next if pA else headB\n        pB = pB.next if pB else headA\n    return pA"
+}

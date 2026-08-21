@@ -1,0 +1,28 @@
+{
+  "id": "pattern_lis",
+  "title": "Longest Increasing Subsequence (LIS)",
+  "document_type": "pattern",
+  "topic": "Dynamic Programming",
+  "pattern": "Longest Increasing Subsequence",
+  "intuition": "Find the longest subsequence where values are strictly sorted. Transitions match elements against all preceding items.",
+  "recognition_signals": [
+    "Strictly increasing relative positions requirement"
+  ],
+  "step_by_step_strategy": [
+    "State: dp[i] is LIS length ending at index i.",
+    "Transition: dp[i] = max(dp[j] + 1) for all j < i if nums[j] < nums[i]."
+  ],
+  "common_mistakes": [
+    "Confusing subsequence with contiguous subarray",
+    "Default state initialization incorrect"
+  ],
+  "complexity": "Time: O(n^2) or O(n log n) with patience sorting",
+  "example_problem_types": [
+    "Longest increasing subsequence",
+    "Russian doll envelopes"
+  ],
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "content": "Find the longest subsequence where values are strictly sorted. Transitions match elements against all preceding items."
+}

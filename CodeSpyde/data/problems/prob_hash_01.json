@@ -1,0 +1,37 @@
+{
+  "id": "prob_hash_01",
+  "title": "Two Sum Problem",
+  "document_type": "problem",
+  "topic": "Hash Tables",
+  "subtopic": "Pair Matching",
+  "pattern": "Hash Map Lookup",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+  "constraints": "2 <= nums.length <= 10^4",
+  "examples": [
+    {
+      "input": "nums = [2, 7, 11, 15], target = 9",
+      "output": "[0, 1]"
+    }
+  ],
+  "expected_input": "nums: list[int], target: int",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Duplicate numbers exist",
+    "Multiple solutions (return first found)"
+  ],
+  "hints": [
+    "Use a hash map to map each element to its index."
+  ],
+  "expected_approach": "Single pass complement matching using dictionary lookup.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [
+    "mistake_key_checking"
+  ],
+  "code": "def solution(nums, target):\n    seen = {}\n    for i, n in enumerate(nums):\n        comp = target - n\n        if comp in seen:\n            return [seen[comp], i]\n        seen[n] = i\n    return []"
+}

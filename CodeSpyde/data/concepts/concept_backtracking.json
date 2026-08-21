@@ -1,0 +1,26 @@
+{
+  "id": "concept_backtracking",
+  "title": "Backtracking",
+  "document_type": "concept",
+  "topic": "Backtracking",
+  "subtopic": "Algorithmic Paradigms",
+  "definition": "Backtracking systematically searches all configurations to find valid solutions, abandoning partial paths immediately when invalid.",
+  "intuition": "Trial-and-error path construction: make a choice, explore, undo if it doesn't work out.",
+  "how_it_works": "Recursively builds solutions step-by-step. If a step leads to violation, it returns (backtracks) to previous state.",
+  "when_to_use": "For permutations, combinations, subsets, constraint satisfaction problems.",
+  "when_not_to_use": "When direct polynomial-time options are available.",
+  "common_mistakes": [
+    "Not reverting states properly after backtracking",
+    "Failing to prune search space"
+  ],
+  "complexity": "Typically exponential (e.g. O(2^n) or O(n!))",
+  "examples": [
+    "N-Queens",
+    "Sudoku solver"
+  ],
+  "related_patterns": [
+    "Backtracking",
+    "DFS"
+  ],
+  "content": "Backtracking systematically searches all configurations to find valid solutions, abandoning partial paths immediately when invalid."
+}

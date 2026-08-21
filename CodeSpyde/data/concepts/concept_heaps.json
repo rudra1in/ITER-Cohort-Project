@@ -1,0 +1,25 @@
+{
+  "id": "concept_heaps",
+  "title": "Heaps / Priority Queues",
+  "document_type": "concept",
+  "topic": "Heaps",
+  "subtopic": "Priority Queues",
+  "definition": "A heap is a specialized tree-based structure satisfying the heap property (max or min).",
+  "intuition": "Efficiently find and extract the maximum or minimum element.",
+  "how_it_works": "Implemented as a binary tree mapped to an array. Rebalancing is done via sift-up/down.",
+  "when_to_use": "For top-k problems, merging sorted arrays, or scheduling algorithms.",
+  "when_not_to_use": "When searching for arbitrary elements.",
+  "common_mistakes": [
+    "Updating priority incorrectly",
+    "Confusing min-heaps with max-heaps"
+  ],
+  "complexity": "Get Min/Max: O(1), Insert/Extract: O(log n)",
+  "examples": [
+    "K-Way Merge",
+    "Dijkstra's Algorithm"
+  ],
+  "related_patterns": [
+    "Heap / Top K"
+  ],
+  "content": "A heap is a specialized tree-based structure satisfying the heap property (max or min)."
+}

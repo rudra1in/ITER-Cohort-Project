@@ -1,0 +1,20 @@
+{
+  "id": "sol_tree_09",
+  "problem_id": "prob_tree_09",
+  "document_type": "solution",
+  "title": "Lowest Common Ancestor of BST - Solution",
+  "approach": "Direct BST split node tracking.",
+  "intuition": "Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Direct BST split node tracking.",
+  "code": "def solution(root, p, q):\n    curr = root\n    while curr:\n        if p.val < curr.val and q.val < curr.val:\n            curr = curr.left\n        elif p.val > curr.val and q.val > curr.val:\n            curr = curr.right\n        else:\n            return curr",
+  "time_complexity": "O(h)",
+  "space_complexity": "O(1) iterative or O(h) recursive",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "LCA lies at the split node. If both nodes are smaller than root, search left. If larger, search right."
+  ]
+}

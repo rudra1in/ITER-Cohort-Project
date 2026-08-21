@@ -1,0 +1,20 @@
+{
+  "id": "sol_tree_08",
+  "problem_id": "prob_tree_08",
+  "document_type": "solution",
+  "title": "Validate Binary Search Tree - Solution",
+  "approach": "Recursive preorder bound checking traversal.",
+  "intuition": "Given the root of a binary tree, determine if it is a valid binary search tree (BST).",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Recursive preorder bound checking traversal.",
+  "code": "def solution(root):\n    def validate(node, low=float('-inf'), high=float('inf')):\n        if not node:\n            return True\n        if not (low < node.val < high):\n            return False\n        return validate(node.left, low, node.val) and validate(node.right, node.val, high)\n    return validate(root)",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Pass bounds (min, max) to child recursive calls. Node value must be strictly within bounds."
+  ]
+}

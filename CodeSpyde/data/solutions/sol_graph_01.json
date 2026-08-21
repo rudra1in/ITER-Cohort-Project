@@ -1,0 +1,20 @@
+{
+  "id": "sol_graph_01",
+  "problem_id": "prob_graph_01",
+  "document_type": "solution",
+  "title": "Number of Islands - Solution",
+  "approach": "Recursive depth-first island flooding.",
+  "intuition": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Recursive depth-first island flooding.",
+  "code": "def solution(grid):\n    if not grid:\n        return 0\n    m, n = len(grid), len(grid[0])\n    count = 0\n    def dfs(r, c):\n        if not (0 <= r < m and 0 <= c < n) or grid[r][c] == '0':\n            return\n        grid[r][c] = '0'\n        dfs(r+1, c)\n        dfs(r-1, c)\n        dfs(r, c+1)\n        dfs(r, c-1)\n    for r in range(m):\n        for c in range(n):\n            if grid[r][c] == '1':\n                count += 1\n                dfs(r, c)\n    return count",
+  "time_complexity": "O(m * n)",
+  "space_complexity": "O(m * n) recursion stack",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use DFS or BFS. When a '1' is found, increment island count and mark all connected land cells as visited (e.g. '0')."
+  ]
+}

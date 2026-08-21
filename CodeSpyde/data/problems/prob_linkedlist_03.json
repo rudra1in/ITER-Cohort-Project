@@ -1,0 +1,38 @@
+{
+  "id": "prob_linkedlist_03",
+  "title": "Linked List Cycle Detection",
+  "document_type": "problem",
+  "topic": "Linked Lists",
+  "subtopic": "Cycle Detection",
+  "pattern": "Fast and Slow Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given head, the head of a linked list, determine if the linked list has a cycle in it.",
+  "constraints": "The number of nodes in the list is in the range [0, 10^4].",
+  "examples": [
+    {
+      "input": "head = [3, 2, 0, -4] (pos = 1)",
+      "output": "true"
+    }
+  ],
+  "expected_input": "head: Optional[ListNode]",
+  "expected_output": "bool",
+  "edge_cases": [
+    "Empty list",
+    "Single node no cycle",
+    "Loop of size 1"
+  ],
+  "hints": [
+    "Use fast and slow pointers. If they meet, there is a cycle."
+  ],
+  "expected_approach": "Floyd's cycle detection algorithm.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_linked_lists"
+  ],
+  "related_mistakes": [
+    "mistake_fast_slow_null"
+  ],
+  "code": "def solution(head):\n    slow = head\n    fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        if slow == fast:\n            return True\n    return False"
+}

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Generated data
+data/frames/*
+data/videos/*
+data/ids/*
+data/chroma/*
+data/ledger/*
+
+# Keep directory structure
+!data/frames/.gitkeep
+!data/videos/.gitkeep
+!data/ids/.gitkeep
+!data/chroma/.gitkeep
+!data/ledger/.gitkeep
+
+# Model/cache files
+*.onnx
+*.pt
+*.pth
+.cache/

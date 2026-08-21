@@ -1,0 +1,20 @@
+{
+  "id": "sol_backtrack_10",
+  "problem_id": "prob_backtrack_10",
+  "document_type": "solution",
+  "title": "Permutations II - Solution",
+  "approach": "Sort + visited checking backtracking.",
+  "intuition": "Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Sort + visited checking backtracking.",
+  "code": "def solution(nums):\n    nums.sort()\n    res = []\n    visited = [False] * len(nums)\n    def backtrack(path):\n        if len(path) == len(nums):\n            res.append(list(path))\n            return\n        for i in range(len(nums)):\n            if visited[i]: continue\n            if i > 0 and nums[i] == nums[i-1] and not visited[i-1]:\n                continue\n            visited[i] = True\n            path.append(nums[i])\n            backtrack(path)\n            path.pop()\n            visited[i] = False\n    backtrack([])\n    return res",
+  "time_complexity": "O(n * n!)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Sort the array. Keep track of visited indices. If nums[i] == nums[i-1] and not visited[i-1], skip i to avoid duplicate permutations."
+  ]
+}

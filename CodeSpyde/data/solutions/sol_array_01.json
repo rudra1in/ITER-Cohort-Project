@@ -1,0 +1,21 @@
+{
+  "id": "sol_array_01",
+  "problem_id": "prob_array_01",
+  "document_type": "solution",
+  "title": "Find Single Unique Element - Solution",
+  "approach": "XOR all elements in the array to find the single element.",
+  "intuition": "Given a non-empty array of integers where every element appears twice except for one, find that single one.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "XOR all elements in the array to find the single element.",
+  "code": "def solution(nums):\n    res = 0\n    for n in nums:\n        res ^= n\n    return res",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "XOR of a number with itself is 0.",
+    "XOR of any number with 0 is the number itself."
+  ]
+}

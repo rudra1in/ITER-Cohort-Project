@@ -1,0 +1,13 @@
+{
+  "id": "example_051",
+  "title": "Utility Code Demonstration 51",
+  "document_type": "example",
+  "topic": "Arrays",
+  "pattern": "Two Pointers",
+  "description": "Short code demonstration showing elements traversing.",
+  "code": "def solution(arr):\n    for i in range(len(arr)):\n        print(arr[i])",
+  "explanation": "Iterate sequentially and print each element of the array.",
+  "content": "Description: Short code demonstration showing elements traversing.\nCode:\ndef solution(arr):\n    for i in range(len(arr)):\n        print(arr[i])\nExplanation: Iterate sequentially and print each element of the array.",
+  "complexity": "Time: O(n), Space: O(1)",
+  "common_bug": "Empty array check is missing."
+}

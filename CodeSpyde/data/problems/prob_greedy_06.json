@@ -1,0 +1,36 @@
+{
+  "id": "prob_greedy_06",
+  "title": "Hand of Straights",
+  "document_type": "problem",
+  "topic": "Greedy",
+  "subtopic": "Group Checking",
+  "pattern": "Greedy",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Check if hand cards can be grouped into subsets of size groupSize containing consecutive cards.",
+  "constraints": "1 <= hand.length <= 10^4",
+  "examples": [
+    {
+      "input": "hand = [1,2,3,6,2,3,4,7,8], groupSize = 3",
+      "output": "true"
+    }
+  ],
+  "expected_input": "hand: list[int], groupSize: int",
+  "expected_output": "bool",
+  "edge_cases": [
+    "groupSize is 1",
+    "Cards cannot partition evenly"
+  ],
+  "hints": [
+    "Count card frequencies. Sort unique cards and greedily start straight groups from the smallest card available."
+  ],
+  "expected_approach": "Sorted frequency map decrement simulation.",
+  "time_complexity": "O(n log n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_greedy",
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(hand, groupSize):\n    if len(hand) % groupSize != 0:\n        return False\n    count = {}\n    for card in hand:\n        count[card] = count.get(card, 0) + 1\n    sorted_keys = sorted(count.keys())\n    for card in sorted_keys:\n        if count[card] > 0:\n            needed = count[card]\n            for i in range(groupSize):\n                if count.get(card + i, 0) < needed:\n                    return False\n                count[card + i] -= needed\n    return True"
+}

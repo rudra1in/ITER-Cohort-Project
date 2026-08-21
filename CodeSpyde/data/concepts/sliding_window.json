@@ -1,0 +1,27 @@
+{
+  "id": "concept_sliding_window",
+  "title": "Sliding Window Pattern",
+  "document_type": "concept",
+  "topic": "Arrays",
+  "subtopic": "Subarrays",
+  "pattern": "Sliding Window",
+  "difficulty": "Medium",
+  "language": "python",
+
+  "content": "The sliding window technique maintains a range of elements and moves the range through the input instead of repeatedly examining the same elements.",
+
+  "intuition": "Sliding window is useful when the problem asks about a contiguous subarray or substring and the window can be expanded or contracted while maintaining some property.",
+
+  "approach": "Maintain left and right boundaries. Expand the right boundary as new elements are considered. When the window violates a condition, move the left boundary until the condition is restored.",
+
+  "mistakes": [
+    "Moving the left pointer when the window should expand.",
+    "Forgetting to update the answer after changing the window.",
+    "Using sliding window for a problem that does not have the required contiguous structure.",
+    "Incorrectly updating the frequency map."
+  ],
+
+  "time_complexity": "Usually O(n)",
+
+  "space_complexity": "Usually O(k), depending on the auxiliary data structure."
+}

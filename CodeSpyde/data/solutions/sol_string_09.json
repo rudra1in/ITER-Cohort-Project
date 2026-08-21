@@ -1,0 +1,20 @@
+{
+  "id": "sol_string_09",
+  "problem_id": "prob_string_09",
+  "document_type": "solution",
+  "title": "Longest Common Prefix - Solution",
+  "approach": "Vertical character-by-character scan.",
+  "intuition": "Write a function to find the longest common prefix string amongst an array of strings. Return empty string if no common prefix exists.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Vertical character-by-character scan.",
+  "code": "def solution(strs):\n    if not strs:\n        return ''\n    for i in range(len(strs[0])):\n        char = strs[0][i]\n        for s in strs[1:]:\n            if i >= len(s) or s[i] != char:\n                return strs[0][:i]\n    return strs[0]",
+  "time_complexity": "O(s) sum of characters",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Compare characters index by index across all strings until a mismatch is found."
+  ]
+}

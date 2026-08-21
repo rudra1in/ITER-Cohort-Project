@@ -1,0 +1,38 @@
+{
+  "id": "prob_string_10",
+  "title": "Minimum Window Substring",
+  "document_type": "problem",
+  "topic": "Strings",
+  "subtopic": "Substring Search",
+  "pattern": "Sliding Window",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Given two strings s and t, return the minimum window substring of s such that every character in t (including duplicates) is included in the window.",
+  "constraints": "1 <= s.length, t.length <= 10^5",
+  "examples": [
+    {
+      "input": "s = 'ADOBECODEBANC', t = 'ABC'",
+      "output": "'BANC'"
+    }
+  ],
+  "expected_input": "s: str, t: str",
+  "expected_output": "str",
+  "edge_cases": [
+    "t is longer than s",
+    "No matching window exists"
+  ],
+  "hints": [
+    "Use sliding window with two pointer boundaries and frequency maps."
+  ],
+  "expected_approach": "Sliding window optimization using two pointers and dynamic count comparisons.",
+  "time_complexity": "O(n + m)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_strings",
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [
+    "mistake_window_shrink"
+  ],
+  "code": "def solution(s, t):\n    if not s or not t:\n        return ''\n    t_count = {}\n    for c in t:\n        t_count[c] = t_count.get(c, 0) + 1\n    required = len(t_count)\n    l, r = 0, 0\n    formed = 0\n    window_counts = {}\n    ans = float('inf'), None, None\n    while r < len(s):\n        char = s[r]\n        window_counts[char] = window_counts.get(char, 0) + 1\n        if char in t_count and window_counts[char] == t_count[char]:\n            formed += 1\n        while l <= r and formed == required:\n            char = s[l]\n            if r - l + 1 < ans[0]:\n                ans = (r - l + 1, l, r)\n            window_counts[char] -= 1\n            if char in t_count and window_counts[char] < t_count[char]:\n                formed -= 1\n            l += 1\n        r += 1\n    return '' if ans[0] == float('inf') else s[ans[1]:ans[2]+1]"
+}

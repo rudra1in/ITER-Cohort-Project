@@ -1,0 +1,38 @@
+{
+  "id": "prob_string_04",
+  "title": "Longest Substring Without Repeating Characters",
+  "document_type": "problem",
+  "topic": "Strings",
+  "subtopic": "Substring Search",
+  "pattern": "Sliding Window",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given a string s, find the length of the longest substring without repeating characters.",
+  "constraints": "0 <= s.length <= 5 * 10^4",
+  "examples": [
+    {
+      "input": "s = 'abcabcbb'",
+      "output": "3"
+    }
+  ],
+  "expected_input": "s: str",
+  "expected_output": "int",
+  "edge_cases": [
+    "Empty string",
+    "String with all identical characters"
+  ],
+  "hints": [
+    "Use a sliding window with a dictionary to store indices of characters."
+  ],
+  "expected_approach": "Sliding window with dynamic left pointer update.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1) because size of alphabet is constant",
+  "related_concepts": [
+    "concept_strings",
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [
+    "mistake_window_shrink"
+  ],
+  "code": "def solution(s):\n    seen = {}\n    max_len = 0\n    l = 0\n    for r in range(len(s)):\n        if s[r] in seen and seen[s[r]] >= l:\n            l = seen[s[r]] + 1\n        seen[s[r]] = r\n        max_len = max(max_len, r - l + 1)\n    return max_len"
+}

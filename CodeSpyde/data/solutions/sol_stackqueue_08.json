@@ -1,0 +1,20 @@
+{
+  "id": "sol_stackqueue_08",
+  "problem_id": "prob_stackqueue_08",
+  "document_type": "solution",
+  "title": "Simplify Directory Path - Solution",
+  "approach": "Tokenization + stack accumulation.",
+  "intuition": "Given a string path, which is an absolute path to a file or directory in a Unix-style file system, convert it to the simplified canonical path.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Tokenization + stack accumulation.",
+  "code": "def solution(path):\n    stack = []\n    parts = path.split('/')\n    for p in parts:\n        if p == '..':\n            if stack: stack.pop()\n        elif p and p != '.':\n            stack.append(p)\n    return '/' + '/'.join(stack)",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Split path by '/'. Iterate through tokens. Push directory names, pop on '..'."
+  ]
+}

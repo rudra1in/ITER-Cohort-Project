@@ -1,0 +1,24 @@
+{
+  "id": "concept_deque",
+  "title": "Deque",
+  "document_type": "concept",
+  "topic": "Queues",
+  "subtopic": "Double-Ended Queue",
+  "definition": "A double-ended queue (deque) allows insertion and deletion from both ends.",
+  "intuition": "Combines features of stacks and queues for bidirectional access.",
+  "how_it_works": "Implemented with doubly linked lists or dynamic arrays, offering O(1) front/back ops.",
+  "when_to_use": "For sliding window problems, palindrome checkers, or undo-redo histories.",
+  "when_not_to_use": "When simple queue/stack behavior is sufficient.",
+  "common_mistakes": [
+    "Confusion of left/right operations",
+    "Higher memory overhead"
+  ],
+  "complexity": "Push/Pop Front/Back: O(1)",
+  "examples": [
+    "Sliding window maximum"
+  ],
+  "related_patterns": [
+    "Sliding Window"
+  ],
+  "content": "A double-ended queue (deque) allows insertion and deletion from both ends."
+}

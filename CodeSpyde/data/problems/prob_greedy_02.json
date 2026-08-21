@@ -1,0 +1,35 @@
+{
+  "id": "prob_greedy_02",
+  "title": "Jump Game",
+  "document_type": "problem",
+  "topic": "Greedy",
+  "subtopic": "Array Shift",
+  "pattern": "Greedy",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an integer array nums where each element represents your max jump length at that position, return true if you can reach the last index.",
+  "constraints": "1 <= nums.length <= 10^4",
+  "examples": [
+    {
+      "input": "nums = [2, 3, 1, 1, 4]",
+      "output": "true"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "bool",
+  "edge_cases": [
+    "Array of size 1",
+    "Multiple zero transitions"
+  ],
+  "hints": [
+    "Maintain the maximum reachable index from current steps. If current index exceeds maximum reachable, return False."
+  ],
+  "expected_approach": "Forward pass maximum tracking.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_greedy"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(nums):\n    reachable = 0\n    for i, jump in enumerate(nums):\n        if i > reachable:\n            return False\n        reachable = max(reachable, i + jump)\n    return True"
+}

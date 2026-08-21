@@ -1,0 +1,20 @@
+{
+  "id": "sol_tree_13",
+  "problem_id": "prob_tree_13",
+  "document_type": "solution",
+  "title": "Binary Tree Maximum Path Sum - Solution",
+  "approach": "Recursive subtree maximum sums tracking.",
+  "intuition": "A path in a binary tree is a sequence of nodes where each pair of adjacent nodes has an edge. Return the maximum path sum of any non-empty path.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Recursive subtree maximum sums tracking.",
+  "code": "def solution(root):\n    max_sum = float('-inf')\n    def get_max(node):\n        nonlocal max_sum\n        if not node:\n            return 0\n        left = max(get_max(node.left), 0)\n        right = max(get_max(node.right), 0)\n        curr_sum = node.val + left + right\n        max_sum = max(max_sum, curr_sum)\n        return node.val + max(left, right)\n    get_max(root)\n    return max_sum",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "For each node, compute max path sum containing left child and right child. Propagate only the max single path up."
+  ]
+}

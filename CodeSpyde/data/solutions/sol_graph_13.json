@@ -1,0 +1,20 @@
+{
+  "id": "sol_graph_13",
+  "problem_id": "prob_graph_13",
+  "document_type": "solution",
+  "title": "Min Cost to Connect All Points - Solution",
+  "approach": "Prim's minimum spanning tree using min-heap.",
+  "intuition": "Find the minimum cost to connect all points. Cost is Manhattan distance.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Prim's minimum spanning tree using min-heap.",
+  "code": "import heapq\ndef solution(points):\n    n = len(points)\n    visited = [False] * n\n    h = [(0, 0)]\n    cost = 0\n    num_visited = 0\n    while h and num_visited < n:\n        w, u = heapq.heappop(h)\n        if visited[u]: continue\n        visited[u] = True\n        cost += w\n        num_visited += 1\n        for v in range(n):\n            if not visited[v]:\n                dist = abs(points[u][0] - points[v][0]) + abs(points[u][1] - points[v][1])\n                heapq.heappush(h, (dist, v))\n    return cost",
+  "time_complexity": "O(n^2 log n) or O(n^2)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Treat points as nodes. Edges are Manhattan distances. Find MST using Prim's or Kruskal's algorithm."
+  ]
+}

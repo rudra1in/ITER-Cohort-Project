@@ -1,0 +1,20 @@
+{
+  "id": "sol_heap_07",
+  "problem_id": "prob_heap_07",
+  "document_type": "solution",
+  "title": "Furthest Building You Can Reach - Solution",
+  "approach": "Min-heap greedy climb selection.",
+  "intuition": "Find the furthest building index you can reach using bricks and ladders.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Min-heap greedy climb selection.",
+  "code": "import heapq\ndef solution(heights, bricks, ladders):\n    h = []\n    for i in range(len(heights) - 1):\n        diff = heights[i+1] - heights[i]\n        if diff > 0:\n            heapq.heappush(h, diff)\n            if len(h) > ladders:\n                bricks -= heapq.heappop(h)\n            if bricks < 0:\n                return i\n    return len(heights) - 1",
+  "time_complexity": "O(n log l) where l is number of ladders",
+  "space_complexity": "O(l)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a min-heap to keep track of the largest height differences. Use ladders for largest climbs and bricks for others."
+  ]
+}

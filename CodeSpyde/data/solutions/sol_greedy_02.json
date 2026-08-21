@@ -1,0 +1,20 @@
+{
+  "id": "sol_greedy_02",
+  "problem_id": "prob_greedy_02",
+  "document_type": "solution",
+  "title": "Jump Game - Solution",
+  "approach": "Forward pass maximum tracking.",
+  "intuition": "Given an integer array nums where each element represents your max jump length at that position, return true if you can reach the last index.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Forward pass maximum tracking.",
+  "code": "def solution(nums):\n    reachable = 0\n    for i, jump in enumerate(nums):\n        if i > reachable:\n            return False\n        reachable = max(reachable, i + jump)\n    return True",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Maintain the maximum reachable index from current steps. If current index exceeds maximum reachable, return False."
+  ]
+}

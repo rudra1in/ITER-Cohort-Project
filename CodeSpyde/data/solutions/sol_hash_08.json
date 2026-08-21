@@ -1,0 +1,20 @@
+{
+  "id": "sol_hash_08",
+  "problem_id": "prob_hash_08",
+  "document_type": "solution",
+  "title": "Isomorphic Strings - Solution",
+  "approach": "Dual hash map bijection tracking.",
+  "intuition": "Given two strings s and t, determine if they are isomorphic. Two strings s and t are isomorphic if the characters in s can be replaced to get t.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Dual hash map bijection tracking.",
+  "code": "def solution(s, t):\n    if len(s) != len(t):\n        return False\n    map_st, map_ts = {}, {}\n    for c1, c2 in zip(s, t):\n        if c1 in map_st and map_st[c1] != c2:\n            return False\n        if c2 in map_ts and map_ts[c2] != c1:\n            return False\n        map_st[c1] = c2\n        map_ts[c2] = c1\n    return True",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1) alphabet is limited",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Map each character of s to t, and each character of t to s to ensure bijection."
+  ]
+}

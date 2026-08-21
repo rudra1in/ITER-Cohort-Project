@@ -1,0 +1,20 @@
+{
+  "id": "sol_linkedlist_09",
+  "problem_id": "prob_linkedlist_09",
+  "document_type": "solution",
+  "title": "Add Two Numbers - Solution",
+  "approach": "Iterative element addition with carry tracking.",
+  "intuition": "Given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order. Add the two numbers and return the sum as a linked list.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Iterative element addition with carry tracking.",
+  "code": "def solution(l1, l2):\n    class ListNode:\n        def __init__(self, val=0, next=None):\n            self.val = val\n            self.next = next\n    dummy = ListNode(0)\n    curr = dummy\n    carry = 0\n    while l1 or l2 or carry:\n        v1 = l1.val if l1 else 0\n        v2 = l2.val if l2 else 0\n        val = v1 + v2 + carry\n        carry = val // 10\n        curr.next = ListNode(val % 10)\n        curr = curr.next\n        if l1: l1 = l1.next\n        if l2: l2 = l2.next\n    return dummy.next",
+  "time_complexity": "O(max(n, m))",
+  "space_complexity": "O(max(n, m))",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Iterate through both lists. Keep track of the carry value."
+  ]
+}

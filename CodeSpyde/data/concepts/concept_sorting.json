@@ -1,0 +1,26 @@
+{
+  "id": "concept_sorting",
+  "title": "Sorting",
+  "document_type": "concept",
+  "topic": "Sorting",
+  "subtopic": "Algorithmic Paradigms",
+  "definition": "Sorting rearranges elements of a sequence into a specified order (e.g. ascending).",
+  "intuition": "Organized datasets are significantly easier to search and process.",
+  "how_it_works": "Algorithms use comparisons (Quick, Merge, Heap) or distribution (Bucket, Radix, Counting) keys.",
+  "when_to_use": "When preprocessing datasets for binary search, grouping, or greedy operations.",
+  "when_not_to_use": "When dataset is already sorted or operations are O(1) hash-based.",
+  "common_mistakes": [
+    "Using unstable sort when stability is required",
+    "Using O(n^2) sort when O(n log n) is feasible"
+  ],
+  "complexity": "Comparison: Best O(n log n), Non-comparison: O(n)",
+  "examples": [
+    "Merge Sort",
+    "Quick Sort"
+  ],
+  "related_patterns": [
+    "Merge Intervals",
+    "Two Pointers"
+  ],
+  "content": "Sorting rearranges elements of a sequence into a specified order (e.g. ascending)."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "prob_greedy_07",
+  "title": "Queue Reconstruction by Height",
+  "document_type": "problem",
+  "topic": "Greedy",
+  "subtopic": "Sorting",
+  "pattern": "Greedy",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Reconstruct queue of people with height h and k taller people constraints.",
+  "constraints": "people.length <= 2000",
+  "examples": [
+    {
+      "input": "people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]",
+      "output": "[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]"
+    }
+  ],
+  "expected_input": "people: list[list[int]]",
+  "expected_output": "list[list[int]]",
+  "edge_cases": [
+    "Heights all identical"
+  ],
+  "hints": [
+    "Sort people by height descending, then by k ascending. Insert each person into output list at index k greedily."
+  ],
+  "expected_approach": "Custom sort + insertion index positioning.",
+  "time_complexity": "O(n^2)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_greedy",
+    "concept_sorting"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(people):\n    people.sort(key=lambda x: (-x[0], x[1]))\n    res = []\n    for p in people:\n        res.insert(p[1], p)\n    return res"
+}

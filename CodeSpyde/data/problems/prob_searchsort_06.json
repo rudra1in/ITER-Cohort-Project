@@ -1,0 +1,35 @@
+{
+  "id": "prob_searchsort_06",
+  "title": "Sort Colors Dutch Flag",
+  "document_type": "problem",
+  "topic": "Sorting",
+  "subtopic": "Array Partitioning",
+  "pattern": "Two Pointers",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent. Colors are 0, 1, 2.",
+  "constraints": "1 <= nums.length <= 300",
+  "examples": [
+    {
+      "input": "nums = [2,0,2,1,1,0]",
+      "output": "[0,0,1,1,2,2]"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "list[int]",
+  "edge_cases": [
+    "Only one color present",
+    "Array already sorted"
+  ],
+  "hints": [
+    "Use three pointers: low, mid, high. Swap 0s to low, 2s to high, and advance mid."
+  ],
+  "expected_approach": "Dutch National Flag three-pointer partitioning.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_sorting"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(nums):\n    low, mid, high = 0, 0, len(nums) - 1\n    while mid <= high:\n        if nums[mid] == 0:\n            nums[low], nums[mid] = nums[mid], nums[low]\n            low += 1\n            mid += 1\n        elif nums[mid] == 1:\n            mid += 1\n        else:\n            nums[mid], nums[high] = nums[high], nums[mid]\n            high -= 1\n    return nums"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "prob_tree_02",
+  "title": "Maximum Depth of Binary Tree",
+  "document_type": "problem",
+  "topic": "Binary Trees",
+  "subtopic": "Tree Attributes",
+  "pattern": "Tree DFS",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given the root of a binary tree, return its maximum depth. A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
+  "constraints": "The number of nodes in the tree is in the range [0, 10^4].",
+  "examples": [
+    {
+      "input": "root = [3, 9, 20]",
+      "output": "3"
+    }
+  ],
+  "expected_input": "root: Optional[TreeNode]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Empty tree",
+    "Skewed tree (degenerated to linked list)"
+  ],
+  "hints": [
+    "Calculate max depth of left and right child recursively, then take maximum + 1."
+  ],
+  "expected_approach": "Bottom-up recursive traversal.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_recursion"
+  ],
+  "related_mistakes": [
+    "mistake_root_check"
+  ],
+  "code": "def solution(root):\n    if not root:\n        return 0\n    return max(solution(root.left), solution(root.right)) + 1"
+}

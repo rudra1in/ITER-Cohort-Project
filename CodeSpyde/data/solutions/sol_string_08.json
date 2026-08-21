@@ -1,0 +1,20 @@
+{
+  "id": "sol_string_08",
+  "problem_id": "prob_string_08",
+  "document_type": "solution",
+  "title": "Group Anagrams - Solution",
+  "approach": "Sort each string and use it as a key in a hash map to collect groups.",
+  "intuition": "Given an array of strings strs, group the anagrams together. You can return the answer in any order.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Sort each string and use it as a key in a hash map to collect groups.",
+  "code": "def solution(strs):\n    groups = {}\n    for s in strs:\n        key = ''.join(sorted(s))\n        if key not in groups:\n            groups[key] = []\n        groups[key].append(s)\n    return list(groups.values())",
+  "time_complexity": "O(n * k log k) where k is max string length",
+  "space_complexity": "O(n * k)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use sorted string representations as dictionary keys."
+  ]
+}

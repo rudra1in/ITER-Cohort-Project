@@ -1,0 +1,39 @@
+{
+  "id": "prob_array_01",
+  "title": "Find Single Unique Element",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Elements Tracking",
+  "pattern": "Bit Manipulation",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given a non-empty array of integers where every element appears twice except for one, find that single one.",
+  "constraints": "1 <= nums.length <= 3 * 10^4\n-3 * 10^4 <= nums[i] <= 3 * 10^4\nEach element in the array appears twice except for one element.",
+  "examples": [
+    {
+      "input": "nums = [2, 2, 1]",
+      "output": "1"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Array of size 1",
+    "Negative numbers included"
+  ],
+  "hints": [
+    "XOR of a number with itself is 0.",
+    "XOR of any number with 0 is the number itself."
+  ],
+  "expected_approach": "XOR all elements in the array to find the single element.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_arrays",
+    "concept_bit_manipulation"
+  ],
+  "related_mistakes": [
+    "mistake_xor_init"
+  ],
+  "code": "def solution(nums):\n    res = 0\n    for n in nums:\n        res ^= n\n    return res"
+}

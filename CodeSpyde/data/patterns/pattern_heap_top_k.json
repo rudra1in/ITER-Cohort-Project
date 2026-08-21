@@ -1,0 +1,32 @@
+{
+  "id": "pattern_heap_top_k",
+  "title": "Heap / Top K",
+  "document_type": "pattern",
+  "topic": "Heaps",
+  "pattern": "Heap / Top K",
+  "intuition": "Use a heap of fixed size K to find top/bottom K elements in dynamic datasets in O(n log k) time.",
+  "recognition_signals": [
+    "Find K largest/smallest elements",
+    "Kth largest element in stream"
+  ],
+  "step_by_step_strategy": [
+    "Initialize min-heap (for largest K) or max-heap (for smallest K).",
+    "Iterate through elements.",
+    "Push current element onto heap.",
+    "If heap size exceeds K, pop element.",
+    "Remaining heap elements represent top K."
+  ],
+  "common_mistakes": [
+    "Using max-heap instead of min-heap to find largest K (causes O(n log n))",
+    "Not converting types correctly in Python (heapq is min-heap by default)"
+  ],
+  "complexity": "Time: O(n log k), Space: O(k)",
+  "example_problem_types": [
+    "Kth largest element",
+    "Top K frequent elements"
+  ],
+  "related_concepts": [
+    "concept_heaps"
+  ],
+  "content": "Use a heap of fixed size K to find top/bottom K elements in dynamic datasets in O(n log k) time."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_array_02",
+  "problem_id": "prob_array_02",
+  "document_type": "solution",
+  "title": "Remove Duplicates from Sorted Array - Solution",
+  "approach": "Scan the array and write unique values to the write index.",
+  "intuition": "Given an integer array sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. Return the number of unique elements.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Scan the array and write unique values to the write index.",
+  "code": "def solution(nums):\n    if not nums:\n        return 0\n    w = 1\n    for r in range(1, len(nums)):\n        if nums[r] != nums[r-1]:\n            nums[w] = nums[r]\n            w += 1\n    return w",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use two pointers: one write pointer and one read pointer."
+  ]
+}

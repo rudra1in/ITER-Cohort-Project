@@ -1,0 +1,36 @@
+{
+  "id": "prob_searchsort_07",
+  "title": "Top K Elements Priority Sorting",
+  "document_type": "problem",
+  "topic": "Sorting",
+  "subtopic": "Top K",
+  "pattern": "Heap / Top K",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Sort character frequencies descending. Return sorted string.",
+  "constraints": "s length up to 10^5.",
+  "examples": [
+    {
+      "input": "s = 'tree'",
+      "output": "'eert'"
+    }
+  ],
+  "expected_input": "s: str",
+  "expected_output": "str",
+  "edge_cases": [
+    "All unique characters",
+    "All identical characters"
+  ],
+  "hints": [
+    "Count character frequencies. Sort unique characters by frequency descending. Reconstruct string."
+  ],
+  "expected_approach": "Frequency counting + sorting.",
+  "time_complexity": "O(n log k) where k is unique characters",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_sorting",
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(s):\n    count = {}\n    for c in s:\n        count[c] = count.get(c, 0) + 1\n    sorted_chars = sorted(count.keys(), key=lambda x: -count[x])\n    return ''.join(c * count[c] for c in sorted_chars)"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_array_14",
+  "problem_id": "prob_array_14",
+  "document_type": "solution",
+  "title": "Merge Sorted Array - Solution",
+  "approach": "Three pointers starting from indices m-1, n-1, and m+n-1 working backwards.",
+  "intuition": "Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array. nums1 has size m+n where first m are elements to merge.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Three pointers starting from indices m-1, n-1, and m+n-1 working backwards.",
+  "code": "def solution(nums1, m, nums2, n):\n    p1, p2, p = m - 1, n - 1, m + n - 1\n    while p1 >= 0 and p2 >= 0:\n        if nums1[p1] > nums2[p2]:\n            nums1[p] = nums1[p1]\n            p1 -= 1\n        else:\n            nums1[p] = nums2[p2]\n            p2 -= 1\n        p -= 1\n    while p2 >= 0:\n        nums1[p] = nums2[p2]\n        p2 -= 1\n        p -= 1\n    return nums1",
+  "time_complexity": "O(m + n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Start merging from the end of the arrays to avoid overwriting elements in nums1."
+  ]
+}

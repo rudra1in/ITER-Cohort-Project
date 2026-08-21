@@ -1,0 +1,26 @@
+{
+  "id": "concept_arrays",
+  "title": "Arrays",
+  "document_type": "concept",
+  "topic": "Arrays",
+  "subtopic": "Basic Data Structures",
+  "definition": "An array is a contiguous block of memory holding elements of the same type.",
+  "content": "An array is a contiguous block of memory holding elements of the same type.",
+  "intuition": "Allows O(1) random access via indices due to contiguous memory allocation.",
+  "how_it_works": "Elements are stored sequentially. Address of element i = base_address + i * element_size.",
+  "when_to_use": "When random access is frequent and size is known or bounded.",
+  "when_not_to_use": "When insertions or deletions in the middle are frequent.",
+  "common_mistakes": [
+    "Index out of bounds",
+    "Forgetting 0-indexing",
+    "Off-by-one errors"
+  ],
+  "complexity": "Access: O(1), Search: O(n), Insertion/Deletion: O(n)",
+  "examples": [
+    "Array of size 10 storing integers"
+  ],
+  "related_patterns": [
+    "Two Pointers",
+    "Sliding Window"
+  ]
+}

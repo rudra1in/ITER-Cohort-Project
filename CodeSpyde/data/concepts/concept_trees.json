@@ -1,0 +1,26 @@
+{
+  "id": "concept_trees",
+  "title": "Trees",
+  "document_type": "concept",
+  "topic": "Trees",
+  "subtopic": "Hierarchical structures",
+  "definition": "A tree is an acyclic connected graph containing nodes with parent-child relationships.",
+  "intuition": "Represents hierarchical datasets such as file systems or XML models.",
+  "how_it_works": "Starts with a single root node. Each node has zero or more children, with exactly one path between any nodes.",
+  "when_to_use": "To represent nested hierarchies or optimize searching/sorting.",
+  "when_not_to_use": "When cycles can occur or relations are many-to-many (use Graphs).",
+  "common_mistakes": [
+    "Forgetting root checks",
+    "Infinite traversal loops"
+  ],
+  "complexity": "Highly dependent on specific implementation (e.g. BST vs generic trees)",
+  "examples": [
+    "File systems",
+    "TOC organization"
+  ],
+  "related_patterns": [
+    "DFS",
+    "BFS"
+  ],
+  "content": "A tree is an acyclic connected graph containing nodes with parent-child relationships."
+}

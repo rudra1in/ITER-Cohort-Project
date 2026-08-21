@@ -1,0 +1,36 @@
+{
+  "id": "prob_backtrack_07",
+  "title": "N-Queens Solver",
+  "document_type": "problem",
+  "topic": "Backtracking",
+  "subtopic": "Constraint Satisfaction",
+  "pattern": "Backtracking",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other. Return total solutions count.",
+  "constraints": "1 <= n <= 9",
+  "examples": [
+    {
+      "input": "n = 4",
+      "output": "2"
+    }
+  ],
+  "expected_input": "n: int",
+  "expected_output": "int",
+  "edge_cases": [
+    "n is 1"
+  ],
+  "hints": [
+    "Use backtracking. Track occupied columns and diagonals (positive and negative slope) to place queens row-by-row safely."
+  ],
+  "expected_approach": "Row-by-row constraint backtracking.",
+  "time_complexity": "O(n!)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_backtracking"
+  ],
+  "related_mistakes": [
+    "mistake_bt_revert"
+  ],
+  "code": "def solution(n):\n    cols = set()\n    diag1 = set() # r - c\n    diag2 = set() # r + c\n    count = 0\n    def backtrack(r):\n        nonlocal count\n        if r == n:\n            count += 1\n            return\n        for c in range(n):\n            if c in cols or (r - c) in diag1 or (r + c) in diag2:\n                continue\n            cols.add(c)\n            diag1.add(r - c)\n            diag2.add(r + c)\n            backtrack(r + 1)\n            cols.remove(c)\n            diag1.remove(r - c)\n            diag2.remove(r + c)\n    backtrack(0)\n    return count"
+}

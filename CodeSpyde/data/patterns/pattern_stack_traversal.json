@@ -1,0 +1,32 @@
+{
+  "id": "pattern_stack_traversal",
+  "title": "Stack-based Traversal",
+  "document_type": "pattern",
+  "topic": "Stacks",
+  "pattern": "Stack-based Traversal",
+  "intuition": "Emulate recursive backtracking traversals using an explicit stack structure, avoiding recursion limits.",
+  "recognition_signals": [
+    "In-order/pre-order traversals without recursion",
+    "Non-recursive tree manipulation"
+  ],
+  "step_by_step_strategy": [
+    "Initialize stack with starting state (e.g. root node).",
+    "While stack is not empty, pop element.",
+    "Process node.",
+    "Push right and left children in correct order."
+  ],
+  "common_mistakes": [
+    "Incorrect child push ordering (left vs right)",
+    "Failing to check null children before push"
+  ],
+  "complexity": "Time: O(n), Space: O(h)",
+  "example_problem_types": [
+    "Iterative DFS",
+    "Iterative Inorder traversal"
+  ],
+  "related_concepts": [
+    "concept_stacks",
+    "concept_binary_trees"
+  ],
+  "content": "Emulate recursive backtracking traversals using an explicit stack structure, avoiding recursion limits."
+}

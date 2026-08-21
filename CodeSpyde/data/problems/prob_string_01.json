@@ -1,0 +1,37 @@
+{
+  "id": "prob_string_01",
+  "title": "Reverse a String",
+  "document_type": "problem",
+  "topic": "Strings",
+  "subtopic": "String Manipulation",
+  "pattern": "Two Pointers",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Write a function that reverses a string. The input string is given as an array of characters s.",
+  "constraints": "1 <= s.length <= 10^5",
+  "examples": [
+    {
+      "input": "s = ['h','e','l','l','o']",
+      "output": "['o','l','l','e','h']"
+    }
+  ],
+  "expected_input": "s: list[str]",
+  "expected_output": "list[str]",
+  "edge_cases": [
+    "Single character string",
+    "Empty array"
+  ],
+  "hints": [
+    "Use two pointers starting at opposite ends of the string array and swap values."
+  ],
+  "expected_approach": "Two-pointers swap in place.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_strings"
+  ],
+  "related_mistakes": [
+    "mistake_bs_bounds"
+  ],
+  "code": "def solution(s):\n    l, r = 0, len(s) - 1\n    while l < r:\n        s[l], s[r] = s[r], s[l]\n        l += 1\n        r -= 1\n    return s"
+}

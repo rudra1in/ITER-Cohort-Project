@@ -1,0 +1,20 @@
+{
+  "id": "sol_dp_13",
+  "problem_id": "prob_dp_13",
+  "document_type": "solution",
+  "title": "Coin Change II Combinations Count - Solution",
+  "approach": "Unbounded knapsack combinations counting.",
+  "intuition": "Return the number of combinations that make up that amount. If amount cannot be made up, return 0.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Unbounded knapsack combinations counting.",
+  "code": "def solution(amount, coins):\n    dp = [0] * (amount + 1)\n    dp[0] = 1\n    for c in coins:\n        for a in range(c, amount + 1):\n            dp[a] += dp[a - c]\n    return dp[amount]",
+  "time_complexity": "O(n * amount)",
+  "space_complexity": "O(amount)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "State dp[i] holds combinations count for sum i. Iterate through coins, updating DP array forward."
+  ]
+}

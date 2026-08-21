@@ -1,0 +1,20 @@
+{
+  "id": "sol_heap_02",
+  "problem_id": "prob_heap_02",
+  "document_type": "solution",
+  "title": "Top K Frequent Elements - Solution",
+  "approach": "Frequency map + min-heap size K filter.",
+  "intuition": "Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Frequency map + min-heap size K filter.",
+  "code": "import heapq\ndef solution(nums, k):\n    count = {}\n    for n in nums:\n        count[n] = count.get(n, 0) + 1\n    h = []\n    for n, f in count.items():\n        heapq.heappush(h, (f, n))\n        if len(h) > k:\n            heapq.heappop(h)\n    return [item[1] for item in h]",
+  "time_complexity": "O(n log k)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Count element frequencies first. Push pairs of (freq, element) to min-heap of size k."
+  ]
+}

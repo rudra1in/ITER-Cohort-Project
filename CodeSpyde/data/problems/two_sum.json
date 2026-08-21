@@ -1,0 +1,47 @@
+{
+  "id": "prob_two_sum",
+  "title": "Two Sum",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Array Traversal",
+  "pattern": "Hash Map",
+  "difficulty": "Easy",
+  "language": "python",
+
+  "problem": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+
+  "intuition": "For every number x, we need to determine whether target - x has already appeared. A hash map allows us to remember previously visited values and their indices.",
+
+  "approach": "Traverse the array once. For each number calculate its complement. If the complement exists in the hash map, return its stored index and the current index. Otherwise store the current number and its index.",
+
+  "algorithm": [
+    "Create an empty hash map.",
+    "Traverse the array.",
+    "Calculate target - current number.",
+    "Check whether the complement exists.",
+    "If it exists, return both indices.",
+    "Otherwise store the current number and index."
+  ],
+
+  "examples": [
+    {
+      "input": "nums = [2,7,11,15], target = 9",
+      "output": "[0,1]"
+    }
+  ],
+
+  "mistakes": [
+    "Returning the values instead of their indices.",
+    "Returning the same index twice.",
+    "Checking the current element after inserting it into the map.",
+    "Using nested loops when a hash map solution is expected."
+  ],
+
+  "time_complexity": "O(n)",
+
+  "space_complexity": "O(n)",
+
+  "solution": "Use a hash map to store previously visited values and their indices.",
+
+  "code": "def solution(nums, target):\n    seen = {}\n\n    for i, num in enumerate(nums):\n        complement = target - num\n\n        if complement in seen:\n            return [seen[complement], i]\n\n        seen[num] = i\n\n    return []"
+}

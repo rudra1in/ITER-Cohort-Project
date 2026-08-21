@@ -1,0 +1,20 @@
+{
+  "id": "sol_array_08",
+  "problem_id": "prob_array_08",
+  "document_type": "solution",
+  "title": "Majority Element - Solution",
+  "approach": "Boyer-Moore Voting Algorithm.",
+  "intuition": "Given an array nums of size n, return the majority element which appears more than n // 2 times.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Boyer-Moore Voting Algorithm.",
+  "code": "def solution(nums):\n    candidate = None\n    count = 0\n    for num in nums:\n        if count == 0:\n            candidate = num\n        count += 1 if num == candidate else -1\n    return candidate",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Boyer-Moore Voting Algorithm: maintain a candidate and a counter."
+  ]
+}

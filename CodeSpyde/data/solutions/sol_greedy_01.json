@@ -1,0 +1,20 @@
+{
+  "id": "sol_greedy_01",
+  "problem_id": "prob_greedy_01",
+  "document_type": "solution",
+  "title": "Assign Cookies - Solution",
+  "approach": "Sort + double pointer scan.",
+  "intuition": "Assign cookies to children greedily to maximize content children count. Each child has greed value, each cookie has size.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Sort + double pointer scan.",
+  "code": "def solution(g, s):\n    g.sort()\n    s.sort()\n    ch, ck = 0, 0\n    while ch < len(g) and ck < len(s):\n        if s[ck] >= g[ch]:\n            ch += 1\n        ck += 1\n    return ch",
+  "time_complexity": "O(n log n + m log m)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Sort both children greed values and cookie sizes. Iterate with two pointers greedily matching smallest cookie satisfying next smallest greed value."
+  ]
+}

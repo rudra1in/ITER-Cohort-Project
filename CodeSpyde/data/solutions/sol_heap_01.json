@@ -1,0 +1,20 @@
+{
+  "id": "sol_heap_01",
+  "problem_id": "prob_heap_01",
+  "document_type": "solution",
+  "title": "Kth Largest Element in Array - Solution",
+  "approach": "Min-heap of fixed size K tracking values.",
+  "intuition": "Given an integer array nums and an integer k, return the kth largest element in the array.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Min-heap of fixed size K tracking values.",
+  "code": "import heapq\ndef solution(nums, k):\n    h = []\n    for n in nums:\n        heapq.heappush(h, n)\n        if len(h) > k:\n            heapq.heappop(h)\n    return h[0]",
+  "time_complexity": "O(n log k)",
+  "space_complexity": "O(k)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a min-heap of size k. Keep pushing elements. Pop if size exceeds k."
+  ]
+}

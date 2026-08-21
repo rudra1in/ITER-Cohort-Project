@@ -1,0 +1,38 @@
+{
+  "id": "prob_tree_11",
+  "title": "Path Sum",
+  "document_type": "problem",
+  "topic": "Binary Trees",
+  "subtopic": "Path Search",
+  "pattern": "Tree DFS",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.",
+  "constraints": "Number of nodes is up to 5000.",
+  "examples": [
+    {
+      "input": "root = [5, 4, 8], targetSum = 9",
+      "output": "true"
+    }
+  ],
+  "expected_input": "root: Optional[TreeNode], targetSum: int",
+  "expected_output": "bool",
+  "edge_cases": [
+    "TargetSum is negative",
+    "TargetSum doesn't reach a leaf node"
+  ],
+  "hints": [
+    "Subtract node value from targetSum and recursively check children. A leaf node must have targetSum == node.val."
+  ],
+  "expected_approach": "Recursive preorder path tracking.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(h)",
+  "related_concepts": [
+    "concept_binary_trees",
+    "concept_recursion"
+  ],
+  "related_mistakes": [
+    "mistake_root_check"
+  ],
+  "code": "def solution(root, targetSum):\n    if not root:\n        return False\n    if not root.left and not root.right:\n        return targetSum == root.val\n    return solution(root.left, targetSum - root.val) or solution(root.right, targetSum - root.val)"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "concept_recursion",
+  "title": "Recursion",
+  "document_type": "concept",
+  "topic": "Recursion",
+  "subtopic": "Control Structures",
+  "definition": "Recursion is a programming technique where a function calls itself to solve a smaller subproblem.",
+  "intuition": "Solve a large problem by solving smaller instances of the exact same problem.",
+  "how_it_works": "Requires a base case to terminate execution, and a recursive step to progress toward the base case.",
+  "when_to_use": "For tree/graph traversals, divide-and-conquer, and backtracking.",
+  "when_not_to_use": "When performance is critical and call stack overhead is too high.",
+  "common_mistakes": [
+    "Missing base case",
+    "Stack overflow",
+    "Duplicate computation without memoization"
+  ],
+  "complexity": "Call Stack space: O(depth of recursion)",
+  "examples": [
+    "Factorial",
+    "Fibonacci sequence"
+  ],
+  "related_patterns": [
+    "DFS",
+    "Backtracking",
+    "Divide and Conquer"
+  ],
+  "content": "Recursion is a programming technique where a function calls itself to solve a smaller subproblem."
+}

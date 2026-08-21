@@ -1,0 +1,34 @@
+{
+  "id": "prob_dp_14",
+  "title": "Burst Balloons Coin Max",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "Matrix Chain Multiplication",
+  "pattern": "Dynamic Programming",
+  "difficulty": "Hard",
+  "language": "python",
+  "problem": "Burst balloons to maximize collected coins. If you burst balloon i, you get nums[i-1]*nums[i]*nums[i+1] coins.",
+  "constraints": "n <= 300",
+  "examples": [
+    {
+      "input": "nums = [3, 1, 5, 8]",
+      "output": "167"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Single balloon"
+  ],
+  "hints": [
+    "Use interval DP. State dp[i][j] holds max coins bursting balloons between i and j. Decide which balloon k bursts last in interval [i, j]."
+  ],
+  "expected_approach": "Interval 2D DP.",
+  "time_complexity": "O(n^3)",
+  "space_complexity": "O(n^2)",
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(nums):\n    arr = [1] + [x for x in nums if x > 0] + [1]\n    n = len(arr)\n    dp = [[0] * n for _ in range(n)]\n    for length in range(1, n - 1):\n        for left in range(0, n - 1 - length):\n            right = left + length + 1\n            for i in range(left + 1, right):\n                coins = arr[left] * arr[i] * arr[right] + dp[left][i] + dp[i][right]\n                dp[left][right] = max(dp[left][right], coins)\n    return dp[0][n-1]"
+}

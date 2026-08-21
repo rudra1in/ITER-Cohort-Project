@@ -1,0 +1,36 @@
+{
+  "id": "prob_graph_05",
+  "title": "Rotting Oranges Min Time",
+  "document_type": "problem",
+  "topic": "Graphs",
+  "subtopic": "Grid Traversal",
+  "pattern": "BFS",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Return the minimum number of minutes that must elapse until no cell has a fresh orange.",
+  "constraints": "m, n <= 10",
+  "examples": [
+    {
+      "input": "grid = [[2,1,1],[1,1,0],[0,1,1]]",
+      "output": "4"
+    }
+  ],
+  "expected_input": "grid: list[list[int]]",
+  "expected_output": "int",
+  "edge_cases": [
+    "No fresh oranges initially",
+    "Oranges isolated"
+  ],
+  "hints": [
+    "Use multi-source BFS starting with all initially rotten oranges in the queue."
+  ],
+  "expected_approach": "Multi-source BFS level tracker.",
+  "time_complexity": "O(m * n)",
+  "space_complexity": "O(m * n)",
+  "related_concepts": [
+    "concept_graphs",
+    "concept_queues"
+  ],
+  "related_mistakes": [],
+  "code": "from collections import deque\ndef solution(grid):\n    m, n = len(grid), len(grid[0])\n    q = deque()\n    fresh = 0\n    for r in range(m):\n        for c in range(n):\n            if grid[r][c] == 2:\n                q.append((r, c, 0))\n            elif grid[r][c] == 1:\n                fresh += 1\n    minutes = 0\n    while q:\n        r, c, t = q.popleft()\n        minutes = max(minutes, t)\n        for nr, nc in [(r+1, c), (r-1, c), (r, c+1), (r, c-1)]:\n            if 0 <= nr < m and 0 <= nc < n and grid[nr][nc] == 1:\n                grid[nr][nc] = 2\n                fresh -= 1\n                q.append((nr, nc, t + 1))\n    return minutes if fresh == 0 else -1"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_searchsort_03",
+  "problem_id": "prob_searchsort_03",
+  "document_type": "solution",
+  "title": "Find First and Last Position - Solution",
+  "approach": "Dual boundary binary search.",
+  "intuition": "Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Dual boundary binary search.",
+  "code": "def solution(nums, target):\n    def find_bound(is_left):\n        l, r = 0, len(nums) - 1\n        bound = -1\n        while l <= r:\n            mid = l + (r - l) // 2\n            if nums[mid] == target:\n                bound = mid\n                if is_left: r = mid - 1\n                else: l = mid + 1\n            elif nums[mid] < target: l = mid + 1\n            else: r = mid - 1\n        return bound\n    return [find_bound(True), find_bound(False)]",
+  "time_complexity": "O(log n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Perform two binary searches: one searching for leftmost target, another for rightmost target."
+  ]
+}

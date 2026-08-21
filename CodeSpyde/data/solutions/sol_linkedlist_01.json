@@ -1,0 +1,20 @@
+{
+  "id": "sol_linkedlist_01",
+  "problem_id": "prob_linkedlist_01",
+  "document_type": "solution",
+  "title": "Reverse Singly Linked List - Solution",
+  "approach": "Iterative pointer shifting.",
+  "intuition": "Given the head of a singly linked list, reverse the list, and return the reversed list. Node is object with val and next attributes.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Iterative pointer shifting.",
+  "code": "def solution(head):\n    prev = None\n    curr = head\n    while curr:\n        nxt = curr.next\n        curr.next = prev\n        prev = curr\n        curr = nxt\n    return prev",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Maintain pointers to prev, curr, and next node."
+  ]
+}

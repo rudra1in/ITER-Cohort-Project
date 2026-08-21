@@ -1,0 +1,33 @@
+{
+  "id": "pattern_hash_map_lookup",
+  "title": "Hash Map Lookup",
+  "document_type": "pattern",
+  "topic": "Hash Tables",
+  "pattern": "Hash Map Lookup",
+  "intuition": "Use a hash table to record element indexes or frequencies, enabling O(1) checks during array traversals.",
+  "recognition_signals": [
+    "Frequent search queries on unsorted arrays",
+    "Duplicate checking",
+    "Two-sum complement matching"
+  ],
+  "step_by_step_strategy": [
+    "Initialize empty dictionary.",
+    "Traverse array elements.",
+    "For each element, calculate needed target partner or check frequency.",
+    "If matched, return result; else record element in map."
+  ],
+  "common_mistakes": [
+    "Overwriting values before checks are completed",
+    "Hashing mutable objects"
+  ],
+  "complexity": "Time: O(n), Space: O(n)",
+  "example_problem_types": [
+    "Two sum",
+    "Contains duplicate",
+    "Anagram check"
+  ],
+  "related_concepts": [
+    "concept_hash_tables"
+  ],
+  "content": "Use a hash table to record element indexes or frequencies, enabling O(1) checks during array traversals."
+}

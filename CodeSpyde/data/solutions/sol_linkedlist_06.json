@@ -1,0 +1,20 @@
+{
+  "id": "sol_linkedlist_06",
+  "problem_id": "prob_linkedlist_06",
+  "document_type": "solution",
+  "title": "Intersection of Two Linked Lists - Solution",
+  "approach": "Dual pointer traversal with head swap on completion.",
+  "intuition": "Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If they do not intersect, return null.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Dual pointer traversal with head swap on completion.",
+  "code": "def solution(headA, headB):\n    if not headA or not headB:\n        return None\n    pA, pB = headA, headB\n    while pA != pB:\n        pA = pA.next if pA else headB\n        pB = pB.next if pB else headA\n    return pA",
+  "time_complexity": "O(n + m)",
+  "space_complexity": "O(1)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "If you traverse list A and then switch to list B's head, and vice-versa, the path lengths will equalize."
+  ]
+}

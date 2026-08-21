@@ -1,0 +1,20 @@
+{
+  "id": "sol_stackqueue_01",
+  "problem_id": "prob_stackqueue_01",
+  "document_type": "solution",
+  "title": "Valid Parentheses - Solution",
+  "approach": "Stack mapping verification.",
+  "intuition": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Stack mapping verification.",
+  "code": "def solution(s):\n    stack = []\n    mapping = {')': '(', '}': '{', ']': '['}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use a stack. Push opening brackets. Pop on closing brackets to verify matching pair."
+  ]
+}

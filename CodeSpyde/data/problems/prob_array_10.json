@@ -1,0 +1,39 @@
+{
+  "id": "prob_array_10",
+  "title": "Subarray Sum Equals K",
+  "document_type": "problem",
+  "topic": "Arrays",
+  "subtopic": "Subarrays",
+  "pattern": "Prefix Sum",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given an array of integers nums and an integer k, return the total number of continuous subarrays whose sum equals to k.",
+  "constraints": "1 <= nums.length <= 2 * 10^4\n-1000 <= nums[i] <= 1000",
+  "examples": [
+    {
+      "input": "nums = [1, 1, 1], k = 2",
+      "output": "2"
+    }
+  ],
+  "expected_input": "nums: list[int], k: int",
+  "expected_output": "int",
+  "edge_cases": [
+    "k is negative",
+    "All zeroes in array"
+  ],
+  "hints": [
+    "Use a hash map to store prefix sums frequency."
+  ],
+  "expected_approach": "Prefix sum tracking with a hash map helper.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_concepts": [
+    "concept_arrays",
+    "concept_prefix_sum",
+    "concept_hash_tables"
+  ],
+  "related_mistakes": [
+    "mistake_prefix_map_init"
+  ],
+  "code": "def solution(nums, k):\n    count = 0\n    pref_sum = 0\n    seen = {0: 1}\n    for num in nums:\n        pref_sum += num\n        if pref_sum - k in seen:\n            count += seen[pref_sum - k]\n        seen[pref_sum] = seen.get(pref_sum, 0) + 1\n    return count"
+}

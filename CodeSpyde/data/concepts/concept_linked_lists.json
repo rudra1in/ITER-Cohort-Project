@@ -1,0 +1,28 @@
+{
+  "id": "concept_linked_lists",
+  "title": "Linked Lists",
+  "document_type": "concept",
+  "topic": "Linked Lists",
+  "subtopic": "Sequential Containers",
+  "definition": "A linked list is a linear collection of nodes containing data and pointers to the next node.",
+  "intuition": "Allows dynamic memory allocation and O(1) insertions/deletions at known positions.",
+  "how_it_works": "Nodes are scattered in memory, linked sequentially by pointer references.",
+  "when_to_use": "When dynamic size is critical and insertion/deletion is frequent.",
+  "when_not_to_use": "When random access is needed.",
+  "common_mistakes": [
+    "Losing the head node",
+    "Null pointer dereference",
+    "Memory leaks"
+  ],
+  "complexity": "Access/Search: O(n), Insertion/Deletion: O(1) if position known",
+  "examples": [
+    "Singly Linked List",
+    "Doubly Linked List",
+    "Circular Linked List"
+  ],
+  "related_patterns": [
+    "Fast and Slow Pointers",
+    "Two Pointers"
+  ],
+  "content": "A linked list is a linear collection of nodes containing data and pointers to the next node."
+}

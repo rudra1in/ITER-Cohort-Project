@@ -1,0 +1,36 @@
+{
+  "id": "prob_heap_06",
+  "title": "Last Stone Weight",
+  "document_type": "problem",
+  "topic": "Heaps",
+  "subtopic": "Simulation",
+  "pattern": "Heap / Top K",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "Simulate smashing the two heaviest stones iteratively. Return weight of last stone or 0 if none remain.",
+  "constraints": "1 <= stones.length <= 1000",
+  "examples": [
+    {
+      "input": "stones = [2, 7, 4, 1, 8, 1]",
+      "output": "1"
+    }
+  ],
+  "expected_input": "stones: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Single stone initially",
+    "Stones reduce fully to zero"
+  ],
+  "hints": [
+    "Convert stones list into a max-heap by negating values.",
+    "Repeatedly pop two stones, smash them, and push remainder if > 0."
+  ],
+  "expected_approach": "Max-heap simulation.",
+  "time_complexity": "O(n log n)",
+  "space_complexity": "O(n) or O(1) in-place",
+  "related_concepts": [
+    "concept_heaps"
+  ],
+  "related_mistakes": [],
+  "code": "import heapq\ndef solution(stones):\n    h = [-s for s in stones]\n    heapq.heapify(h)\n    while len(h) > 1:\n        s1 = -heapq.heappop(h)\n        s2 = -heapq.heappop(h)\n        if s1 != s2:\n            heapq.heappush(h, -(s1 - s2))\n    return -h[0] if h else 0"
+}

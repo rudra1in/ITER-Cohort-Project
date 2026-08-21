@@ -1,0 +1,20 @@
+{
+  "id": "sol_dp_10",
+  "problem_id": "prob_dp_10",
+  "document_type": "solution",
+  "title": "Word Break Combination Check - Solution",
+  "approach": "Bottom-up 1D Boolean DP.",
+  "intuition": "Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Bottom-up 1D Boolean DP.",
+  "code": "def solution(s, wordDict):\n    words = set(wordDict)\n    dp = [False] * (len(s) + 1)\n    dp[0] = True\n    for i in range(1, len(s) + 1):\n        for j in range(i):\n            if dp[j] and s[j:i] in words:\n                dp[i] = True\n                break\n    return dp[len(s)]",
+  "time_complexity": "O(n^2)",
+  "space_complexity": "O(n)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "State dp[i] denotes if substring s[:i] can be segmented. Transition: check all prefix slices dp[j] and s[j:i] in dict."
+  ]
+}

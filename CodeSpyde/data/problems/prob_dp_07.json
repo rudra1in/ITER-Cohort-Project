@@ -1,0 +1,35 @@
+{
+  "id": "prob_dp_07",
+  "title": "Partition Equal Subset Sum",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "Knapsack",
+  "pattern": "0/1 Knapsack",
+  "difficulty": "Medium",
+  "language": "python",
+  "problem": "Given a non-empty array nums containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.",
+  "constraints": "Nums length up to 200.",
+  "examples": [
+    {
+      "input": "nums = [1, 5, 11, 5]",
+      "output": "true"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "bool",
+  "edge_cases": [
+    "Total sum is odd (impossible)",
+    "No partition matches target half-sum"
+  ],
+  "hints": [
+    "This is subset sum matching target = sum(nums) // 2. Use 0/1 knapsack tracking reachable sums."
+  ],
+  "expected_approach": "1D set or array DP scanning backwards.",
+  "time_complexity": "O(n * target)",
+  "space_complexity": "O(target)",
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "related_mistakes": [],
+  "code": "def solution(nums):\n    total = sum(nums)\n    if total % 2 != 0: return False\n    target = total // 2\n    dp = [False] * (target + 1)\n    dp[0] = True\n    for n in nums:\n        for i in range(target, n - 1, -1):\n            if dp[i - n]:\n                dp[i] = True\n    return dp[target]"
+}

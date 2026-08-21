@@ -1,0 +1,13 @@
+{
+  "id": "example_042",
+  "title": "Utility Code Demonstration 42",
+  "document_type": "example",
+  "topic": "Hash Tables",
+  "pattern": "Hash Map Lookup",
+  "description": "Short code demonstration showing elements traversing.",
+  "code": "def solution(arr):\n    for i in range(len(arr)):\n        print(arr[i])",
+  "explanation": "Iterate sequentially and print each element of the array.",
+  "content": "Description: Short code demonstration showing elements traversing.\nCode:\ndef solution(arr):\n    for i in range(len(arr)):\n        print(arr[i])\nExplanation: Iterate sequentially and print each element of the array.",
+  "complexity": "Time: O(n), Space: O(1)",
+  "common_bug": "Empty array check is missing."
+}

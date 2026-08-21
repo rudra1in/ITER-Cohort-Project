@@ -1,0 +1,20 @@
+{
+  "id": "sol_dp_02",
+  "problem_id": "prob_dp_02",
+  "document_type": "solution",
+  "title": "Coin Change Minimum Count - Solution",
+  "approach": "Bottom-up 1D DP.",
+  "intuition": "Return the fewest number of coins that you need to make up that amount. If amount cannot be made up, return -1.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "Bottom-up 1D DP.",
+  "code": "def solution(coins, amount):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n    for c in coins:\n        for a in range(c, amount + 1):\n            dp[a] = min(dp[a], dp[a - c] + 1)\n    return dp[amount] if dp[amount] != float('inf') else -1",
+  "time_complexity": "O(n * amount)",
+  "space_complexity": "O(amount)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "Use bottom-up DP. State dp[i] holds min coins for amount i. Transition: dp[i] = min(dp[i], dp[i-coin] + 1) for each coin."
+  ]
+}

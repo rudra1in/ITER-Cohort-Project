@@ -1,0 +1,37 @@
+{
+  "id": "prob_dp_05",
+  "title": "House Robber Maximum Sum",
+  "document_type": "problem",
+  "topic": "Dynamic Programming",
+  "subtopic": "Optimization",
+  "pattern": "Dynamic Programming",
+  "difficulty": "Easy",
+  "language": "python",
+  "problem": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. Return maximum rob amount.",
+  "constraints": "1 <= nums.length <= 100",
+  "examples": [
+    {
+      "input": "nums = [1, 2, 3, 1]",
+      "output": "4"
+    }
+  ],
+  "expected_input": "nums: list[int]",
+  "expected_output": "int",
+  "edge_cases": [
+    "Single house",
+    "Two houses"
+  ],
+  "hints": [
+    "For house i, you either rob it (money[i] + max_rob(i-2)) or skip it (max_rob(i-1))."
+  ],
+  "expected_approach": "Iterative state transition space optimization.",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_concepts": [
+    "concept_dp"
+  ],
+  "related_mistakes": [
+    "mistake_dp_init"
+  ],
+  "code": "def solution(nums):\n    if not nums: return 0\n    if len(nums) <= 2: return max(nums)\n    r1, r2 = nums[0], max(nums[0], nums[1])\n    for i in range(2, len(nums)):\n        r1, r2 = r2, max(r2, r1 + nums[i])\n    return r2"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sol_dp_07",
+  "problem_id": "prob_dp_07",
+  "document_type": "solution",
+  "title": "Partition Equal Subset Sum - Solution",
+  "approach": "1D set or array DP scanning backwards.",
+  "intuition": "Given a non-empty array nums containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.",
+  "step_by_step_explanation": "Iterate through elements and apply logic accordingly.",
+  "brute_force_approach": "Perform brute force nested check.",
+  "optimized_approach": "1D set or array DP scanning backwards.",
+  "code": "def solution(nums):\n    total = sum(nums)\n    if total % 2 != 0: return False\n    target = total // 2\n    dp = [False] * (target + 1)\n    dp[0] = True\n    for n in nums:\n        for i in range(target, n - 1, -1):\n            if dp[i - n]:\n                dp[i] = True\n    return dp[target]",
+  "time_complexity": "O(n * target)",
+  "space_complexity": "O(target)",
+  "common_alternative_approaches": [
+    "Hash map lookup alternative"
+  ],
+  "common_mistakes": [
+    "This is subset sum matching target = sum(nums) // 2. Use 0/1 knapsack tracking reachable sums."
+  ]
+}
