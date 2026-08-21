@@ -1,0 +1,311 @@
+[
+  {
+    "id": 1,
+    "problem": "Two Sum",
+    "difficulty": "Simple",
+    "topic": "Arrays, Hashing",
+    "description": "Difficulty: Simple\nGiven an integer array nums and an integer target, return the indices of the two numbers such that they add up to target.\nThe same element cannot be used twice.",
+    "examples": [
+      "Input: nums = [2,7,11,15], target = 9\nOutput: [0,1]"
+    ],
+    "expected_concepts": [
+      "Array traversal",
+      "Hash map / hash set",
+      "Time complexity analysis"
+    ]
+  },
+  {
+    "id": 2,
+    "problem": "Linear Search",
+    "difficulty": "Simple",
+    "topic": "Arrays, Searching",
+    "description": "Difficulty: Simple\nGiven an array of integers and a target value, return the index of the target if it exists. Otherwise, return -1.",
+    "examples": [
+      "Input: nums = [8,3,12,5], target = 12\nOutput: 2"
+    ],
+    "expected_concepts": [
+      "Linear search",
+      "Handling target not found",
+      "O(n) time complexity"
+    ]
+  },
+  {
+    "id": 3,
+    "problem": "Binary Search",
+    "difficulty": "Simple",
+    "topic": "Arrays, Binary Search",
+    "description": "Difficulty: Simple\nGiven a sorted array of integers and a target value, return the index of the target. Return -1 if the target is not present.",
+    "examples": [
+      "Input: nums = [-1,0,3,5,9,12], target = 9\nOutput: 4"
+    ],
+    "expected_concepts": [
+      "Sorted input",
+      "Binary search",
+      "Correct left/right boundaries",
+      "O(log n) time complexity"
+    ]
+  },
+  {
+    "id": 4,
+    "problem": "Reverse String",
+    "difficulty": "Simple",
+    "topic": "Arrays, Strings",
+    "description": "Difficulty: Simple\nWrite a function that reverses a string represented as an array of characters.",
+    "examples": [
+      "Input: [\"h\",\"e\",\"l\",\"l\",\"o\"]\nOutput: [\"o\",\"l\",\"l\",\"e\",\"h\"]"
+    ],
+    "expected_concepts": [
+      "Two pointers",
+      "In-place modification",
+      "O(n) time complexity"
+    ]
+  },
+  {
+    "id": 5,
+    "problem": "Valid Palindrome",
+    "difficulty": "Simple",
+    "topic": "Strings, Two Pointers",
+    "description": "Difficulty: Simple\nGiven a string, determine whether it is a palindrome after converting uppercase letters to lowercase and removing non-alphanumeric characters.",
+    "examples": [
+      "Input: \"A man, a plan, a canal: Panama\"\nOutput: true"
+    ],
+    "expected_concepts": [
+      "String processing",
+      "Two pointers",
+      "Edge cases"
+    ]
+  },
+  {
+    "id": 6,
+    "problem": "Valid Parentheses",
+    "difficulty": "Simple",
+    "topic": "Stack",
+    "description": "Difficulty: Simple\nGiven a string containing '(', ')', '{', '}', '[' and ']', determine whether the input string is valid.",
+    "examples": [
+      "Input: \"()[]{}\"\nOutput: true",
+      "Input: \"([)]\"\nOutput: false"
+    ],
+    "expected_concepts": [
+      "Stack",
+      "Matching opening and closing brackets",
+      "Empty-stack and ordering cases"
+    ]
+  },
+  {
+    "id": 7,
+    "problem": "Merge Two Sorted Lists",
+    "difficulty": "Simple",
+    "topic": "Linked Lists",
+    "description": "Difficulty: Simple\nMerge two sorted singly linked lists and return the head of the merged sorted list.",
+    "examples": [
+      "Input:\nlist1 = [1,2,4]\nlist2 = [1,3,4]\nOutput:\n[1,1,2,3,4,4]"
+    ],
+    "expected_concepts": [
+      "Linked list traversal",
+      "Pointer manipulation",
+      "Handling empty lists"
+    ]
+  },
+  {
+    "id": 8,
+    "problem": "Maximum Depth Of Binary Tree",
+    "difficulty": "Simple",
+    "topic": "Trees, Recursion",
+    "description": "Difficulty: Simple\nGiven the root of a binary tree, return its maximum depth.\nThe maximum depth is the number of nodes along the longest path from the root down to the farthest leaf.",
+    "examples": [
+      "Input: root = [3,9,20,null,null,15,7]\nOutput: 3"
+    ],
+    "expected_concepts": [
+      "Tree traversal",
+      "Recursion or BFS",
+      "Base case"
+    ]
+  },
+  {
+    "id": 9,
+    "problem": "Fizz Buzz",
+    "difficulty": "Simple",
+    "topic": "Arrays, Basic Logic",
+    "description": "Difficulty: Simple\nGiven an integer n, return a list of strings where:\n- Multiples of 3 are \"Fizz\"\n- Multiples of 5 are \"Buzz\"\n- Multiples of both are \"FizzBuzz\"\n- All other numbers are represented as their number",
+    "examples": [
+      "Input: n = 5\nOutput: [\"1\",\"2\",\"Fizz\",\"4\",\"Buzz\"]"
+    ],
+    "expected_concepts": [
+      "Conditional logic",
+      "Correct ordering of conditions",
+      "Iteration"
+    ]
+  },
+  {
+    "id": 10,
+    "problem": "Best Time To Buy And Sell Stock",
+    "difficulty": "Simple",
+    "topic": "Arrays, Greedy",
+    "description": "Difficulty: Simple\nGiven an array prices where prices[i] is the price of a stock on day i, choose one day to buy and a later day to sell to maximize profit.\n============================================================\n============================================================",
+    "examples": [
+      "Input: prices = [7,1,5,3,6,4]\nOutput: 5"
+    ],
+    "expected_concepts": [
+      "Single-pass traversal",
+      "Tracking minimum price",
+      "Tracking maximum profit",
+      "O(n) time complexity"
+    ]
+  },
+  {
+    "id": 11,
+    "problem": "Longest Substring Without Repeating Characters",
+    "difficulty": "Medium",
+    "topic": "Strings, Sliding Window, Hashing",
+    "description": "Difficulty: Medium\nGiven a string s, find the length of the longest substring without repeating characters.",
+    "examples": [
+      "Input: s = \"abcabcbb\"\nOutput: 3"
+    ],
+    "expected_concepts": [
+      "Sliding window",
+      "Hash set or hash map",
+      "Efficient pointer movement"
+    ]
+  },
+  {
+    "id": 12,
+    "problem": "3Sum",
+    "difficulty": "Medium",
+    "topic": "Arrays, Sorting, Two Pointers",
+    "description": "Difficulty: Medium\nGiven an integer array nums, return all unique triplets [nums[i], nums[j], nums[k]] such that i, j, and k are different indices and nums[i] + nums[j] + nums[k] == 0.",
+    "examples": [
+      "Input: nums = [-1,0,1,2,-1,-4]\nOutput: [[-1,-1,2],[-1,0,1]]"
+    ],
+    "expected_concepts": [
+      "Sorting",
+      "Two pointers",
+      "Duplicate handling",
+      "O(n^2) time complexity"
+    ]
+  },
+  {
+    "id": 13,
+    "problem": "Product Of Array Except Self",
+    "difficulty": "Medium",
+    "topic": "Arrays, Prefix/Suffix",
+    "description": "Difficulty: Medium\nGiven an integer array nums, return an array answer such that answer[i] is equal to the product of all elements of nums except nums[i].\nDo not use division.",
+    "examples": [
+      "Input: nums = [1,2,3,4]\nOutput: [24,12,8,6]"
+    ],
+    "expected_concepts": [
+      "Prefix products",
+      "Suffix products",
+      "O(n) time complexity",
+      "Handling zero values"
+    ]
+  },
+  {
+    "id": 14,
+    "problem": "Container With Most Water",
+    "difficulty": "Medium",
+    "topic": "Arrays, Two Pointers, Greedy",
+    "description": "Difficulty: Medium\nGiven an integer array height where height[i] represents the height of a vertical line, choose two lines that together with the x-axis form a container that holds the most water.",
+    "examples": [
+      "Input: height = [1,8,6,2,5,4,8,3,7]\nOutput: 49"
+    ],
+    "expected_concepts": [
+      "Two-pointer technique",
+      "Greedy pointer movement",
+      "Area calculation"
+    ]
+  },
+  {
+    "id": 15,
+    "problem": "Group Anagrams",
+    "difficulty": "Medium",
+    "topic": "Strings, Hashing",
+    "description": "Difficulty: Medium\nGiven an array of strings, group the anagrams together.",
+    "examples": [
+      "Input: [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]\nOutput: [[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]"
+    ],
+    "expected_concepts": [
+      "Hash map",
+      "Canonical representation",
+      "Sorting or character-frequency representation"
+    ]
+  },
+  {
+    "id": 16,
+    "problem": "Number Of Islands",
+    "difficulty": "Medium",
+    "topic": "Graphs, BFS, DFS",
+    "description": "Difficulty: Medium\nGiven an m x n grid of '1' (land) and '0' (water), return the number of islands.\nAn island is formed by connecting adjacent lands horizontally or vertically.",
+    "examples": [
+      "Input:\n[\n[\"1\",\"1\",\"0\",\"0\",\"0\"],\n[\"1\",\"1\",\"0\",\"0\",\"0\"],\n[\"0\",\"0\",\"1\",\"0\",\"0\"],\n[\"0\",\"0\",\"0\",\"1\",\"1\"]\n]\nOutput: 3"
+    ],
+    "expected_concepts": [
+      "DFS or BFS",
+      "Graph traversal",
+      "Visited cells",
+      "Boundary handling"
+    ]
+  },
+  {
+    "id": 17,
+    "problem": "Course Schedule",
+    "difficulty": "Medium",
+    "topic": "Graphs, Topological Sort",
+    "description": "Difficulty: Medium\nThere are numCourses courses labeled from 0 to numCourses - 1. prerequisites[i] = [a,b] means course b must be completed before course a.\nReturn true if it is possible to finish all courses.",
+    "examples": [
+      "Input:\nnumCourses = 2\nprerequisites = [[1,0]]\nOutput: true",
+      "Input:\nnumCourses = 2\nprerequisites = [[1,0],[0,1]]\nOutput: false"
+    ],
+    "expected_concepts": [
+      "Directed graph",
+      "Cycle detection",
+      "BFS/topological sorting or DFS"
+    ]
+  },
+  {
+    "id": 18,
+    "problem": "Binary Tree Level Order Traversal",
+    "difficulty": "Medium",
+    "topic": "Trees, BFS, Queue",
+    "description": "Difficulty: Medium\nGiven the root of a binary tree, return the level order traversal of its nodes' values.",
+    "examples": [
+      "Input:\nroot = [3,9,20,null,null,15,7]\nOutput:\n[[3],[9,20],[15,7]]"
+    ],
+    "expected_concepts": [
+      "BFS",
+      "Queue",
+      "Processing nodes level by level"
+    ]
+  },
+  {
+    "id": 19,
+    "problem": "Coin Change",
+    "difficulty": "Medium",
+    "topic": "Dynamic Programming",
+    "description": "Difficulty: Medium\nGiven an array coins representing coin denominations and an integer amount, return the fewest number of coins needed to make up that amount. If the amount cannot be made up, return -1.\nYou may use each coin an unlimited number of times.",
+    "examples": [
+      "Input: coins = [1,2,5], amount = 11\nOutput: 3"
+    ],
+    "expected_concepts": [
+      "Dynamic programming",
+      "State definition",
+      "Base case",
+      "Bottom-up or top-down approach"
+    ]
+  },
+  {
+    "id": 20,
+    "problem": "Longest Increasing Subsequence",
+    "difficulty": "Medium",
+    "topic": "Arrays, Dynamic Programming",
+    "description": "Difficulty: Medium\nGiven an integer array nums, return the length of the longest strictly increasing subsequence.\n============================================================",
+    "examples": [
+      "Input: nums = [10,9,2,5,3,7,101,18]\nOutput: 4"
+    ],
+    "expected_concepts": [
+      "Dynamic programming",
+      "Subsequence vs subarray",
+      "O(n^2) DP solution",
+      "Complexity analysis"
+    ]
+  }
+]
