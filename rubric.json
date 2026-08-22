@@ -1,0 +1,54 @@
+{
+    "criteria": [
+        {
+            "name": "Correctness",
+            "description": "Does the solution produce the right output for all test cases?",
+            "scale": [
+                "Poor",
+                "Fair",
+                "Good",
+                "Excellent"
+            ]
+        },
+        {
+            "name": "Efficiency",
+            "description": "Is the solution optimized in terms of time and space complexity?",
+            "scale": [
+                "Poor",
+                "Fair",
+                "Good",
+                "Excellent"
+            ]
+        },
+        {
+            "name": "Clarity",
+            "description": "Is the code readable, well-structured, and easy to understand?",
+            "scale": [
+                "Poor",
+                "Fair",
+                "Good",
+                "Excellent"
+            ]
+        },
+        {
+            "name": "Edge Cases",
+            "description": "Does the solution handle corner cases properly?",
+            "scale": [
+                "Poor",
+                "Fair",
+                "Good",
+                "Excellent"
+            ]
+        },
+        {
+            "name": "Documentation",
+            "description": "Are comments or explanations provided where necessary?",
+            "scale": [
+                "Poor",
+                "Fair",
+                "Good",
+                "Excellent"
+            ]
+        }
+    ]
+}
